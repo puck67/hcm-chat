@@ -6,7 +6,7 @@
 class AdminDashboard {
     constructor() {
         // ===== CẤU HÌNH API =====
-        this.API_BASE = 'http://localhost:9000/api';
+        this.API_BASE = window.DOTNET_API || 'http://localhost:9000/api';
 
         // ===== STATE MANAGEMENT =====
         this.user = null;

@@ -4,7 +4,7 @@
 
 class QuizApp {
     constructor() {
-        this.API_BASE = 'http://localhost:8000';
+        this.API_BASE = window.PYTHON_AI_API || 'http://localhost:8000';
         this.currentQuiz = null;
         this.currentQuestionIndex = 0;
         this.userAnswers = {};

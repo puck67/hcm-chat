@@ -1,6 +1,7 @@
 services:
+  # Python AI Backend (FastAPI)
   - type: web
-    name: hochiminh-chatbot
+    name: hcm-chatbot-python-ai
     env: python
     pythonVersion: "3.11.9"
     buildCommand: pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
@@ -12,4 +13,26 @@ services:
         sync: false  # Will be set in Render dashboard
       - key: PYTHONPATH
         value: .
+
+  # .NET API  
+  - type: web
+    name: hcm-chatbot-dotnet-api
+    env: dotnet
+    buildCommand: cd dotnet-api/hcm-chatbot-api/Web_API && dotnet restore && dotnet publish -c Release -o out
+    startCommand: cd dotnet-api/hcm-chatbot-api/Web_API/out && dotnet Web_API.dll
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ASPNETCORE_URLS
+        value: http://0.0.0.0:$PORT
+
+  # Frontend (Static Site)
+  - type: static
+    name: hcm-chatbot-frontend
+    buildCommand: echo "Static files ready"
+    staticPublishPath: ./frontend
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
     
