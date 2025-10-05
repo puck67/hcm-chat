@@ -4,7 +4,7 @@ services:
     env: python
     pythonVersion: "3.11.9"
     buildCommand: pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
-    startCommand: python backend/app/main.py
+    startCommand: cd backend && python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: FLASK_ENV
         value: production
