@@ -15,7 +15,7 @@ const API_CONFIG = {
     
     // Production URLs (Render)
     production: {
-        PYTHON_AI_API: 'https://hcm-chatbot-python-ai.onrender.com',
+        PYTHON_AI_API: 'https://hcm-ai-backend-2024.onrender.com',
         DOTNET_API: 'https://hcm-chatbot-dotnet-api.onrender.com/api'
     }
 };
