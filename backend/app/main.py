@@ -487,8 +487,9 @@ async def get_quiz_result(username: str, result_id: str):
 # ===== SERVER ENTRY POINT =====
 if __name__ == "__main__":
     """
-    Chạy server trực tiếp (cho development)
-    Trong production, sử dụng: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    Chạy server trực tiếp (cho development và production)
+    Port sẽ được lấy từ environment variable PORT hoặc mặc định 8000
     """
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
