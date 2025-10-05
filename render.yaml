@@ -1,7 +1,7 @@
 services:
   # Python AI Backend (FastAPI)
   - type: web
-    name: hcm-chatbot-python-ai
+    name: hochiminh-chatbot
     env: python
     pythonVersion: "3.11.9"
     buildCommand: pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
