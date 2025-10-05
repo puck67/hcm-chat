@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Admin Dashboard Messages</title>
+</head>
+<body>
+    <h1>Debug Admin Dashboard Messages</h1>
+
+    <div>
+        <h2>Manual API Test</h2>
+        <button onclick="testAPI()">Test Dashboard Stats API</button>
+        <div id="apiResult"></div>
+    </div>
+
+    <div>
+        <h2>Element Test</h2>
+        <div>Messages Count: <span id="totalMessages">0</span></div>
+        <button onclick="updateElement()">Update Element Manually</button>
+    </div>
+
+    <script>
+    let token = null;
+
+    async function testAPI() {
+        const result = document.getElementById('apiResult');
+
+        try {
+            console.log('Starting API test...');
+
+            // First login
+            const loginResponse = await fetch('http://localhost:9000/api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: 'admin',
+                    password: 'admin123'
+                })
+            });
+
+            const loginData = await loginResponse.json();
+            console.log('Login response:', loginData);
+
+            if (!loginData.success) {
+                result.innerHTML = '<p style="color: red;">Login failed: ' + loginData.message + '</p>';
+                return;
+            }
+
+            token = loginData.data.token;
+            result.innerHTML = '<p style="color: green;">Login successful!</p>';
+
+            // Test dashboard stats
+            const statsResponse = await fetch('http://localhost:9000/api/dashboard/stats', {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + token,
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            const statsData = await statsResponse.json();
+            console.log('Stats response:', statsData);
+
+            if (statsData.success) {
+                const stats = statsData.data;
+                result.innerHTML += '<h3>API Response:</h3>';
+                result.innerHTML += '<p>totalMessages: ' + stats.totalMessages + '</p>';
+                result.innerHTML += '<p>totalUsers: ' + stats.totalUsers + '</p>';
+                result.innerHTML += '<p>totalConversations: ' + stats.totalConversations + '</p>';
+                result.innerHTML += '<pre>' + JSON.stringify(statsData, null, 2) + '</pre>';
+
+                // Try to update the element
+                console.log('Trying to update totalMessages element...');
+                const element = document.getElementById('totalMessages');
+                console.log('Element found:', element);
+                console.log('Setting textContent to:', stats.totalMessages);
+                element.textContent = stats.totalMessages || 0;
+                console.log('Element textContent after update:', element.textContent);
+
+            } else {
+                result.innerHTML += '<p style="color: red;">Stats failed: ' + statsData.message + '</p>';
+            }
+
+        } catch (error) {
+            console.error('Error:', error);
+            result.innerHTML = '<p style="color: red;">Error: ' + error.message + '</p>';
+        }
+    }
+
+    function updateElement() {
+        const element = document.getElementById('totalMessages');
+        element.textContent = '999';
+        console.log('Updated element manually to 999');
+    }
+    </script>
+</body>
+</html>

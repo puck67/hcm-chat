@@ -1,0 +1,130 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Theo tư tưởng Hồ Chí Minh, đặc điểm lớn nhất và bao trùm nhất của thời kỳ quá độ lên chủ nghĩa xã hội ở Việt Nam là gì?",
+      "options": {
+        "A": "Từ một nước nông nghiệp lạc hậu, tiến thẳng lên chủ nghĩa xã hội, không qua giai đoạn phát triển tư bản chủ nghĩa.",
+        "B": "Tồn tại một nền kinh tế nhiều thành phần với sự quản lý của nhà nước.",
+        "C": "Diễn ra trong bối cảnh quốc tế thuận lợi, được các nước anh em giúp đỡ.",
+        "D": "Phải tiến hành đồng thời hai nhiệm vụ chiến lược: xây dựng chủ nghĩa xã hội và bảo vệ Tổ quốc."
+      },
+      "correct_answer": "A",
+      "explanation": "Đây là đặc điểm cơ bản, chi phối toàn bộ quá trình đi lên chủ nghĩa xã hội ở Việt Nam, tạo ra những mâu thuẫn và khó khăn riêng biệt mà Hồ Chí Minh đã chỉ ra."
+    },
+    {
+      "id": "q2",
+      "question": "Trong các động lực xây dựng chủ nghĩa xã hội, Hồ Chí Minh coi động lực nào là quan trọng và quyết định nhất?",
+      "options": {
+        "A": "Vốn, tài nguyên thiên nhiên và khoa học kỹ thuật.",
+        "B": "Sự lãnh đạo đúng đắn của Đảng Cộng sản Việt Nam.",
+        "C": "Sự giúp đỡ, hợp tác của các nước xã hội chủ nghĩa anh em.",
+        "D": "Con người, nhân dân lao động với nòng cốt là liên minh công - nông - trí thức."
+      },
+      "correct_answer": "D",
+      "explanation": "Hồ Chí Minh luôn nhấn mạnh vai trò của con người. Con người vừa là mục tiêu, vừa là động lực của cách mạng. Sức mạnh để xây dựng CNXH nằm ở chính nhân dân lao động."
+    },
+    {
+      "id": "q3",
+      "question": "Theo Hồ Chí Minh, mục tiêu tổng quát của chủ nghĩa xã hội ở Việt Nam là gì?",
+      "options": {
+        "A": "Xây dựng một chế độ chính trị vững mạnh do nhân dân làm chủ.",
+        "B": "Xây dựng nền kinh tế công nghiệp hiện đại, có sức cạnh tranh cao.",
+        "C": "Không ngừng nâng cao đời sống vật chất và tinh thần của nhân dân, trước hết là nhân dân lao động.",
+        "D": "Phát triển một nền văn hóa tiên tiến, đậm đà bản sắc dân tộc."
+      },
+      "correct_answer": "C",
+      "explanation": "Các đáp án khác là các mục tiêu cụ thể trên từng lĩnh vực. Mục tiêu C bao trùm tất cả, thể hiện bản chất nhân văn và mục đích cuối cùng của CNXH là vì con người."
+    },
+    {
+      "id": "q4",
+      "question": "Quan điểm \"xây đi đôi với chống\" trong quá trình xây dựng chủ nghĩa xã hội của Hồ Chí Minh có nghĩa là gì?",
+      "options": {
+        "A": "Vừa xây dựng kinh tế, vừa chống lại sự phá hoại của kẻ thù.",
+        "B": "Vừa xây dựng những cái mới, tiến bộ, vừa chống lại những cái cũ, lạc hậu, tiêu cực.",
+        "C": "Vừa xây dựng tiềm lực quốc phòng, vừa chống lại nguy cơ chiến tranh.",
+        "D": "Vừa xây dựng văn hóa mới, vừa chống lại văn hóa ngoại lai độc hại."
+      },
+      "correct_answer": "B",
+      "explanation": "Quan điểm này mang tính biện chứng, bao quát toàn diện. \"Xây\" là xây dựng các yếu tố của xã hội mới; \"Chống\" là đấu tranh loại bỏ các thói hư, tật xấu, tàn dư của xã hội cũ cản trở quá trình đi lên CNXH, như chủ nghĩa cá nhân, tham ô, lãng phí."
+    },
+    {
+      "id": "q5",
+      "question": "Luận điểm nào sau đây thể hiện đúng nhất tư tưởng Hồ Chí Minh về bước đi trong thời kỳ quá độ?",
+      "options": {
+        "A": "Phải tiến hành nhanh, mạnh, làm một cuộc cách mạng \"long trời lở đất\".",
+        "B": "Phải làm dần dần, từng bước một, từ thấp đến cao, không chủ quan, nóng vội.",
+        "C": "Ưu tiên phát triển công nghiệp nặng một cách tuyệt đối để làm nền tảng.",
+        "D": "Chỉ tập trung vào cải tạo nông nghiệp, xây dựng hợp tác xã."
+      },
+      "correct_answer": "B",
+      "explanation": "Xuất phát từ đặc điểm của một nước nông nghiệp lạc hậu, Hồ Chí Minh nhấn mạnh phải đi lên CNXH một cách tuần tự, vững chắc, chống lại bệnh chủ quan, duy ý chí, muốn \"đốt cháy giai đoạn\"."
+    },
+    {
+      "id": "q6",
+      "question": "Theo Hồ Chí Minh, về bản chất, chế độ chính trị của chủ nghĩa xã hội là gì?",
+      "options": {
+        "A": "Là chế độ do Đảng Cộng sản lãnh đạo tuyệt đối và toàn diện.",
+        "B": "Là chế độ có bộ máy nhà nước trong sạch, vững mạnh.",
+        "C": "Là chế độ do nhân dân lao động làm chủ, nhà nước là của dân, do dân và vì dân.",
+        "D": "Là chế độ đảm bảo sự đoàn kết toàn dân tộc và đoàn kết quốc tế."
+      },
+      "correct_answer": "C",
+      "explanation": "Bản chất cốt lõi nhất về mặt chính trị của CNXH theo tư tưởng Hồ Chí Minh là xác lập và phát huy quyền làm chủ của nhân dân lao động. Đảng lãnh đạo, nhà nước quản lý là để thực hiện quyền làm chủ đó."
+    },
+    {
+      "id": "q7",
+      "question": "Quan niệm của Hồ Chí Minh về việc \"bỏ qua giai đoạn phát triển tư bản chủ nghĩa\" cần được hiểu như thế nào cho đúng?",
+      "options": {
+        "A": "Bỏ qua hoàn toàn, không tiếp thu bất cứ thành tựu nào của chủ nghĩa tư bản.",
+        "B": "Bỏ qua việc xác lập vị trí thống trị của quan hệ sản xuất và kiến trúc thượng tầng tư bản chủ nghĩa.",
+        "C": "Bỏ qua việc phát triển lực lượng sản xuất, chỉ tập trung vào quan hệ sản xuất.",
+        "D": "Bỏ qua quy luật phát triển kinh tế thị trường trong thời kỳ quá độ."
+      },
+      "correct_answer": "B",
+      "explanation": "\"Bỏ qua\" ở đây không phải là phủ định sạch trơn mà là bỏ qua chế độ áp bức, bóc lột của CNTB, đồng thời kế thừa có chọn lọc những thành tựu về khoa học - kỹ thuật, kinh nghiệm quản lý mà nhân loại đã tạo ra dưới CNTB."
+    },
+    {
+      "id": "q8",
+      "question": "Nội dung nào KHÔNG phải là một trong những đặc trưng cơ bản của xã hội xã hội chủ nghĩa mà Hồ Chí Minh nêu ra?",
+      "options": {
+        "A": "Là một xã hội có nền kinh tế phát triển cao, dựa trên lực lượng sản xuất hiện đại.",
+        "B": "Là chế độ không còn người bóc lột người.",
+        "C": "Là một xã hội có hệ thống đa đảng đối lập để đảm bảo dân chủ.",
+        "D": "Là một xã hội phát triển cao về văn hóa, đạo đức."
+      },
+      "correct_answer": "C",
+      "explanation": "Tư tưởng Hồ Chí Minh và thực tiễn cách mạng Việt Nam khẳng định vai trò lãnh đạo duy nhất của Đảng Cộng sản. Hệ thống đa đảng đối lập không phải là đặc trưng của mô hình CNXH mà Người quan niệm."
+    },
+    {
+      "id": "q9",
+      "question": "Theo Hồ Chí Minh, biện pháp cơ bản, quyết định để xây dựng chủ nghĩa xã hội ở miền Bắc trong bối cảnh đất nước bị chia cắt là gì?",
+      "options": {
+        "A": "Tranh thủ tối đa sự viện trợ của quốc tế để phát triển kinh tế.",
+        "B": "Phát huy tinh thần tự lực cánh sinh, dựa vào sức mình là chính.",
+        "C": "Tập trung mọi nguồn lực để chi viện cho cách mạng miền Nam.",
+        "D": "Cải tạo quan hệ sản xuất cũ, xây dựng quan hệ sản xuất mới xã hội chủ nghĩa."
+      },
+      "correct_answer": "D",
+      "explanation": "Để xây dựng thành công CNXH, biện pháp cơ bản, có tính gốc rễ là phải thay đổi phương thức sản xuất. Cải tạo QHSX cũ và xây dựng QHSX mới XHCN là nền tảng để phát triển kinh tế, nâng cao đời sống nhân dân và làm hậu phương vững chắc cho miền Nam."
+    },
+    {
+      "id": "q10",
+      "question": "Khi nói về kinh tế trong thời kỳ quá độ, Hồ Chí Minh nhấn mạnh vai trò của ngành nào được coi là \"mặt trận hàng đầu\"?",
+      "options": {
+        "A": "Công nghiệp nặng",
+        "B": "Thương nghiệp và dịch vụ",
+        "C": "Nông nghiệp",
+        "D": "Tiểu thủ công nghiệp"
+      },
+      "correct_answer": "C",
+      "explanation": "Xuất phát từ thực tiễn một nước nông nghiệp, Hồ Chí Minh cho rằng nông nghiệp là mặt trận hàng đầu. Phát triển nông nghiệp toàn diện là cơ sở để phát triển công nghiệp, ổn định và cải thiện đời sống nhân dân."
+    }
+  ],
+  "title": "Bài kiểm tra Chương III",
+  "chapter": "Chương III",
+  "difficulty": "medium",
+  "num_questions": 10,
+  "id": "0a7dbd7c-5f60-4302-b3b9-7f3546e5c1ac",
+  "created_at": "2025-10-05T17:55:43.979450"
+}

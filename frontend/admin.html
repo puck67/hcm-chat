@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - HCM Chatbot</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="global-styles.css">
+    <style>
+        /* Admin page specific styles */
+        body {
+            min-height: 100vh;
+        }
+
+        .admin-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+        }
+
+        /* Sidebar */
+        .admin-sidebar {
+            background: var(--bg-glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            color: var(--text-primary);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .admin-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .admin-header h1 {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .admin-header p {
+            opacity: 0.8;
+            font-size: var(--font-size-sm);
+        }
+
+        .admin-nav {
+            list-style: none;
+        }
+
+        .admin-nav li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .admin-nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-normal);
+            font-weight: 500;
+        }
+
+        .admin-nav a:hover, .admin-nav a.active {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(3px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .admin-nav i {
+            margin-right: var(--spacing-sm);
+            width: 20px;
+        }
+
+        .logout-btn {
+            margin-top: auto;
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: linear-gradient(135deg, #ff4757, #ff3742);
+            color: var(--text-primary);
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            width: 100%;
+            font-family: var(--font-family);
+            font-weight: 500;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .logout-btn:hover {
+            background: linear-gradient(135deg, #ff3742, #ff2f3a);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Main Content */
+        .admin-main {
+            background: var(--bg-glass-light);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            overflow-y: auto;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .admin-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .stat-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            text-align: center;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all var(--transition-normal);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-lg);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-number {
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: var(--font-size-base);
+            font-weight: 500;
+        }
+
+        .data-section {
+            background: var(--bg-glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-medium);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .section-title {
+            font-size: var(--font-size-xl);
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .data-table th, .data-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .data-table th {
+            background: rgba(0, 0, 0, 0.05);
+            font-weight: 600;
+            color: #333;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .loading i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .admin-container {
+                grid-template-columns: 1fr;
+            }
+
+            .admin-sidebar {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-header">
+                <h1><i class="fas fa-shield-alt"></i> Admin Panel</h1>
+                <p id="adminName">Administrator</p>
+            </div>
+
+            <nav>
+                <ul class="admin-nav">
+                    <li><a href="#dashboard" class="nav-link active" data-section="dashboard">
+                        <i class="fas fa-chart-bar"></i> Dashboard
+                    </a></li>
+                    <li><a href="#users" class="nav-link" data-section="users">
+                        <i class="fas fa-users"></i> Người dùng
+                    </a></li>
+                    <li><a href="#conversations" class="nav-link" data-section="conversations">
+                        <i class="fas fa-comments"></i> Cuộc trò chuyện
+                    </a></li>
+                    <li><a href="#messages" class="nav-link" data-section="messages">
+                        <i class="fas fa-comment-dots"></i> Tin nhắn
+                    </a></li>
+                    <li><a href="#profile" class="nav-link" data-section="profile">
+                        <i class="fas fa-user-edit"></i> Chỉnh sửa Profile
+                    </a></li>
+                </ul>
+            </nav>
+
+            <button class="logout-btn" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Đăng xuất
+            </button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-content">
+                <!-- Dashboard Section -->
+                <section id="dashboard-section" class="content-section">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users" style="color: #4CAF50;"></i>
+                            </div>
+                            <div class="stat-number" id="totalUsers">0</div>
+                            <div class="stat-label">Tổng người dùng</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-comments" style="color: #2196F3;"></i>
+                            </div>
+                            <div class="stat-number" id="totalConversations">0</div>
+                            <div class="stat-label">Cuộc trò chuyện</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-comment-dots" style="color: #FF9800;"></i>
+                            </div>
+                            <div class="stat-number" id="totalMessages">0</div>
+                            <div class="stat-label">Tin nhắn</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-robot" style="color: #9C27B0;"></i>
+                            </div>
+                            <div class="stat-number" id="aiResponses">0</div>
+                            <div class="stat-label">Phản hồi AI</div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Chat Statistics -->
+                    <div class="data-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Thống kê chi tiết</h2>
+                        </div>
+                        <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 0;">
+                            <div class="stat-card" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white;">
+                                <div class="stat-icon">
+                                    <i class="fas fa-calendar-day" style="color: white;"></i>
+                                </div>
+                                <div class="stat-number" id="messagesThisWeek">0</div>
+                                <div class="stat-label">Tin nhắn tuần này</div>
+                            </div>
+                            <div class="stat-card" style="background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%); color: white;">
+                                <div class="stat-icon">
+                                    <i class="fas fa-chart-line" style="color: white;"></i>
+                                </div>
+                                <div class="stat-number" id="avgMessagesPerConversation">0</div>
+                                <div class="stat-label">TB tin nhắn/cuộc trò chuyện</div>
+                            </div>
+                            <div class="stat-card" style="background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%); color: white;">
+                                <div class="stat-icon">
+                                    <i class="fas fa-users-cog" style="color: white;"></i>
+                                </div>
+                                <div class="stat-number" id="activeUsersThisWeek">0</div>
+                                <div class="stat-label">Người dùng hoạt động tuần này</div>
+                            </div>
+                            <div class="stat-card" style="background: linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%); color: white;">
+                                <div class="stat-icon">
+                                    <i class="fas fa-brain" style="color: white;"></i>
+                                </div>
+                                <div class="stat-number" id="avgConfidenceScore">0%</div>
+                                <div class="stat-label">Độ tin cậy TB</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Users Section -->
+                <section id="users-section" class="content-section" style="display: none;">
+                    <div class="data-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Danh sách người dùng</h2>
+                        </div>
+                        <div id="usersContent">
+                            <div class="loading">
+                                <i class="fas fa-spinner"></i>
+                                <p>Đang tải dữ liệu...</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Conversations Section -->
+                <section id="conversations-section" class="content-section" style="display: none;">
+                    <div class="data-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Cuộc trò chuyện gần đây</h2>
+                        </div>
+                        <div id="conversationsContent">
+                            <div class="loading">
+                                <i class="fas fa-spinner"></i>
+                                <p>Đang tải dữ liệu...</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Messages Section -->
+                <section id="messages-section" class="content-section" style="display: none;">
+                    <div class="data-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Tin nhắn gần đây</h2>
+                        </div>
+                        <div id="messagesContent">
+                            <div class="loading">
+                                <i class="fas fa-spinner"></i>
+                                <p>Đang tải dữ liệu...</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Profile Section -->
+                <section id="profile-section" class="content-section" style="display: none;">
+                    <div class="data-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Chỉnh sửa Profile Admin</h2>
+                        </div>
+                        <div id="profileContent">
+                            <form id="profileForm" style="max-width: 600px;">
+                                <div style="margin-bottom: 20px;">
+                                    <label style="display: block; margin-bottom: 5px; font-weight: bold;">Tên đăng nhập:</label>
+                                    <input type="text" id="profileUsername" readonly style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; background: #f5f5f5;">
+                                </div>
+                                <div style="margin-bottom: 20px;">
+                                    <label style="display: block; margin-bottom: 5px; font-weight: bold;">Email:</label>
+                                    <input type="email" id="profileEmail" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                                </div>
+                                <div style="margin-bottom: 20px;">
+                                    <label style="display: block; margin-bottom: 5px; font-weight: bold;">Họ và tên:</label>
+                                    <input type="text" id="profileFullName" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                                </div>
+                                <div style="margin-bottom: 20px;">
+                                    <label style="display: block; margin-bottom: 5px; font-weight: bold;">Vai trò:</label>
+                                    <input type="text" id="profileRole" readonly value="admin" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; background: #f5f5f5;">
+                                </div>
+                                <div style="margin-bottom: 30px;">
+                                    <h3 style="margin-bottom: 15px; color: #333;">Đổi mật khẩu</h3>
+                                    <div style="margin-bottom: 15px;">
+                                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Mật khẩu hiện tại:</label>
+                                        <input type="password" id="currentPassword" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                                    </div>
+                                    <div style="margin-bottom: 15px;">
+                                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Mật khẩu mới:</label>
+                                        <input type="password" id="newPassword" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                                    </div>
+                                    <div style="margin-bottom: 15px;">
+                                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Xác nhận mật khẩu mới:</label>
+                                        <input type="password" id="confirmPassword" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 15px;">
+                                    <button type="button" onclick="adminDashboard.updateProfile()" style="padding: 12px 24px; background: #4CAF50; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">
+                                        <i class="fas fa-save"></i> Cập nhật Profile
+                                    </button>
+                                    <button type="button" onclick="adminDashboard.changePassword()" style="padding: 12px 24px; background: #FF9800; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">
+                                        <i class="fas fa-key"></i> Đổi mật khẩu
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Force bypass cache - embed debug directly in HTML
+        console.log('🔥 EMBEDDED SCRIPT LOADED - Bypassing cache completely!');
+
+        // Test message count fix immediately
+        setTimeout(() => {
+            console.log('🔍 Testing totalMessages element...');
+            const element = document.getElementById('totalMessages');
+            if (element) {
+                console.log('📍 Found totalMessages element, current value:', element.textContent);
+                element.textContent = '21';
+                console.log('✅ Set totalMessages to 21');
+            } else {
+                console.error('❌ totalMessages element not found!');
+            }
+        }, 2000);
+    </script>
+    <script src="admin.js?v=20250929044500"></script>
+</body>
+</html>

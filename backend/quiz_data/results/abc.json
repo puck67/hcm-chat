@@ -1,0 +1,364 @@
+[
+  {
+    "score": 4.0,
+    "correct_count": 6,
+    "total_questions": 15,
+    "percentage": 40.0,
+    "details": [
+      {
+        "question_id": "q1",
+        "question": "Nguồn gốc lý luận quan trọng nhất, quyết định bản chất cách mạng và khoa học của tư tưởng Hồ Chí Minh là gì?",
+        "user_answer": "A",
+        "correct_answer": "A",
+        "is_correct": true,
+        "explanation": "Chủ nghĩa Mác-Lênin là cơ sở thế giới quan và phương pháp luận, là nguồn gốc lý luận quyết định bản chất của tư tưởng Hồ Chí Minh."
+      },
+      {
+        "question_id": "q2",
+        "question": "Quá trình hình thành và phát triển tư tưởng Hồ Chí Minh được chia thành mấy giai đoạn?",
+        "user_answer": "A",
+        "correct_answer": "D",
+        "is_correct": false,
+        "explanation": "Quá trình hình thành và phát triển tư tưởng Hồ Chí Minh được chia thành 5 giai đoạn: Trước 1911; 1911-1920; 1921-1930; 1930-1945; 1945-1969."
+      },
+      {
+        "question_id": "q3",
+        "question": "Giá trị truyền thống nào của dân tộc Việt Nam là cơ sở, là điểm xuất phát hình thành tư tưởng Hồ Chí Minh?",
+        "user_answer": "A",
+        "correct_answer": "A",
+        "is_correct": true,
+        "explanation": "Chủ nghĩa yêu nước là giá trị cốt lõi và là động lực lớn nhất thúc đẩy Nguyễn Tất Thành ra đi tìm đường cứu nước, hình thành nên tư tưởng của Người."
+      },
+      {
+        "question_id": "q4",
+        "question": "Sự kiện nào đánh dấu bước ngoặt trong tư tưởng của Nguyễn Ái Quốc, từ chủ nghĩa yêu nước đến với chủ nghĩa Mác-Lênin?",
+        "user_answer": "A",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Việc đọc Luận cương của Lênin đã giúp Nguyễn Ái Quốc tìm thấy con đường cứu nước đúng đắn, là bước ngoặt quyết định chuyển từ lập trường yêu nước sang lập trường cộng sản."
+      },
+      {
+        "question_id": "q5",
+        "question": "Giai đoạn 1911 - 1920 trong quá trình hình thành tư tưởng Hồ Chí Minh được gọi là giai đoạn nào?",
+        "user_answer": "A",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Đây là giai đoạn Nguyễn Tất Thành - Nguyễn Ái Quốc đi khắp các châu lục để khảo sát, học hỏi và tìm ra con đường cứu nước cho dân tộc Việt Nam."
+      },
+      {
+        "question_id": "q6",
+        "question": "Nhân tố nào có vai trò quyết định nhất đến việc hình thành tư tưởng Hồ Chí Minh?",
+        "user_answer": "A",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Phẩm chất cá nhân, trí tuệ thiên tài, tư duy độc lập, sáng tạo của Hồ Chí Minh là nhân tố quyết định việc tiếp thu và chuyển hóa các giá trị khác để hình thành nên hệ thống tư tưởng của riêng mình."
+      },
+      {
+        "question_id": "q7",
+        "question": "Hồ Chí Minh đã tiếp thu những mặt tích cực nào của Nho giáo?",
+        "user_answer": "A",
+        "correct_answer": "A",
+        "is_correct": true,
+        "explanation": "Người đã kế thừa và phát triển các giá trị tích cực của Nho giáo như tinh thần hiếu học, các triết lý hành động, tu dưỡng đạo đức cá nhân để phục vụ cho sự nghiệp cách mạng."
+      },
+      {
+        "question_id": "q8",
+        "question": "Tư tưởng Hồ Chí Minh được hình thành về cơ bản vào giai đoạn nào?",
+        "user_answer": "A",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Trong giai đoạn 1921-1930, trên cơ sở chủ nghĩa Mác-Lênin, Nguyễn Ái Quốc đã hình thành những quan điểm cơ bản về con đường cách mạng Việt Nam."
+      },
+      {
+        "question_id": "q9",
+        "question": "Hồ Chí Minh đã ra đi tìm đường cứu nước từ đâu và vào thời gian nào?",
+        "user_answer": "A",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Ngày 5/6/1911, tại Bến cảng Nhà Rồng (Sài Gòn), người thanh niên Nguyễn Tất Thành đã lên con tàu Amiral Latouche-Tréville để bắt đầu hành trình tìm đường cứu nước."
+      },
+      {
+        "question_id": "q10",
+        "question": "Hồ Chí Minh đã tiếp thu giá trị nổi bật nào từ văn hóa phương Tây?",
+        "user_answer": "A",
+        "correct_answer": "A",
+        "is_correct": true,
+        "explanation": "Người đã tiếp thu các giá trị dân chủ và quyền con người từ các cuộc cách mạng tư sản ở phương Tây, đặc biệt là khẩu hiệu “Tự do - Bình đẳng - Bác ái” của Cách mạng Pháp."
+      },
+      {
+        "question_id": "q11",
+        "question": "Trước khi đến với chủ nghĩa Mác-Lênin, Hồ Chí Minh chịu ảnh hưởng của hệ tư tưởng nào sau đây?",
+        "user_answer": "A",
+        "correct_answer": "A",
+        "is_correct": true,
+        "explanation": "Cơ sở ban đầu và là nền tảng vững chắc nhất trong tư tưởng Hồ Chí Minh trước khi tiếp xúc với các lý luận khác chính là chủ nghĩa yêu nước của dân tộc Việt Nam."
+      },
+      {
+        "question_id": "q12",
+        "question": "Sự kiện nào khẳng định Hồ Chí Minh hoàn toàn trở thành một người cộng sản?",
+        "user_answer": "A",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Việc bỏ phiếu tán thành gia nhập Quốc tế Cộng sản và tham gia sáng lập Đảng Cộng sản Pháp tại Đại hội Tua (Tours) đã đánh dấu sự chuyển biến dứt khoát của Nguyễn Ái Quốc từ một người yêu nước thành một chiến sĩ cộng sản."
+      },
+      {
+        "question_id": "q13",
+        "question": "Nội dung cốt lõi của tư tưởng Hồ Chí Minh là gì?",
+        "user_answer": "A",
+        "correct_answer": "A",
+        "is_correct": true,
+        "explanation": "Đây là tư tưởng xuyên suốt, là sợi chỉ đỏ trong toàn bộ hệ thống tư tưởng Hồ Chí Minh, chỉ rõ mục tiêu và con đường của cách mạng Việt Nam."
+      },
+      {
+        "question_id": "q14",
+        "question": "Cơ sở thực tiễn trong nước nào đã tác động đến sự hình thành tư tưởng Hồ Chí Minh?",
+        "user_answer": "A",
+        "correct_answer": "D",
+        "is_correct": false,
+        "explanation": "Thực tiễn xã hội Việt Nam với những mâu thuẫn gay gắt và sự khủng hoảng, bế tắc về đường lối cứu nước là cơ sở thực tiễn quan trọng để Hồ Chí Minh quyết tâm ra đi tìm đường cứu nước."
+      },
+      {
+        "question_id": "q15",
+        "question": "Hồ Chí Minh đã tiếp thu tư tưởng từ bi, vị tha, yêu thương con người từ tôn giáo nào?",
+        "user_answer": "A",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Người đã tiếp thu những giá trị nhân văn, đạo đức cao đẹp của Phật giáo như tinh thần từ bi, bác ái, cứu khổ cứu nạn, yêu thương con người."
+      }
+    ],
+    "quiz_title": "Bài kiểm tra Chương II",
+    "quiz_chapter": "Chương II",
+    "id": "22675c72-37c5-4313-bfe1-2eb4192f6554",
+    "username": "abc",
+    "quiz_id": "2b14eaf9-7a8c-470c-9957-0a0d7e2f0332",
+    "submitted_at": "2025-10-05T17:57:37.798991"
+  },
+  {
+    "score": 2.0,
+    "correct_count": 2,
+    "total_questions": 10,
+    "percentage": 20.0,
+    "details": [
+      {
+        "question_id": "q1",
+        "question": "Theo tư tưởng Hồ Chí Minh, đặc trưng bản chất nhất, bao trùm nhất của chủ nghĩa xã hội là gì?",
+        "user_answer": "A",
+        "correct_answer": "A",
+        "is_correct": true,
+        "explanation": "Hồ Chí Minh coi 'do nhân dân làm chủ' là đặc trưng tổng quát, chi phối các đặc trưng khác của chủ nghĩa xã hội. Đây là bản chất chính trị cốt lõi, thể hiện quyền lực thực sự thuộc về nhân dân."
+      },
+      {
+        "question_id": "q2",
+        "question": "Mục tiêu cao nhất của chủ nghĩa xã hội ở Việt Nam theo tư tưởng Hồ Chí Minh là gì?",
+        "user_answer": "A",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Người luôn nhấn mạnh mục tiêu của chủ nghĩa xã hội là làm cho dân có ăn, có mặc, có chỗ ở, được học hành, tức là không ngừng cải thiện và nâng cao đời sống toàn diện cho nhân dân. Các phương án khác là phương tiện hoặc nhiệm vụ cụ thể để đạt được mục tiêu này."
+      },
+      {
+        "question_id": "q3",
+        "question": "Theo Hồ Chí Minh, đặc điểm lớn nhất, bao trùm nhất của thời kỳ quá độ lên chủ nghĩa xã hội ở Việt Nam là gì?",
+        "user_answer": "A",
+        "correct_answer": "A",
+        "is_correct": true,
+        "explanation": "Đây là đặc điểm xuất phát điểm, chi phối toàn bộ tính chất, nội dung, và hình thức của con đường đi lên chủ nghĩa xã hội ở Việt Nam, quy định tính lâu dài, phức tạp và khó khăn của nó."
+      },
+      {
+        "question_id": "q4",
+        "question": "Theo tư tưởng Hồ Chí Minh, động lực quan trọng và quyết định nhất để xây dựng thành công chủ nghĩa xã hội ở Việt Nam là gì?",
+        "user_answer": "",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Hồ Chí Minh luôn coi con người là vốn quý nhất, là nhân tố quyết định thành công của cách mạng. Sức mạnh của khối đại đoàn kết toàn dân tộc, sự lao động sáng tạo của nhân dân là động lực nội sinh, chủ yếu và quyết định nhất. Sự lãnh đạo của Đảng là điều kiện tiên quyết để động lực này được phát huy."
+      },
+      {
+        "question_id": "q5",
+        "question": "Hồ Chí Minh coi trở lực nào là 'kẻ thù bên trong', nguy hiểm nhất, cản trở công cuộc xây dựng chủ nghĩa xã hội?",
+        "user_answer": "",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Người chỉ rõ chủ nghĩa cá nhân là 'kẻ địch hung ác', 'nó đẻ ra trăm thứ bệnh nguy hiểm' như tham ô, lãng phí, quan liêu, bè phái... cản trở sự nghiệp cách mạng và công cuộc xây dựng xã hội mới."
+      },
+      {
+        "question_id": "q6",
+        "question": "Quan điểm của Hồ Chí Minh về bước đi trong thời kỳ quá độ lên chủ nghĩa xã hội ở Việt Nam là gì?",
+        "user_answer": "",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Do xuất phát điểm thấp, Hồ Chí Minh nhấn mạnh phải đi lên chủ nghĩa xã hội một cách dần dần, không thể chủ quan, nóng vội, duy ý chí. Phải 'làm từng bước, đi từ thấp đến cao', 'không thể một sớm một chiều' để đảm bảo tính vững chắc."
+      },
+      {
+        "question_id": "q7",
+        "question": "Theo tư tưởng Hồ Chí Minh, mối quan hệ giữa độc lập dân tộc và chủ nghĩa xã hội được thể hiện như thế nào?",
+        "user_answer": "",
+        "correct_answer": "D",
+        "is_correct": false,
+        "explanation": "Đây là mối quan hệ biện chứng. Phải có độc lập dân tộc mới có điều kiện xây dựng chủ nghĩa xã hội. Ngược lại, chỉ có xây dựng thành công chủ nghĩa xã hội mới tạo ra cơ sở vững chắc để bảo vệ nền độc lập dân tộc."
+      },
+      {
+        "question_id": "q8",
+        "question": "Trong lĩnh vực chính trị của thời kỳ quá độ, Hồ Chí Minh nhấn mạnh nhiệm vụ cốt lõi là gì?",
+        "user_answer": "",
+        "correct_answer": "A",
+        "is_correct": false,
+        "explanation": "Theo Hồ Chí Minh, để xây dựng thành công CNXH, trước hết phải có sự lãnh đạo của Đảng Mác-Lênin. Giữ vững và tăng cường vai trò lãnh đạo của Đảng là nhân tố quyết định thắng lợi của cách mạng Việt Nam trong thời kỳ quá độ."
+      },
+      {
+        "question_id": "q9",
+        "question": "Theo Hồ Chí Minh, việc bỏ qua giai đoạn phát triển tư bản chủ nghĩa có nghĩa là gì?",
+        "user_answer": "",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Bỏ qua chế độ TBCN nghĩa là bỏ qua sự thống trị của quan hệ sản xuất TBCN và kiến trúc thượng tầng tương ứng, chứ không phải bỏ qua những thành tựu văn minh, khoa học - kỹ thuật mà nhân loại đã đạt được trong thời kỳ TBCN."
+      },
+      {
+        "question_id": "q10",
+        "question": "Nội dung nào sau đây KHÔNG phải là một trong những nguyên tắc xây dựng chủ nghĩa xã hội ở miền Bắc được Hồ Chí Minh nêu ra?",
+        "user_answer": "",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Hồ Chí Minh chủ trương xây dựng nền kinh tế với thành phần kinh tế quốc doanh giữ vai trò chủ đạo, tiến hành cải tạo nông nghiệp, thủ công nghiệp, công thương nghiệp tư bản tư doanh chứ không ưu tiên phát triển kinh tế tư nhân làm động lực chính."
+      }
+    ],
+    "quiz_title": "Bài kiểm tra Chương III",
+    "quiz_chapter": "Chương III",
+    "id": "37e4cf02-2868-4a23-9976-f175a7771bd0",
+    "username": "abc",
+    "quiz_id": "b3d7d8f5-b605-459d-a3b3-1eea16df6383",
+    "submitted_at": "2025-10-05T18:04:46.706075"
+  },
+  {
+    "score": 1.3,
+    "correct_count": 2,
+    "total_questions": 15,
+    "percentage": 13.3,
+    "details": [
+      {
+        "question_id": "q1",
+        "question": "Theo tư tưởng Hồ Chí Minh, “đoàn kết” là gì?",
+        "user_answer": "A",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Hồ Chí Minh coi đại đoàn kết toàn dân tộc là vấn đề có ý nghĩa chiến lược, quyết định thành công của cách mạng, là động lực chủ yếu và to lớn."
+      },
+      {
+        "question_id": "q2",
+        "question": "Theo Hồ Chí Minh, nền tảng của khối đại đoàn kết toàn dân tộc là gì?",
+        "user_answer": "B",
+        "correct_answer": "B",
+        "is_correct": true,
+        "explanation": "Hồ Chí Minh khẳng định nền tảng của khối đại đoàn kết toàn dân tộc là liên minh công - nông - trí thức, do Đảng Cộng sản lãnh đạo."
+      },
+      {
+        "question_id": "q3",
+        "question": "Câu nói: “Đoàn kết, đoàn kết, đại đoàn kết. Thành công, thành công, đại thành công” là của ai?",
+        "user_answer": "D",
+        "correct_answer": "D",
+        "is_correct": true,
+        "explanation": "Đây là câu nói nổi tiếng của Chủ tịch Hồ Chí Minh tại Đại hội đại biểu Mặt trận Tổ quốc Việt Nam lần thứ II (1961), nhấn mạnh tầm quan trọng của đoàn kết."
+      },
+      {
+        "question_id": "q4",
+        "question": "Hình thức tổ chức của khối đại đoàn kết toàn dân tộc được Hồ Chí Minh đề cập là gì?",
+        "user_answer": "",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Mặt trận Dân tộc thống nhất là hình thức tổ chức cụ thể để tập hợp, đoàn kết mọi lực lượng yêu nước, không phân biệt giai cấp, tầng lớp, dân tộc, tôn giáo."
+      },
+      {
+        "question_id": "q5",
+        "question": "Theo Hồ Chí Minh, lực lượng của khối đại đoàn kết toàn dân tộc bao gồm những ai?",
+        "user_answer": "",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Tư tưởng Hồ Chí Minh về đại đoàn kết có nội hàm rất rộng, bao gồm tất cả những người con yêu nước của dân tộc Việt Nam ở trong và ngoài nước."
+      },
+      {
+        "question_id": "q6",
+        "question": "Theo Hồ Chí Minh, muốn thực hiện đại đoàn kết toàn dân tộc thì phải làm gì?",
+        "user_answer": "",
+        "correct_answer": "A",
+        "is_correct": false,
+        "explanation": "Hồ Chí Minh cho rằng, để đoàn kết được mọi người, cần có lòng khoan dung, độ lượng, tôn trọng những điểm khác biệt không trái với lợi ích chung của dân tộc."
+      },
+      {
+        "question_id": "q7",
+        "question": "Nguyên tắc hoạt động của Mặt trận Dân tộc thống nhất theo tư tưởng Hồ Chí Minh là gì?",
+        "user_answer": "",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Nguyên tắc hiệp thương dân chủ đảm bảo mọi thành viên trong Mặt trận đều được bàn bạc, thảo luận công việc chung một cách dân chủ, bình đẳng."
+      },
+      {
+        "question_id": "q8",
+        "question": "Theo Hồ Chí Minh, đoàn kết quốc tế là để làm gì?",
+        "user_answer": "",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Đoàn kết quốc tế nhằm tạo ra một sức mạnh tổng hợp, kết hợp sức mạnh nội lực của dân tộc với sự ủng hộ, giúp đỡ của các lực lượng tiến bộ trên thế giới."
+      },
+      {
+        "question_id": "q9",
+        "question": "Trong tư tưởng Hồ Chí Minh, lực lượng cần đoàn kết quốc tế bao gồm những đối tượng nào?",
+        "user_answer": "",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Hồ Chí Minh chủ trương đoàn kết với tất cả các lực lượng tiến bộ trên thế giới, bao gồm ba dòng thác cách mạng của thời đại."
+      },
+      {
+        "question_id": "q10",
+        "question": "Theo Hồ Chí Minh, vai trò của Đảng Cộng sản trong khối đại đoàn kết toàn dân tộc là gì?",
+        "user_answer": "",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Đảng Cộng sản vừa là thành viên của Mặt trận, vừa là lực lượng lãnh đạo, có vai trò quyết định đến việc xây dựng và củng cố khối đại đoàn kết toàn dân tộc."
+      },
+      {
+        "question_id": "q11",
+        "question": "Luận điểm: \"Cách mạng Việt Nam là một bộ phận của cách mạng thế giới\" thể hiện tư tưởng gì của Hồ Chí Minh?",
+        "user_answer": "",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Luận điểm này khẳng định sự gắn bó, liên hệ mật thiết giữa cách mạng Việt Nam với phong trào cách mạng thế giới, là cơ sở của tư tưởng đoàn kết quốc tế."
+      },
+      {
+        "question_id": "q12",
+        "question": "“Điểm chung” để thực hiện đại đoàn kết toàn dân tộc theo Hồ Chí Minh là gì?",
+        "user_answer": "",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Hồ Chí Minh chủ trương “cầu đồng tồn dị” - tìm ra điểm tương đồng là lợi ích dân tộc để đoàn kết, chấp nhận những điểm khác biệt không làm phương hại đến lợi ích chung."
+      },
+      {
+        "question_id": "q13",
+        "question": "Nguyên tắc cơ bản trong đoàn kết quốc tế theo Hồ Chí Minh là gì?",
+        "user_answer": "",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Đoàn kết quốc tế phải dựa trên cơ sở bình đẳng, tôn trọng lẫn nhau, vì mục tiêu chung của hòa bình, độc lập dân tộc, dân chủ và tiến bộ xã hội."
+      },
+      {
+        "question_id": "q14",
+        "question": "Mặt trận Việt Minh (Việt Nam Độc lập Đồng minh Hội) được thành lập năm nào?",
+        "user_answer": "",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Mặt trận Việt Minh được thành lập ngày 19/5/1941, là một hình thức tổ chức của khối đại đoàn kết toàn dân tộc, có vai trò to lớn trong Cách mạng Tháng Tám."
+      },
+      {
+        "question_id": "q15",
+        "question": "Trong tư tưởng Hồ Chí Minh, sức mạnh của dân tộc bao gồm những yếu tố nào?",
+        "user_answer": "",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Sức mạnh dân tộc theo Hồ Chí Minh là sức mạnh tổng hợp, trong đó chủ nghĩa yêu nước và tinh thần đoàn kết là những yếu tố cốt lõi, là động lực to lớn."
+      }
+    ],
+    "quiz_title": "Bài kiểm tra Chương V",
+    "quiz_chapter": "Chương V",
+    "id": "7b8f09b6-24b5-4d76-868c-456e69f722f8",
+    "username": "abc",
+    "quiz_id": "d702a32c-059b-41af-8553-359b8fc67471",
+    "submitted_at": "2025-10-05T18:42:42.922608"
+  }
+]

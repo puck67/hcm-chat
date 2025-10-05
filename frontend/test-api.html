@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test API Dashboard</title>
+</head>
+<body>
+    <h1>Test API Dashboard</h1>
+    <div id="results"></div>
+
+    <script>
+    async function testAPI() {
+        const results = document.getElementById('results');
+
+        try {
+            // Test login first
+            console.log('Testing login...');
+            const loginResponse = await fetch('http://localhost:9000/api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: 'admin',
+                    password: 'admin123'
+                })
+            });
+
+            const loginData = await loginResponse.json();
+            console.log('Login response:', loginData);
+
+            if (!loginData.success) {
+                results.innerHTML = '<p>Login failed!</p>';
+                return;
+            }
+
+            const token = loginData.data.token;
+            results.innerHTML = '<p>Login successful! Token: ' + token.substring(0, 20) + '...</p>';
+
+            // Test dashboard stats
+            console.log('Testing dashboard stats...');
+            const statsResponse = await fetch('http://localhost:9000/api/dashboard/stats', {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + token,
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            const statsData = await statsResponse.json();
+            console.log('Stats response:', statsData);
+
+            if (statsData.success) {
+                const stats = statsData.data;
+                results.innerHTML += '<h2>Dashboard Stats:</h2>';
+                results.innerHTML += '<p>Total Users: ' + stats.totalUsers + '</p>';
+                results.innerHTML += '<p>Total Conversations: ' + stats.totalConversations + '</p>';
+                results.innerHTML += '<p>Total Messages: ' + stats.totalMessages + '</p>';
+                results.innerHTML += '<p>Messages Today: ' + stats.messagesToday + '</p>';
+            } else {
+                results.innerHTML += '<p>Stats failed: ' + statsData.message + '</p>';
+            }
+
+            // Test messages
+            console.log('Testing messages...');
+            const messagesResponse = await fetch('http://localhost:9000/api/dashboard/messages', {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + token,
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            const messagesData = await messagesResponse.json();
+            console.log('Messages response:', messagesData);
+
+            if (messagesData.success) {
+                const messages = messagesData.data || [];
+                results.innerHTML += '<h2>Messages:</h2>';
+                results.innerHTML += '<p>Message count: ' + messages.length + '</p>';
+
+                if (messages.length > 0) {
+                    results.innerHTML += '<ul>';
+                    messages.slice(0, 5).forEach(msg => {
+                        results.innerHTML += '<li>' + msg.role + ': ' + msg.content.substring(0, 50) + '... (by: ' + (msg.username || 'N/A') + ')</li>';
+                    });
+                    results.innerHTML += '</ul>';
+                }
+            } else {
+                results.innerHTML += '<p>Messages failed: ' + messagesData.message + '</p>';
+            }
+
+        } catch (error) {
+            console.error('Error:', error);
+            results.innerHTML += '<p>Error: ' + error.message + '</p>';
+        }
+    }
+
+    // Run test automatically
+    testAPI();
+    </script>
+</body>
+</html>

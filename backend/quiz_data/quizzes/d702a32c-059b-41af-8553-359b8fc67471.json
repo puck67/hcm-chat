@@ -1,0 +1,190 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Theo tư tưởng Hồ Chí Minh, “đoàn kết” là gì?",
+      "options": {
+        "A": "Là một mục tiêu tạm thời",
+        "B": "Là một chính sách nhất thời",
+        "C": "Là một chiến lược cách mạng, là động lực to lớn của cách mạng",
+        "D": "Là vấn đề của riêng giai cấp công nhân"
+      },
+      "correct_answer": "C",
+      "explanation": "Hồ Chí Minh coi đại đoàn kết toàn dân tộc là vấn đề có ý nghĩa chiến lược, quyết định thành công của cách mạng, là động lực chủ yếu và to lớn."
+    },
+    {
+      "id": "q2",
+      "question": "Theo Hồ Chí Minh, nền tảng của khối đại đoàn kết toàn dân tộc là gì?",
+      "options": {
+        "A": "Liên minh giữa giai cấp công nhân với giai cấp nông dân và các tầng lớp lao động khác",
+        "B": "Liên minh giữa giai cấp công nhân với giai cấp nông dân và đội ngũ trí thức",
+        "C": "Liên minh giữa giai cấp công nhân với các nhà tư sản dân tộc",
+        "D": "Liên minh giữa tất cả các giai cấp, tầng lớp trong xã hội"
+      },
+      "correct_answer": "B",
+      "explanation": "Hồ Chí Minh khẳng định nền tảng của khối đại đoàn kết toàn dân tộc là liên minh công - nông - trí thức, do Đảng Cộng sản lãnh đạo."
+    },
+    {
+      "id": "q3",
+      "question": "Câu nói: “Đoàn kết, đoàn kết, đại đoàn kết. Thành công, thành công, đại thành công” là của ai?",
+      "options": {
+        "A": "Lê Duẩn",
+        "B": "Trường Chinh",
+        "C": "Võ Nguyên Giáp",
+        "D": "Hồ Chí Minh"
+      },
+      "correct_answer": "D",
+      "explanation": "Đây là câu nói nổi tiếng của Chủ tịch Hồ Chí Minh tại Đại hội đại biểu Mặt trận Tổ quốc Việt Nam lần thứ II (1961), nhấn mạnh tầm quan trọng của đoàn kết."
+    },
+    {
+      "id": "q4",
+      "question": "Hình thức tổ chức của khối đại đoàn kết toàn dân tộc được Hồ Chí Minh đề cập là gì?",
+      "options": {
+        "A": "Nhà nước pháp quyền",
+        "B": "Mặt trận Dân tộc thống nhất",
+        "C": "Các tổ chức chính trị - xã hội",
+        "D": "Đảng Cộng sản"
+      },
+      "correct_answer": "B",
+      "explanation": "Mặt trận Dân tộc thống nhất là hình thức tổ chức cụ thể để tập hợp, đoàn kết mọi lực lượng yêu nước, không phân biệt giai cấp, tầng lớp, dân tộc, tôn giáo."
+    },
+    {
+      "id": "q5",
+      "question": "Theo Hồ Chí Minh, lực lượng của khối đại đoàn kết toàn dân tộc bao gồm những ai?",
+      "options": {
+        "A": "Chỉ có công nhân và nông dân",
+        "B": "Tất cả mọi người Việt Nam yêu nước, không phân biệt thành phần",
+        "C": "Chỉ có những người theo chủ nghĩa cộng sản",
+        "D": "Chỉ có các lực lượng trong nước"
+      },
+      "correct_answer": "B",
+      "explanation": "Tư tưởng Hồ Chí Minh về đại đoàn kết có nội hàm rất rộng, bao gồm tất cả những người con yêu nước của dân tộc Việt Nam ở trong và ngoài nước."
+    },
+    {
+      "id": "q6",
+      "question": "Theo Hồ Chí Minh, muốn thực hiện đại đoàn kết toàn dân tộc thì phải làm gì?",
+      "options": {
+        "A": "Phải có tấm lòng khoan dung, độ lượng với con người",
+        "B": "Phải xóa bỏ mọi sự khác biệt",
+        "C": "Phải loại trừ những người có ý kiến khác biệt",
+        "D": "Chỉ cần tin vào sự lãnh đạo của Đảng"
+      },
+      "correct_answer": "A",
+      "explanation": "Hồ Chí Minh cho rằng, để đoàn kết được mọi người, cần có lòng khoan dung, độ lượng, tôn trọng những điểm khác biệt không trái với lợi ích chung của dân tộc."
+    },
+    {
+      "id": "q7",
+      "question": "Nguyên tắc hoạt động của Mặt trận Dân tộc thống nhất theo tư tưởng Hồ Chí Minh là gì?",
+      "options": {
+        "A": "Tập trung quan liêu",
+        "B": "Hiệp thương dân chủ",
+        "C": "Mệnh lệnh hành chính",
+        "D": "Bỏ phiếu theo đa số"
+      },
+      "correct_answer": "B",
+      "explanation": "Nguyên tắc hiệp thương dân chủ đảm bảo mọi thành viên trong Mặt trận đều được bàn bạc, thảo luận công việc chung một cách dân chủ, bình đẳng."
+    },
+    {
+      "id": "q8",
+      "question": "Theo Hồ Chí Minh, đoàn kết quốc tế là để làm gì?",
+      "options": {
+        "A": "Chỉ để tranh thủ sự ủng hộ về vật chất",
+        "B": "Kết hợp sức mạnh dân tộc với sức mạnh thời đại, tạo sức mạnh tổng hợp cho cách mạng",
+        "C": "Để can thiệp vào công việc nội bộ của nước khác",
+        "D": "Chỉ đoàn kết với các nước xã hội chủ nghĩa"
+      },
+      "correct_answer": "B",
+      "explanation": "Đoàn kết quốc tế nhằm tạo ra một sức mạnh tổng hợp, kết hợp sức mạnh nội lực của dân tộc với sự ủng hộ, giúp đỡ của các lực lượng tiến bộ trên thế giới."
+    },
+    {
+      "id": "q9",
+      "question": "Trong tư tưởng Hồ Chí Minh, lực lượng cần đoàn kết quốc tế bao gồm những đối tượng nào?",
+      "options": {
+        "A": "Chỉ có phong trào cộng sản và công nhân quốc tế",
+        "B": "Chỉ có phong trào giải phóng dân tộc",
+        "C": "Phong trào cộng sản, phong trào giải phóng dân tộc và các lực lượng hòa bình, dân chủ thế giới",
+        "D": "Chỉ có các nước láng giềng"
+      },
+      "correct_answer": "C",
+      "explanation": "Hồ Chí Minh chủ trương đoàn kết với tất cả các lực lượng tiến bộ trên thế giới, bao gồm ba dòng thác cách mạng của thời đại."
+    },
+    {
+      "id": "q10",
+      "question": "Theo Hồ Chí Minh, vai trò của Đảng Cộng sản trong khối đại đoàn kết toàn dân tộc là gì?",
+      "options": {
+        "A": "Là thành viên bình thường như các tổ chức khác",
+        "B": "Là lực lượng lãnh đạo, là linh hồn của khối đại đoàn kết",
+        "C": "Đứng ngoài khối đại đoàn kết để giám sát",
+        "D": "Chỉ tham gia khi cần thiết"
+      },
+      "correct_answer": "B",
+      "explanation": "Đảng Cộng sản vừa là thành viên của Mặt trận, vừa là lực lượng lãnh đạo, có vai trò quyết định đến việc xây dựng và củng cố khối đại đoàn kết toàn dân tộc."
+    },
+    {
+      "id": "q11",
+      "question": "Luận điểm: \"Cách mạng Việt Nam là một bộ phận của cách mạng thế giới\" thể hiện tư tưởng gì của Hồ Chí Minh?",
+      "options": {
+        "A": "Tư tưởng về độc lập dân tộc",
+        "B": "Tư tưởng về nhà nước pháp quyền",
+        "C": "Tư tưởng về đoàn kết quốc tế",
+        "D": "Tư tưởng về đạo đức cách mạng"
+      },
+      "correct_answer": "C",
+      "explanation": "Luận điểm này khẳng định sự gắn bó, liên hệ mật thiết giữa cách mạng Việt Nam với phong trào cách mạng thế giới, là cơ sở của tư tưởng đoàn kết quốc tế."
+    },
+    {
+      "id": "q12",
+      "question": "“Điểm chung” để thực hiện đại đoàn kết toàn dân tộc theo Hồ Chí Minh là gì?",
+      "options": {
+        "A": "Chung một hệ tư tưởng",
+        "B": "Lợi ích tối cao của dân tộc và mục tiêu độc lập, thống nhất của Tổ quốc",
+        "C": "Chung một tôn giáo",
+        "D": "Chung một khuynh hướng chính trị"
+      },
+      "correct_answer": "B",
+      "explanation": "Hồ Chí Minh chủ trương “cầu đồng tồn dị” - tìm ra điểm tương đồng là lợi ích dân tộc để đoàn kết, chấp nhận những điểm khác biệt không làm phương hại đến lợi ích chung."
+    },
+    {
+      "id": "q13",
+      "question": "Nguyên tắc cơ bản trong đoàn kết quốc tế theo Hồ Chí Minh là gì?",
+      "options": {
+        "A": "Dựa trên sự ban ơn, cứu giúp từ bên ngoài",
+        "B": "Dựa trên tinh thần quốc tế vô sản, có lý có tình",
+        "C": "Dựa trên lợi ích của riêng cách mạng Việt Nam",
+        "D": "Chỉ dựa vào sự tương đồng về ý thức hệ"
+      },
+      "correct_answer": "B",
+      "explanation": "Đoàn kết quốc tế phải dựa trên cơ sở bình đẳng, tôn trọng lẫn nhau, vì mục tiêu chung của hòa bình, độc lập dân tộc, dân chủ và tiến bộ xã hội."
+    },
+    {
+      "id": "q14",
+      "question": "Mặt trận Việt Minh (Việt Nam Độc lập Đồng minh Hội) được thành lập năm nào?",
+      "options": {
+        "A": "1930",
+        "B": "1941",
+        "C": "1945",
+        "D": "1954"
+      },
+      "correct_answer": "B",
+      "explanation": "Mặt trận Việt Minh được thành lập ngày 19/5/1941, là một hình thức tổ chức của khối đại đoàn kết toàn dân tộc, có vai trò to lớn trong Cách mạng Tháng Tám."
+    },
+    {
+      "id": "q15",
+      "question": "Trong tư tưởng Hồ Chí Minh, sức mạnh của dân tộc bao gồm những yếu tố nào?",
+      "options": {
+        "A": "Chỉ có yếu tố vật chất, kinh tế",
+        "B": "Chỉ có yếu tố chính trị",
+        "C": "Sự kết hợp của chủ nghĩa yêu nước, tinh thần đoàn kết và các giá trị văn hóa truyền thống",
+        "D": "Chỉ có sức mạnh quân sự"
+      },
+      "correct_answer": "C",
+      "explanation": "Sức mạnh dân tộc theo Hồ Chí Minh là sức mạnh tổng hợp, trong đó chủ nghĩa yêu nước và tinh thần đoàn kết là những yếu tố cốt lõi, là động lực to lớn."
+    }
+  ],
+  "title": "Bài kiểm tra Chương V",
+  "chapter": "Chương V",
+  "difficulty": "easy",
+  "num_questions": 15,
+  "id": "d702a32c-059b-41af-8553-359b8fc67471",
+  "created_at": "2025-10-05T18:42:25.863669"
+}

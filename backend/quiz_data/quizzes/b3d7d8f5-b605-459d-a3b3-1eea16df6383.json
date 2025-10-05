@@ -1,0 +1,130 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Theo tư tưởng Hồ Chí Minh, đặc trưng bản chất nhất, bao trùm nhất của chủ nghĩa xã hội là gì?",
+      "options": {
+        "A": "Một chế độ xã hội do nhân dân làm chủ.",
+        "B": "Một nền kinh tế phát triển cao, dựa trên lực lượng sản xuất hiện đại.",
+        "C": "Một xã hội có nền văn hóa tiên tiến, đậm đà bản sắc dân tộc.",
+        "D": "Một nhà nước pháp quyền vững mạnh của dân, do dân, vì dân."
+      },
+      "correct_answer": "A",
+      "explanation": "Hồ Chí Minh coi 'do nhân dân làm chủ' là đặc trưng tổng quát, chi phối các đặc trưng khác của chủ nghĩa xã hội. Đây là bản chất chính trị cốt lõi, thể hiện quyền lực thực sự thuộc về nhân dân."
+    },
+    {
+      "id": "q2",
+      "question": "Mục tiêu cao nhất của chủ nghĩa xã hội ở Việt Nam theo tư tưởng Hồ Chí Minh là gì?",
+      "options": {
+        "A": "Xây dựng nền kinh tế kế hoạch hóa tập trung, bao cấp.",
+        "B": "Không ngừng nâng cao đời sống vật chất và tinh thần cho nhân dân.",
+        "C": "Xóa bỏ hoàn toàn sở hữu tư nhân về tư liệu sản xuất.",
+        "D": "Thực hiện công nghiệp hóa, hiện đại hóa đất nước."
+      },
+      "correct_answer": "B",
+      "explanation": "Người luôn nhấn mạnh mục tiêu của chủ nghĩa xã hội là làm cho dân có ăn, có mặc, có chỗ ở, được học hành, tức là không ngừng cải thiện và nâng cao đời sống toàn diện cho nhân dân. Các phương án khác là phương tiện hoặc nhiệm vụ cụ thể để đạt được mục tiêu này."
+    },
+    {
+      "id": "q3",
+      "question": "Theo Hồ Chí Minh, đặc điểm lớn nhất, bao trùm nhất của thời kỳ quá độ lên chủ nghĩa xã hội ở Việt Nam là gì?",
+      "options": {
+        "A": "Từ một nước nông nghiệp lạc hậu tiến thẳng lên chủ nghĩa xã hội, không qua giai đoạn phát triển tư bản chủ nghĩa.",
+        "B": "Diễn ra trong bối cảnh quốc tế có nhiều thuận lợi, được các nước xã hội chủ nghĩa giúp đỡ.",
+        "C": "Là một quá trình cải biến nhanh chóng, triệt để trên mọi lĩnh vực đời sống xã hội.",
+        "D": "Phải đối mặt với sự chống phá quyết liệt của các thế lực thù địch trong và ngoài nước."
+      },
+      "correct_answer": "A",
+      "explanation": "Đây là đặc điểm xuất phát điểm, chi phối toàn bộ tính chất, nội dung, và hình thức của con đường đi lên chủ nghĩa xã hội ở Việt Nam, quy định tính lâu dài, phức tạp và khó khăn của nó."
+    },
+    {
+      "id": "q4",
+      "question": "Theo tư tưởng Hồ Chí Minh, động lực quan trọng và quyết định nhất để xây dựng thành công chủ nghĩa xã hội ở Việt Nam là gì?",
+      "options": {
+        "A": "Sự giúp đỡ, viện trợ của các nước xã hội chủ nghĩa anh em.",
+        "B": "Khoa học - kỹ thuật và công nghệ hiện đại.",
+        "C": "Sức mạnh của con người, của nhân dân lao động.",
+        "D": "Sự lãnh đạo sáng suốt của Đảng Cộng sản."
+      },
+      "correct_answer": "C",
+      "explanation": "Hồ Chí Minh luôn coi con người là vốn quý nhất, là nhân tố quyết định thành công của cách mạng. Sức mạnh của khối đại đoàn kết toàn dân tộc, sự lao động sáng tạo của nhân dân là động lực nội sinh, chủ yếu và quyết định nhất. Sự lãnh đạo của Đảng là điều kiện tiên quyết để động lực này được phát huy."
+    },
+    {
+      "id": "q5",
+      "question": "Hồ Chí Minh coi trở lực nào là 'kẻ thù bên trong', nguy hiểm nhất, cản trở công cuộc xây dựng chủ nghĩa xã hội?",
+      "options": {
+        "A": "Sự chống phá của các thế lực thù địch bên ngoài.",
+        "B": "Nền kinh tế nông nghiệp lạc hậu, kém phát triển.",
+        "C": "Chủ nghĩa cá nhân.",
+        "D": "Tàn dư tư tưởng của chế độ phong kiến, thực dân."
+      },
+      "correct_answer": "C",
+      "explanation": "Người chỉ rõ chủ nghĩa cá nhân là 'kẻ địch hung ác', 'nó đẻ ra trăm thứ bệnh nguy hiểm' như tham ô, lãng phí, quan liêu, bè phái... cản trở sự nghiệp cách mạng và công cuộc xây dựng xã hội mới."
+    },
+    {
+      "id": "q6",
+      "question": "Quan điểm của Hồ Chí Minh về bước đi trong thời kỳ quá độ lên chủ nghĩa xã hội ở Việt Nam là gì?",
+      "options": {
+        "A": "Phải tiến nhanh, tiến mạnh, tiến vững chắc lên chủ nghĩa xã hội.",
+        "B": "Phải đốt cháy giai đoạn, thực hiện những bước nhảy vọt thần kỳ.",
+        "C": "Phải làm dần dần, thận trọng, từng bước một, từ thấp đến cao.",
+        "D": "Phải áp dụng rập khuôn mô hình của Liên Xô và các nước Đông Âu."
+      },
+      "correct_answer": "C",
+      "explanation": "Do xuất phát điểm thấp, Hồ Chí Minh nhấn mạnh phải đi lên chủ nghĩa xã hội một cách dần dần, không thể chủ quan, nóng vội, duy ý chí. Phải 'làm từng bước, đi từ thấp đến cao', 'không thể một sớm một chiều' để đảm bảo tính vững chắc."
+    },
+    {
+      "id": "q7",
+      "question": "Theo tư tưởng Hồ Chí Minh, mối quan hệ giữa độc lập dân tộc và chủ nghĩa xã hội được thể hiện như thế nào?",
+      "options": {
+        "A": "Độc lập dân tộc là mục tiêu cuối cùng, chủ nghĩa xã hội chỉ là phương tiện.",
+        "B": "Chủ nghĩa xã hội là mục tiêu, độc lập dân tộc là điều kiện ban đầu.",
+        "C": "Độc lập dân tộc và chủ nghĩa xã hội là hai mục tiêu hoàn toàn độc lập với nhau.",
+        "D": "Độc lập dân tộc là tiền đề, chủ nghĩa xã hội là cơ sở để giữ vững độc lập."
+      },
+      "correct_answer": "D",
+      "explanation": "Đây là mối quan hệ biện chứng. Phải có độc lập dân tộc mới có điều kiện xây dựng chủ nghĩa xã hội. Ngược lại, chỉ có xây dựng thành công chủ nghĩa xã hội mới tạo ra cơ sở vững chắc để bảo vệ nền độc lập dân tộc."
+    },
+    {
+      "id": "q8",
+      "question": "Trong lĩnh vực chính trị của thời kỳ quá độ, Hồ Chí Minh nhấn mạnh nhiệm vụ cốt lõi là gì?",
+      "options": {
+        "A": "Giữ vững và tăng cường vai trò lãnh đạo của Đảng Cộng sản.",
+        "B": "Cải tạo xã hội cũ, xây dựng xã hội mới.",
+        "C": "Mở rộng quan hệ đối ngoại với tất cả các nước.",
+        "D": "Xây dựng lực lượng quân đội nhân dân hùng mạnh."
+      },
+      "correct_answer": "A",
+      "explanation": "Theo Hồ Chí Minh, để xây dựng thành công CNXH, trước hết phải có sự lãnh đạo của Đảng Mác-Lênin. Giữ vững và tăng cường vai trò lãnh đạo của Đảng là nhân tố quyết định thắng lợi của cách mạng Việt Nam trong thời kỳ quá độ."
+    },
+    {
+      "id": "q9",
+      "question": "Theo Hồ Chí Minh, việc bỏ qua giai đoạn phát triển tư bản chủ nghĩa có nghĩa là gì?",
+      "options": {
+        "A": "Bỏ qua toàn bộ những gì liên quan đến chủ nghĩa tư bản, kể cả thành tựu khoa học kỹ thuật.",
+        "B": "Bỏ qua việc xác lập vị trí thống trị của quan hệ sản xuất và kiến trúc thượng tầng tư bản chủ nghĩa.",
+        "C": "Bỏ qua sự phát triển của lực lượng sản xuất và kinh tế hàng hóa.",
+        "D": "Bỏ qua các hình thức tổ chức quản lý kinh tế hiệu quả của chủ nghĩa tư bản."
+      },
+      "correct_answer": "B",
+      "explanation": "Bỏ qua chế độ TBCN nghĩa là bỏ qua sự thống trị của quan hệ sản xuất TBCN và kiến trúc thượng tầng tương ứng, chứ không phải bỏ qua những thành tựu văn minh, khoa học - kỹ thuật mà nhân loại đã đạt được trong thời kỳ TBCN."
+    },
+    {
+      "id": "q10",
+      "question": "Nội dung nào sau đây KHÔNG phải là một trong những nguyên tắc xây dựng chủ nghĩa xã hội ở miền Bắc được Hồ Chí Minh nêu ra?",
+      "options": {
+        "A": "Xây dựng chủ nghĩa xã hội phải đi đôi với bảo vệ Tổ quốc.",
+        "B": "Xây dựng phải lấy kinh tế làm trọng tâm, ưu tiên phát triển công nghiệp nặng.",
+        "C": "Phải ưu tiên phát triển kinh tế tư nhân làm động lực chính.",
+        "D": "Phải củng cố và mở rộng mặt trận dân tộc thống nhất."
+      },
+      "correct_answer": "C",
+      "explanation": "Hồ Chí Minh chủ trương xây dựng nền kinh tế với thành phần kinh tế quốc doanh giữ vai trò chủ đạo, tiến hành cải tạo nông nghiệp, thủ công nghiệp, công thương nghiệp tư bản tư doanh chứ không ưu tiên phát triển kinh tế tư nhân làm động lực chính."
+    }
+  ],
+  "title": "Bài kiểm tra Chương III",
+  "chapter": "Chương III",
+  "difficulty": "medium",
+  "num_questions": 10,
+  "id": "b3d7d8f5-b605-459d-a3b3-1eea16df6383",
+  "created_at": "2025-10-05T18:03:23.958704"
+}

@@ -1,0 +1,70 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Theo tư tưởng Hồ Chí Minh, Đảng Cộng sản Việt Nam ra đời là sản phẩm của sự kết hợp giữa các yếu tố nào?",
+      "options": {
+        "A": "Chủ nghĩa Mác - Lênin với phong trào công nhân.",
+        "B": "Chủ nghĩa Mác - Lênin với phong trào công nhân và phong trào yêu nước.",
+        "C": "Tư tưởng yêu nước truyền thống với phong trào công nhân và phong trào nông dân.",
+        "D": "Chủ nghĩa Mác - Lênin với phong trào nông dân."
+      },
+      "correct_answer": "B",
+      "explanation": "Hồ Chí Minh đã phát triển sáng tạo học thuyết Mác - Lênin, cho rằng ở một nước thuộc địa nửa phong kiến như Việt Nam, sự ra đời của Đảng Cộng sản là kết quả của sự kết hợp chặt chẽ giữa chủ nghĩa Mác - Lênin (yếu tố lý luận), phong trào công nhân (yếu tố giai cấp) và phong trào yêu nước (yếu tố dân tộc đặc thù)."
+    },
+    {
+      "id": "q2",
+      "question": "Trong các nguyên tắc xây dựng Đảng kiểu mới, Hồ Chí Minh coi nguyên tắc nào là “luật phát triển của Đảng”, là “thứ vũ khí sắc bén nhất”?",
+      "options": {
+        "A": "Tập trung dân chủ.",
+        "B": "Tập thể lãnh đạo, cá nhân phụ trách.",
+        "C": "Tự phê bình và phê bình.",
+        "D": "Đoàn kết, thống nhất trong Đảng."
+      },
+      "correct_answer": "C",
+      "explanation": "Hồ Chí Minh đặc biệt coi trọng tự phê bình và phê bình, xem đây là nguyên tắc sinh hoạt, là quy luật phát triển của Đảng. Người ví nó như việc rửa mặt hàng ngày, là phương thuốc tốt nhất để sửa chữa khuyết điểm và phát huy ưu điểm, làm cho Đảng ngày càng trong sạch, vững mạnh."
+    },
+    {
+      "id": "q3",
+      "question": "Theo tư tưởng Hồ Chí Minh, đặc trưng bản chất của Nhà nước Việt Nam là gì?",
+      "options": {
+        "A": "Nhà nước pháp quyền xã hội chủ nghĩa.",
+        "B": "Nhà nước của dân, do dân và vì dân.",
+        "C": "Nhà nước chuyên chính vô sản.",
+        "D": "Nhà nước mang tính giai cấp công nhân."
+      },
+      "correct_answer": "B",
+      "explanation": "Tư tưởng nhất quán và cốt lõi của Hồ Chí Minh về nhà nước là một nhà nước thực sự của dân, do dân và vì dân. Tất cả quyền lực nhà nước đều thuộc về nhân dân, nhà nước do dân lập ra và hoạt động vì lợi ích của nhân dân. Các đặc trưng khác đều xoay quanh và phục vụ cho bản chất này."
+    },
+    {
+      "id": "q4",
+      "question": "Để kiểm soát quyền lực nhà nước và phòng, chống sự tha hóa của cán bộ, Hồ Chí Minh đặc biệt nhấn mạnh vai trò của lực lượng nào?",
+      "options": {
+        "A": "Vai trò giám sát của các cơ quan tư pháp.",
+        "B": "Vai trò lãnh đạo và kiểm tra của Đảng.",
+        "C": "Vai trò của hệ thống pháp luật chặt chẽ.",
+        "D": "Vai trò giám sát, kiểm tra của nhân dân."
+      },
+      "correct_answer": "D",
+      "explanation": "Hồ Chí Minh cho rằng nguồn gốc quyền lực nhà nước là ở nhân dân. Vì vậy, để kiểm soát quyền lực một cách hiệu quả nhất, phải phát huy vai trò của người chủ thực sự là nhân dân. Nhân dân có quyền giám sát, phê bình, bãi miễn những cán bộ không còn xứng đáng với sự tín nhiệm của mình."
+    },
+    {
+      "id": "q5",
+      "question": "Trong tư tưởng Hồ Chí Minh về xây dựng nhà nước trong sạch, vững mạnh, những tiêu cực nào được Người xem là “giặc nội xâm”?",
+      "options": {
+        "A": "Bệnh kiêu ngạo, công thần, địa phương chủ nghĩa.",
+        "B": "Bệnh hẹp hòi, bè phái, vô kỷ luật.",
+        "C": "Tham ô, lãng phí, quan liêu.",
+        "D": "Chủ quan, giáo điều, lười biếng."
+      },
+      "correct_answer": "C",
+      "explanation": "Hồ Chí Minh coi tham ô, lãng phí, quan liêu là những kẻ thù từ bên trong, nguy hiểm không kém gì giặc ngoại xâm. Người gọi chúng là “giặc nội xâm”, chúng phá hoại sự nghiệp cách mạng từ trong nội bộ, làm suy yếu Đảng và Nhà nước, mất lòng tin của nhân dân."
+    }
+  ],
+  "title": "Bài kiểm tra Chương IV",
+  "chapter": "Chương IV",
+  "difficulty": "medium",
+  "num_questions": 5,
+  "id": "ea52599e-ebb5-407f-917f-0be6faea8c81",
+  "created_at": "2025-10-05T17:46:04.394387"
+}

@@ -1,0 +1,130 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Theo tư tưởng Hồ Chí Minh, đặc trưng kinh tế nổi bật nhất của chủ nghĩa xã hội là gì?",
+      "options": {
+        "A": "Nền kinh tế kế hoạch hóa tập trung, bao cấp.",
+        "B": "Nền kinh tế phát triển cao dựa trên lực lượng sản xuất hiện đại và chế độ công hữu về tư liệu sản xuất chủ yếu.",
+        "C": "Nền kinh tế thị trường tự do cạnh tranh hoàn hảo.",
+        "D": "Nền kinh tế nông nghiệp lạc hậu đã được cải tạo."
+      },
+      "correct_answer": "B",
+      "explanation": "Hồ Chí Minh cho rằng, chủ nghĩa xã hội có nền kinh tế phát triển cao, hiện đại, dựa trên chế độ công hữu về tư liệu sản xuất. Đây là cơ sở vật chất để xóa bỏ áp bức, bóc lột và mang lại cuộc sống ấm no cho nhân dân."
+    },
+    {
+      "id": "q2",
+      "question": "Luận điểm nào sau đây thể hiện đúng nhất quan điểm của Hồ Chí Minh về con đường quá độ lên chủ nghĩa xã hội ở Việt Nam?",
+      "options": {
+        "A": "Tiến thẳng lên chủ nghĩa xã hội, không qua giai đoạn phát triển tư bản chủ nghĩa.",
+        "B": "Bỏ qua chế độ tư bản chủ nghĩa để tiến lên chủ nghĩa xã hội.",
+        "C": "Phải trải qua đầy đủ các giai đoạn của chủ nghĩa tư bản rồi mới tiến lên chủ nghĩa xã hội.",
+        "D": "Chỉ cần quốc hữu hóa toàn bộ tư liệu sản xuất là có chủ nghĩa xã hội."
+      },
+      "correct_answer": "B",
+      "explanation": "Hồ Chí Minh chủ trương 'bỏ qua chế độ tư bản chủ nghĩa', tức là bỏ qua việc xác lập vị trí thống trị của quan hệ sản xuất và kiến trúc thượng tầng tư bản chủ nghĩa, chứ không bỏ qua những thành tựu khoa học, kỹ thuật, văn hóa mà nhân loại đã đạt được trong chủ nghĩa tư bản."
+    },
+    {
+      "id": "q3",
+      "question": "Theo Hồ Chí Minh, động lực quan trọng và quyết định nhất để xây dựng chủ nghĩa xã hội là gì?",
+      "options": {
+        "A": "Sự giúp đỡ của các nước xã hội chủ nghĩa anh em.",
+        "B": "Khoa học - kỹ thuật và công nghệ hiện đại.",
+        "C": "Con người, nhân dân lao động.",
+        "D": "Tài nguyên thiên nhiên phong phú."
+      },
+      "correct_answer": "C",
+      "explanation": "Hồ Chí Minh luôn nhấn mạnh vai trò của con người, coi con người vừa là mục tiêu, vừa là động lực của cách mạng. 'Muốn xây dựng chủ nghĩa xã hội, trước hết cần có những con người xã hội chủ nghĩa'."
+    },
+    {
+      "id": "q4",
+      "question": "Hồ Chí Minh coi trở lực nào là 'kẻ địch bên trong', nguy hiểm nhất trong quá trình xây dựng chủ nghĩa xã hội?",
+      "options": {
+        "A": "Chủ nghĩa đế quốc và các thế lực thù địch.",
+        "B": "Tàn dư của chế độ phong kiến.",
+        "C": "Sự lạc hậu về kinh tế - kỹ thuật.",
+        "D": "Chủ nghĩa cá nhân."
+      },
+      "correct_answer": "D",
+      "explanation": "Hồ Chí Minh xem chủ nghĩa cá nhân là 'kẻ địch hung ác', 'bạn đồng minh của kẻ địch bên ngoài', là nguồn gốc của các căn bệnh tiêu cực như tham ô, lãng phí, quan liêu, làm suy yếu sức mạnh của Đảng và Nhà nước."
+    },
+    {
+      "id": "q5",
+      "question": "Phương châm cơ bản trong bước đi xây dựng chủ nghĩa xã hội được Hồ Chí Minh xác định là gì?",
+      "options": {
+        "A": "Tiến nhanh, tiến mạnh, tiến vững chắc.",
+        "B": "Đốt cháy giai đoạn, thực hiện công nghiệp hóa thần tốc.",
+        "C": "Ưu tiên phát triển công nghiệp nặng một cách tuyệt đối.",
+        "D": "Thực hiện đồng thời cải cách và mở cửa."
+      },
+      "correct_answer": "A",
+      "explanation": "Phương châm 'Tiến nhanh, tiến mạnh, tiến vững chắc' thể hiện quan điểm toàn diện, biện chứng của Hồ Chí Minh, vừa yêu cầu tốc độ phát triển nhanh, mạnh mẽ, vừa đòi hỏi sự ổn định, bền vững, tránh chủ quan, nóng vội, duy ý chí."
+    },
+    {
+      "id": "q6",
+      "question": "Về lĩnh vực chính trị trong thời kỳ quá độ, Hồ Chí Minh nhấn mạnh nhiệm vụ cốt lõi nào?",
+      "options": {
+        "A": "Xây dựng nền dân chủ tư sản.",
+        "B": "Giữ vững và tăng cường vai trò lãnh đạo của Đảng.",
+        "C": "Xóa bỏ hoàn toàn bộ máy nhà nước cũ.",
+        "D": "Tập trung tuyệt đối quyền lực vào nhà nước."
+      },
+      "correct_answer": "B",
+      "explanation": "Hồ Chí Minh khẳng định, để quá trình xây dựng chủ nghĩa xã hội đi đúng hướng và thắng lợi, phải giữ vững và tăng cường vai trò lãnh đạo của Đảng Cộng sản, vì Đảng là nhân tố quyết định mọi thắng lợi của cách mạng Việt Nam."
+    },
+    {
+      "id": "q7",
+      "question": "Theo Hồ Chí Minh, mục tiêu cao nhất, tổng quát nhất của chủ nghĩa xã hội ở Việt Nam là gì?",
+      "options": {
+        "A": "Xây dựng một nước Việt Nam có công nông nghiệp hiện đại.",
+        "B": "Không ngừng nâng cao đời sống vật chất và tinh thần của nhân dân.",
+        "C": "Xây dựng một xã hội công bằng, dân chủ, văn minh.",
+        "D": "Độc lập cho dân tộc, tự do, hạnh phúc cho nhân dân."
+      },
+      "correct_answer": "B",
+      "explanation": "Hồ Chí Minh diễn đạt mục tiêu của chủ nghĩa xã hội một cách giản dị, cụ thể: 'Chủ nghĩa xã hội là làm sao cho nhân dân đủ ăn, đủ mặc, ngày càng sung sướng, ai nấy được đi học, ốm đau có thuốc, già không lao động được thì được nghỉ, đó là chủ nghĩa xã hội'. Điều này thể hiện mục tiêu cốt lõi là không ngừng nâng cao đời sống nhân dân."
+    },
+    {
+      "id": "q8",
+      "question": "Quan điểm của Hồ Chí Minh về việc kết hợp cải tạo xã hội cũ và xây dựng xã hội mới là gì?",
+      "options": {
+        "A": "Phải phá bỏ hoàn toàn cái cũ rồi mới xây dựng cái mới.",
+        "B": "Xây dựng là chính, cải tạo là phụ.",
+        "C": "Cải tạo và xây dựng là hai mặt của quá trình cách mạng xã hội chủ nghĩa, phải đi đôi với nhau.",
+        "D": "Chỉ tập trung xây dựng cái mới, cái cũ sẽ tự mất đi."
+      },
+      "correct_answer": "C",
+      "explanation": "Hồ Chí Minh cho rằng, xây dựng và cải tạo là hai mặt không thể tách rời của quá trình quá độ. Xây dựng cái mới, cái tiến bộ để thay thế cái cũ, cái lạc hậu, đồng thời phải cải tạo cái cũ để nó không cản trở sự phát triển của cái mới. Hai quá trình này phải được tiến hành đồng thời và gắn bó chặt chẽ."
+    },
+    {
+      "id": "q9",
+      "question": "Trong các đặc trưng của chủ nghĩa xã hội, Hồ Chí Minh quan tâm đặc biệt đến đặc trưng nào về quan hệ xã hội?",
+      "options": {
+        "A": "Mọi người đều bình đẳng tuyệt đối về mọi mặt.",
+        "B": "Xóa bỏ mọi sự khác biệt giữa các tầng lớp xã hội.",
+        "C": "Là một xã hội không có người bóc lột người.",
+        "D": "Nhà nước quản lý mọi mặt đời sống xã hội."
+      },
+      "correct_answer": "C",
+      "explanation": "Một trong những đặc trưng bản chất nhất của chủ nghĩa xã hội theo tư tưởng Hồ Chí Minh là xóa bỏ chế độ bóc lột, áp bức. Người khẳng định: 'Chủ nghĩa xã hội là không có người bóc lột người', đây là cơ sở để xây dựng các mối quan hệ xã hội tốt đẹp, đoàn kết, bình đẳng."
+    },
+    {
+      "id": "q10",
+      "question": "Theo Hồ Chí Minh, nền văn hóa xã hội chủ nghĩa ở Việt Nam phải có những tính chất nào?",
+      "options": {
+        "A": "Có nội dung xã hội chủ nghĩa và hình thức dân tộc.",
+        "B": "Tiên tiến, đậm đà bản sắc dân tộc.",
+        "C": "Có tính dân tộc, khoa học, đại chúng.",
+        "D": "Kế thừa và phát huy văn hóa phương Tây."
+      },
+      "correct_answer": "C",
+      "explanation": "Hồ Chí Minh đã phác thảo những nét cơ bản của nền văn hóa mới. Đó là nền văn hóa có tính dân tộc (kế thừa truyền thống tốt đẹp), tính khoa học (tiến bộ, hiện đại), và tính đại chúng (phục vụ nhân dân và do nhân dân xây dựng)."
+    }
+  ],
+  "title": "Bài kiểm tra Chương III",
+  "chapter": "Chương III",
+  "difficulty": "medium",
+  "num_questions": 10,
+  "id": "64bee635-8548-42b1-a4c3-b18d06d9bce2",
+  "created_at": "2025-10-05T17:31:04.896743"
+}

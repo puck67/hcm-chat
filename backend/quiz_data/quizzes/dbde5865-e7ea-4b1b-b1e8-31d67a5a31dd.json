@@ -1,0 +1,130 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Theo Hồ Chí Minh, đặc điểm lớn nhất, bao trùm nhất của thời kỳ quá độ lên chủ nghĩa xã hội ở Việt Nam là gì?",
+      "options": {
+        "A": "Từ một nước nông nghiệp lạc hậu tiến thẳng lên chủ nghĩa xã hội, không kinh qua giai đoạn phát triển tư bản chủ nghĩa.",
+        "B": "Mâu thuẫn giữa yêu cầu phát triển cao của đất nước với tình trạng nghèo nàn, lạc hậu.",
+        "C": "Đấu tranh giai cấp diễn ra gay gắt giữa giai cấp vô sản và giai cấp tư sản.",
+        "D": "Có sự giúp đỡ to lớn của các nước xã hội chủ nghĩa anh em."
+      },
+      "correct_answer": "A",
+      "explanation": "Hồ Chí Minh chỉ rõ đặc điểm to nhất của thời kỳ quá độ ở Việt Nam là từ một nước nông nghiệp lạc hậu, bỏ qua chế độ tư bản chủ nghĩa để tiến thẳng lên chủ nghĩa xã hội. Đặc điểm này chi phối các đặc điểm khác và quy định tính chất phức tạp, lâu dài của công cuộc xây dựng CNXH."
+    },
+    {
+      "id": "q2",
+      "question": "Trong các động lực của chủ nghĩa xã hội, Hồ Chí Minh coi động lực nào là quan trọng và quyết định nhất?",
+      "options": {
+        "A": "Nguồn vốn và kỹ thuật từ nước ngoài.",
+        "B": "Sự lãnh đạo đúng đắn của Đảng.",
+        "C": "Sức mạnh của cộng đồng, của khối đại đoàn kết toàn dân tộc, nòng cốt là liên minh công - nông - trí thức.",
+        "D": "Tài nguyên thiên nhiên phong phú của đất nước."
+      },
+      "correct_answer": "C",
+      "explanation": "Hồ Chí Minh luôn đề cao vai trò của con người, coi con người là vốn quý nhất. Người xem sức mạnh của nhân dân, của khối đại đoàn kết dân tộc là động lực chủ yếu, quyết định nhất để xây dựng thành công chủ nghĩa xã hội. Động lực này bao hàm cả yếu tố con người cá nhân và sức mạnh cộng đồng."
+    },
+    {
+      "id": "q3",
+      "question": "Theo tư tưởng Hồ Chí Minh, mục tiêu cao nhất của chủ nghĩa xã hội là gì?",
+      "options": {
+        "A": "Xây dựng nền kinh tế công nghiệp hiện đại.",
+        "B": "Nâng cao đời sống vật chất và tinh thần của nhân dân.",
+        "C": "Xây dựng quân đội hùng mạnh để bảo vệ Tổ quốc.",
+        "D": "Thực hiện thành công cuộc cách mạng khoa học - kỹ thuật."
+      },
+      "correct_answer": "B",
+      "explanation": "Hồ Chí Minh khẳng định mục tiêu của CNXH là không ngừng nâng cao đời sống vật chất và tinh thần của nhân dân, trước hết là nhân dân lao động. Mọi chủ trương, chính sách của Đảng và Nhà nước đều phải xuất phát từ lợi ích và nguyện vọng của nhân dân."
+    },
+    {
+      "id": "q4",
+      "question": "Hồ Chí Minh đã dùng hình ảnh nào để nói về mối quan hệ giữa chủ nghĩa xã hội và chủ nghĩa cá nhân?",
+      "options": {
+        "A": "Chủ nghĩa xã hội và chủ nghĩa cá nhân là hai mặt của một vấn đề.",
+        "B": "Chủ nghĩa xã hội là trời xanh, chủ nghĩa cá nhân là mây đen.",
+        "C": "Chủ nghĩa xã hội và chủ nghĩa cá nhân không có gì mâu thuẫn.",
+        "D": "Chủ nghĩa xã hội là lúa, chủ nghĩa cá nhân là cỏ dại."
+      },
+      "correct_answer": "D",
+      "explanation": "Để chỉ rõ sự đối lập giữa CNXH và chủ nghĩa cá nhân, Hồ Chí Minh đã ví 'Chủ nghĩa xã hội là lấy nhà máy, xe lửa, ngân hàng... làm của chung. Ai làm nhiều thì ăn nhiều, ai làm ít thì ăn ít, ai không làm thì không ăn... Còn chủ nghĩa cá nhân là như những thứ cỏ dại, lúa phải chăm bón rất khó nhọc thì mới tốt được. Còn cỏ dại không cần chăm bón cũng mọc lan ra rất mau'."
+    },
+    {
+      "id": "q5",
+      "question": "Quan niệm của Hồ Chí Minh về bước đi trong thời kỳ quá độ lên chủ nghĩa xã hội ở Việt Nam là gì?",
+      "options": {
+        "A": "Phải tiến nhanh, tiến mạnh, đốt cháy giai đoạn để nhanh chóng có được CNXH.",
+        "B": "Phải làm dần dần, thận trọng từng bước, từ thấp đến cao.",
+        "C": "Phải ưu tiên phát triển công nghiệp nặng ngay từ đầu.",
+        "D": "Phải rập khuôn hoàn toàn theo mô hình của Liên Xô."
+      },
+      "correct_answer": "B",
+      "explanation": "Xuất phát từ thực tiễn một nước nông nghiệp lạc hậu, Hồ Chí Minh chủ trương phải đi lên CNXH một cách dần dần, từng bước vững chắc, 'không thể một sớm một chiều', 'làm đến đâu chắc đến đó', kết hợp cải tạo và xây dựng."
+    },
+    {
+      "id": "q6",
+      "question": "Nội dung nào sau đây KHÔNG phải là một trong những đặc trưng bản chất của chủ nghĩa xã hội theo quan niệm của Hồ Chí Minh?",
+      "options": {
+        "A": "Là một chế độ chính trị do nhân dân làm chủ.",
+        "B": "Có nền kinh tế phát triển cao, dựa trên LLSX hiện đại và chế độ công hữu.",
+        "C": "Là một xã hội phát triển cao về văn hóa, đạo đức.",
+        "D": "Là một xã hội chấp nhận sự phân hóa giàu nghèo ở mức độ cao."
+      },
+      "correct_answer": "D",
+      "explanation": "Tư tưởng Hồ Chí Minh về CNXH hướng tới một xã hội công bằng, không có người bóc lột người, mọi người đều có cuộc sống ấm no, hạnh phúc. Do đó, việc chấp nhận sự phân hóa giàu nghèo ở mức độ cao đi ngược lại với bản chất tốt đẹp của chế độ xã hội chủ nghĩa."
+    },
+    {
+      "id": "q7",
+      "question": "Theo Hồ Chí Minh, nhiệm vụ lịch sử của thời kỳ quá độ lên chủ nghĩa xã hội ở Việt Nam bao gồm những nội dung lớn nào?",
+      "options": {
+        "A": "Chỉ cần tập trung vào việc xây dựng nền kinh tế mới.",
+        "B": "Xây dựng nền tảng vật chất và kỹ thuật của CNXH, đồng thời cải tạo xã hội cũ, xây dựng xã hội mới.",
+        "C": "Chỉ cần tập trung cải tạo tư tưởng, văn hóa lạc hậu.",
+        "D": "Tiến hành đấu tranh giai cấp để tiêu diệt giai cấp bóc lột."
+      },
+      "correct_answer": "B",
+      "explanation": "Hồ Chí Minh cho rằng, thời kỳ quá độ là một cuộc đấu tranh cách mạng phức tạp, bao gồm hai nội dung lớn: một là, xây dựng cơ sở vật chất - kỹ thuật cho CNXH; hai là, cải tạo xã hội cũ và xây dựng các thành phần của xã hội mới trên mọi lĩnh vực từ kinh tế, chính trị đến văn hóa, xã hội."
+    },
+    {
+      "id": "q8",
+      "question": "Trong lĩnh vực kinh tế của thời kỳ quá độ, Hồ Chí Minh nhấn mạnh việc phải xây dựng cơ cấu kinh tế nào?",
+      "options": {
+        "A": "Cơ cấu kinh tế thuần nông.",
+        "B": "Cơ cấu kinh tế chỉ dựa vào công nghiệp nặng.",
+        "C": "Cơ cấu công - nông nghiệp hợp lý.",
+        "D": "Cơ cấu kinh tế chỉ dựa vào thương mại và dịch vụ."
+      },
+      "correct_answer": "C",
+      "explanation": "Người cho rằng, nền kinh tế xã hội chủ nghĩa phải có công nghiệp và nông nghiệp hiện đại. Người nhấn mạnh việc phải xây dựng một cơ cấu công - nông nghiệp hợp lý, coi công nghiệp và nông nghiệp là hai chân của nền kinh tế, hỗ trợ lẫn nhau để cùng phát triển."
+    },
+    {
+      "id": "q9",
+      "question": "Luận điểm: 'Chủ nghĩa xã hội là làm cho dân giàu, nước mạnh' thể hiện cách tiếp cận nào của Hồ Chí Minh về chủ nghĩa xã hội?",
+      "options": {
+        "A": "Tiếp cận từ góc độ triết học.",
+        "B": "Tiếp cận từ góc độ kinh tế chính trị học.",
+        "C": "Tiếp cận từ phương diện đạo đức, hướng tới con người.",
+        "D": "Tiếp cận từ chủ nghĩa xã hội không tưởng."
+      },
+      "correct_answer": "C",
+      "explanation": "Luận điểm này thể hiện rõ cách tiếp cận của Hồ Chí Minh từ mục tiêu, từ phương diện đạo đức, vì con người. Người định nghĩa CNXH một cách giản dị, dễ hiểu, lấy việc giải phóng con người, mang lại ấm no, tự do, hạnh phúc cho nhân dân làm mục tiêu cao nhất."
+    },
+    {
+      "id": "q10",
+      "question": "Mối quan hệ giữa 'xây' và 'chống' trong quá trình xây dựng chủ nghĩa xã hội được Hồ Chí Minh xác định như thế nào?",
+      "options": {
+        "A": "'Chống' là chính, 'xây' là phụ.",
+        "B": "'Xây' và 'chống' đều quan trọng như nhau.",
+        "C": "Phải 'chống' xong rồi mới 'xây'.",
+        "D": "'Xây' đi đôi với 'chống', lấy 'xây' làm chính."
+      },
+      "correct_answer": "D",
+      "explanation": "Hồ Chí Minh chỉ rõ, trong thời kỳ quá độ, phải kết hợp cả 'xây' (xây dựng những cái mới, tiến bộ) và 'chống' (chống lại những cái cũ, lạc hậu, tiêu cực). Tuy nhiên, Người nhấn mạnh phải lấy 'xây' làm nội dung chủ yếu, lâu dài. Xây dựng thành công xã hội mới chính là biện pháp tốt nhất để chống lại cái cũ."
+    }
+  ],
+  "title": "Bài kiểm tra Chương III",
+  "chapter": "Chương III",
+  "difficulty": "medium",
+  "num_questions": 10,
+  "id": "dbde5865-e7ea-4b1b-b1e8-31d67a5a31dd",
+  "created_at": "2025-10-05T17:53:22.161493"
+}

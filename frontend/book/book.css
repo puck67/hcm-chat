@@ -1,0 +1,32 @@
+:root{--bg:#fff;--fg:#1d1d1f;--muted:#666;--border:#e5e7eb;--accent:#0ea5e9}
+*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,Noto Sans,sans-serif;line-height:1.6}
+.book-header{position:sticky;top:0;z-index:10;background:#fafafa;border-bottom:1px solid var(--border)}
+.book-header__inner{max-width:1200px;margin:0 auto;padding:14px 20px;display:flex;align-items:baseline;gap:12px}
+.book-title{font-size:22px;margin:0}
+.book-subtitle{font-size:14px;color:var(--muted)}
+.book-layout{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:20px;padding:20px}
+.book-toc{border-right:1px solid var(--border);padding-right:16px}
+.toc-title{font-weight:600;margin-bottom:10px}
+.toc-list{display:flex;flex-direction:column;gap:6px}
+.toc-item{padding:6px 8px;border-radius:8px;cursor:pointer;color:var(--fg);text-decoration:none;border:1px solid transparent}
+.toc-item:hover{background:#f5f5f5;border-color:var(--border)}
+.toc-item.active{background:#eef8ff;border-color:#cbe8ff;color:#0b74c1}
+.book-content{min-height:70vh}
+.book-content__page{padding:0 4px}
+.page-skeleton{display:grid;gap:10px}
+.page-skeleton .line{height:14px;background:#f2f3f5;border-radius:6px}
+.page-skeleton .line.w60{width:60%}
+.page-skeleton .line.w70{width:70%}
+.page-skeleton .line.w75{width:75%}
+.page-skeleton .line.w85{width:85%}
+.page-skeleton .line.w90{width:90%}
+.book-footer{border-top:1px solid var(--border);background:#fafafa}
+.book-footer__inner{max-width:1200px;margin:0 auto;padding:10px 20px;color:var(--muted);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.markdown{max-width:720px}
+.markdown h1{font-size:24px;margin-top:16px}
+.markdown h2{font-size:20px;margin-top:18px}
+.markdown p{margin:10px 0}
+blockquote{margin:10px 0;padding:8px 12px;background:#f8fafc;border-left:3px solid var(--accent);border-radius:6px}
+code,pre{background:#0b1020;color:#e6edf3;border-radius:6px}
+pre{padding:14px;overflow:auto}
+@media (max-width:980px){.book-layout{grid-template-columns:1fr}.book-toc{border-right:none;border-bottom:1px solid var(--border);padding-bottom:12px}.book-footer__inner{justify-content:flex-start}}

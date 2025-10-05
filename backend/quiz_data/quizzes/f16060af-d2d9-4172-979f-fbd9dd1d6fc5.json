@@ -1,0 +1,70 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Theo tư tưởng Hồ Chí Minh, nền tảng của khối đại đoàn kết toàn dân tộc là gì?",
+      "options": {
+        "A": "Liên minh giữa giai cấp công nhân với giai cấp nông dân và đội ngũ trí thức.",
+        "B": "Tất cả các giai cấp, tầng lớp trong xã hội không phân biệt.",
+        "C": "Sự đoàn kết của các đảng phái chính trị yêu nước.",
+        "D": "Lực lượng vũ trang nhân dân bao gồm quân đội và công an."
+      },
+      "correct_answer": "A",
+      "explanation": "Hồ Chí Minh khẳng định, khối đại đoàn kết toàn dân tộc phải được xây dựng trên nền tảng vững chắc là liên minh công - nông - trí thức, do Đảng Cộng sản lãnh đạo. Đây là lực lượng nòng cốt, đảm bảo tính bền vững và định hướng cách mạng cho khối đại đoàn kết."
+    },
+    {
+      "id": "q2",
+      "question": "Nguyên tắc cốt lõi để xây dựng và củng cố khối đại đoàn kết toàn dân tộc trong tư tưởng Hồ Chí Minh là gì?",
+      "options": {
+        "A": "Đặt lợi ích của giai cấp công nhân lên trên hết.",
+        "B": "Chỉ đoàn kết những lực lượng trung thành tuyệt đối với Đảng.",
+        "C": "Lấy lợi ích tối cao của dân tộc làm điểm tương đồng, xóa bỏ mọi thành kiến.",
+        "D": "Dùng mệnh lệnh hành chính để tập hợp lực lượng."
+      },
+      "correct_answer": "C",
+      "explanation": "Hồ Chí Minh cho rằng để đoàn kết mọi người cần tìm ra \"mẫu số chung\". Mẫu số chung đó chính là lợi ích tối cao của dân tộc, là độc lập, tự do cho Tổ quốc. Từ đó, có thể \"cầu đồng tồn dị\" (tìm điểm chung, chấp nhận điểm khác biệt) để đoàn kết rộng rãi nhất các lực lượng yêu nước."
+    },
+    {
+      "id": "q3",
+      "question": "Theo Hồ Chí Minh, sức mạnh dân tộc cần phải kết hợp chặt chẽ với sức mạnh nào để đưa cách mạng đến thắng lợi toàn diện?",
+      "options": {
+        "A": "Sức mạnh thời đại.",
+        "B": "Sức mạnh quân sự của các nước đồng minh.",
+        "C": "Sức mạnh kinh tế của các tập đoàn tư bản.",
+        "D": "Sức mạnh của các tổ chức quốc tế phi chính phủ."
+      },
+      "correct_answer": "A",
+      "explanation": "Tư tưởng Hồ Chí Minh về đoàn kết quốc tế nhấn mạnh sự kết hợp nhuần nhuyễn giữa sức mạnh dân tộc và sức mạnh thời đại. Sức mạnh thời đại bao gồm sức mạnh của phong trào cộng sản và công nhân quốc tế, phong trào giải phóng dân tộc, và các lực lượng hòa bình, dân chủ trên thế giới."
+    },
+    {
+      "id": "q4",
+      "question": "Hình thức tổ chức tiêu biểu nhất của khối đại đoàn kết toàn dân tộc dưới sự lãnh đạo của Đảng, theo tư tưởng Hồ Chí Minh là gì?",
+      "options": {
+        "A": "Quốc hội.",
+        "B": "Mặt trận Dân tộc Thống nhất.",
+        "C": "Chính phủ.",
+        "D": "Các đoàn thể quần chúng (Công đoàn, Đoàn Thanh niên...)."
+      },
+      "correct_answer": "B",
+      "explanation": "Mặt trận Dân tộc Thống nhất là hình thức tổ chức rộng rãi nhất, là nơi quy tụ mọi tầng lớp nhân dân, giai cấp, dân tộc, tôn giáo, người Việt Nam ở nước ngoài... có lòng yêu nước, nhằm thực hiện mục tiêu chung của cách mạng dưới sự lãnh đạo của Đảng."
+    },
+    {
+      "id": "q5",
+      "question": "Luận điểm nào sau đây thể hiện đúng nhất vai trò của Đảng Cộng sản trong khối đại đoàn kết toàn dân tộc theo tư tưởng Hồ Chí Minh?",
+      "options": {
+        "A": "Đảng đứng ngoài và chỉ đạo Mặt trận từ xa.",
+        "B": "Đảng và Mặt trận là hai tổ chức độc lập, hợp tác bình đẳng.",
+        "C": "Mặt trận lãnh đạo Đảng trong việc tập hợp quần chúng.",
+        "D": "Đảng vừa là thành viên, vừa là lực lượng lãnh đạo Mặt trận."
+      },
+      "correct_answer": "D",
+      "explanation": "Theo tư tưởng Hồ Chí Minh, Đảng Cộng sản là một bộ phận, một thành viên của Mặt trận. Đồng thời, với vai trò là đội tiên phong của giai cấp công nhân và toàn dân tộc, Đảng là lực lượng lãnh đạo, là hạt nhân của khối đại đoàn kết. Mối quan hệ này đảm bảo khối đại đoàn kết đi đúng hướng và phát huy được sức mạnh to lớn."
+    }
+  ],
+  "title": "Bài kiểm tra Chương V",
+  "chapter": "Chương V",
+  "difficulty": "medium",
+  "num_questions": 5,
+  "id": "f16060af-d2d9-4172-979f-fbd9dd1d6fc5",
+  "created_at": "2025-10-05T17:49:49.870678"
+}

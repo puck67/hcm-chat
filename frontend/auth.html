@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCM Chatbot - Đăng nhập</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="global-styles.css">
+    <style>
+        /* Auth page specific styles */
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-lg);
+        }
+
+        .auth-layout {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .auth-container {
+            background: rgba(15, 15, 25, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            padding: calc(var(--spacing-xl) * 1.5);
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .logo {
+            width: 90px;
+            height: 90px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            margin: 0 auto var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            box-shadow: var(--shadow-medium);
+            animation: pulse 3s infinite;
+        }
+
+        h1 {
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: var(--spacing-xl);
+            font-size: var(--font-size-base);
+            opacity: 0.9;
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: var(--spacing-xl);
+            border-radius: var(--radius-md);
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: var(--spacing-xs);
+        }
+
+        .tab {
+            flex: 1;
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: transparent;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            font-weight: 500;
+            color: var(--text-primary);
+            font-family: var(--font-family);
+        }
+
+        .tab.active {
+            background: var(--gradient-primary);
+            color: var(--text-primary);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: var(--font-size-sm);
+        }
+
+        input {
+            width: 100%;
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: rgba(30, 30, 45, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-base);
+            font-family: var(--font-family);
+            color: var(--text-primary);
+            transition: all var(--transition-normal);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #5865F2;
+            background: rgba(40, 40, 60, 0.8);
+            box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.2);
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: var(--spacing-lg) var(--spacing-xl);
+            background: linear-gradient(135deg, #5865F2, #4752C4);
+            color: var(--text-primary);
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            font-family: var(--font-family);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            margin-top: var(--spacing-md);
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left var(--transition-slow);
+        }
+
+        .auth-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.6);
+            background: linear-gradient(135deg, #6875F8, #5865F2);
+        }
+
+        .auth-btn:hover:before {
+            left: 100%;
+        }
+
+        .auth-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .error-message {
+            background: rgba(244, 67, 54, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #d32f2f;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(244, 67, 54, 0.3);
+            margin-bottom: var(--spacing-lg);
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .success-message {
+            background: #e8f5e8;
+            color: #2e7d32;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        /* Visual side - hidden */
+        .auth-visual {
+            display: none;
+        }
+
+        .loading {
+            display: none;
+            margin: 20px 0;
+        }
+
+        .spinner {
+            width: 30px;
+            height: 30px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #da020e;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .flag-decoration {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+        }
+
+        .quote {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid #5865F2;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 480px) {
+            .auth-layout {
+                max-width: 100%;
+                padding: 0 var(--spacing-md);
+            }
+
+            .auth-container {
+                padding: var(--spacing-xl) var(--spacing-lg);
+            }
+
+            .flag-decoration {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flag-decoration">🇻🇳</div>
+
+    <div class="auth-layout">
+      <div class="auth-container">
+        <div class="logo">
+            <i class="fas fa-user-tie"></i>
+        </div>
+
+        <h1>HCM Chatbot</h1>
+        <p class="subtitle">Tìm hiểu tư tưởng Hồ Chí Minh</p>
+
+        <div class="auth-tabs">
+            <button class="tab active" onclick="switchTab('login')">Đăng nhập</button>
+            <button class="tab" onclick="switchTab('register')">Đăng ký</button>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+
+        <!-- Login Form -->
+        <form id="loginForm" style="display: block;">
+            <div class="form-group">
+                <label for="loginUsername">Tên đăng nhập</label>
+                <input type="text" id="loginUsername" required>
+            </div>
+
+            <div class="form-group">
+                <label for="loginPassword">Mật khẩu</label>
+                <input type="password" id="loginPassword" required>
+            </div>
+
+            <button type="submit" class="auth-btn" id="loginBtn">
+                <i class="fas fa-sign-in-alt"></i> Đăng nhập
+            </button>
+        </form>
+
+        <!-- Register Form -->
+        <form id="registerForm" style="display: none;">
+            <div class="form-group">
+                <label for="registerUsername">Tên đăng nhập</label>
+                <input type="text" id="registerUsername" required>
+            </div>
+
+            <div class="form-group">
+                <label for="registerEmail">Email</label>
+                <input type="email" id="registerEmail" required>
+            </div>
+
+            <div class="form-group">
+                <label for="registerFullName">Họ và tên</label>
+                <input type="text" id="registerFullName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="registerPassword">Mật khẩu</label>
+                <input type="password" id="registerPassword" required>
+            </div>
+
+            <button type="submit" class="auth-btn" id="registerBtn">
+                <i class="fas fa-user-plus"></i> Đăng ký
+            </button>
+        </form>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Đang xử lý...</p>
+        </div>
+
+        <div class="quote">
+            <p>"Không có gì quý hơn độc lập tự do"</p>
+            <small>- Chủ tịch Hồ Chí Minh</small>
+        </div>
+      </div>
+
+      <aside class="auth-visual">
+        <div class="visual-content">
+            <h2>Chào mừng trở lại</h2>
+            <p>Đăng nhập để tiếp tục trò chuyện, tạo quiz, xem lịch sử và khám phá kho tri thức về tư tưởng Hồ Chí Minh.</p>
+        </div>
+      </aside>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:5000/api';
+
+        // Switch between login and register tabs
+        function switchTab(tab) {
+            const tabs = document.querySelectorAll('.tab');
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+
+            tabs.forEach(t => t.classList.remove('active'));
+
+            if (tab === 'login') {
+                document.querySelector('.tab:first-child').classList.add('active');
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+            } else {
+                document.querySelector('.tab:last-child').classList.add('active');
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+            }
+
+            clearMessages();
+        }
+
+        // Clear error/success messages
+        function clearMessages() {
+            document.getElementById('errorMessage').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'none';
+        }
+
+        // Show error message
+        function showError(message) {
+            const errorEl = document.getElementById('errorMessage');
+            errorEl.textContent = message;
+            errorEl.style.display = 'block';
+            document.getElementById('successMessage').style.display = 'none';
+        }
+
+        // Show success message
+        function showSuccess(message) {
+            const successEl = document.getElementById('successMessage');
+            successEl.textContent = message;
+            successEl.style.display = 'block';
+            document.getElementById('errorMessage').style.display = 'none';
+        }
+
+        // Show/hide loading
+        function setLoading(show) {
+            document.getElementById('loading').style.display = show ? 'block' : 'none';
+            document.getElementById('loginBtn').disabled = show;
+            document.getElementById('registerBtn').disabled = show;
+        }
+
+        // Login form handler
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearMessages();
+            setLoading(true);
+
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            try {
+                const response = await fetch(`${API_BASE}/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    // Save token and user info
+                    localStorage.setItem('token', data.data.token);
+                    localStorage.setItem('user', JSON.stringify(data.data.user));
+
+                    showSuccess('Đăng nhập thành công! Đang chuyển hướng...');
+
+                    // Redirect based on user role
+                    setTimeout(() => {
+                        if (data.data.user.role === 'admin') {
+                            window.location.href = 'admin.html';
+                        } else {
+                            window.location.href = 'chat.html';
+                        }
+                    }, 1500);
+                } else {
+                    showError(data.message || 'Đăng nhập thất bại');
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                showError('Lỗi kết nối. Vui lòng thử lại.');
+            } finally {
+                setLoading(false);
+            }
+        });
+
+        // Register form handler
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearMessages();
+            setLoading(true);
+
+            const username = document.getElementById('registerUsername').value;
+            const email = document.getElementById('registerEmail').value;
+            const fullName = document.getElementById('registerFullName').value;
+            const password = document.getElementById('registerPassword').value;
+
+            try {
+                const response = await fetch(`${API_BASE}/auth/register`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username,
+                        email,
+                        password,
+                        fullName
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    showSuccess('Đăng ký thành công! Vui lòng đăng nhập.');
+
+                    // Switch to login tab after successful registration
+                    setTimeout(() => {
+                        switchTab('login');
+                        document.getElementById('loginUsername').value = username;
+                    }, 1500);
+                } else {
+                    showError(data.message || 'Đăng ký thất bại');
+                }
+            } catch (error) {
+                console.error('Register error:', error);
+                showError('Lỗi kết nối. Vui lòng thử lại.');
+            } finally {
+                setLoading(false);
+            }
+        });
+
+        // Check if user is already logged in
+        window.addEventListener('load', () => {
+            const token = localStorage.getItem('token');
+            if (token) {
+                // Verify token validity
+                fetch(`${API_BASE}/auth/me`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.href = 'chat.html';
+                    } else {
+                        // Token invalid, clear storage
+                        localStorage.removeItem('token');
+                        localStorage.removeItem('user');
+                    }
+                })
+                .catch(() => {
+                    // Network error, stay on auth page
+                });
+            }
+        });
+    </script>
+</body>
+</html>

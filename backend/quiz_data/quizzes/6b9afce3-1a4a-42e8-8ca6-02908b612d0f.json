@@ -1,0 +1,130 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Theo tư tưởng Hồ Chí Minh, đặc điểm lớn nhất, bao trùm nhất của thời kỳ quá độ lên chủ nghĩa xã hội ở Việt Nam là gì?",
+      "options": {
+        "A": "Từ một nước nông nghiệp lạc hậu, tiến thẳng lên chủ nghĩa xã hội không kinh qua giai đoạn phát triển tư bản chủ nghĩa.",
+        "B": "Tồn tại đan xen nhiều hình thức sở hữu và nhiều thành phần kinh tế.",
+        "C": "Đấu tranh giai cấp diễn ra gay gắt giữa các lực lượng đi theo con đường xã hội chủ nghĩa và các thế lực chống phá.",
+        "D": "Nền kinh tế phát triển ở trình độ thấp và chịu hậu quả nặng nề của chiến tranh."
+      },
+      "correct_answer": "A",
+      "explanation": "Đây là đặc điểm bao trùm, chi phối toàn bộ quá trình đi lên chủ nghĩa xã hội ở Việt Nam, quyết định nội dung, hình thức và bước đi của cách mạng. Các đặc điểm khác đều xuất phát từ đặc điểm cơ bản này."
+    },
+    {
+      "id": "q2",
+      "question": "Theo Hồ Chí Minh, mục tiêu cao nhất của chủ nghĩa xã hội là gì?",
+      "options": {
+        "A": "Xây dựng nền kinh tế công nghiệp hiện đại.",
+        "B": "Xóa bỏ hoàn toàn chế độ tư hữu về tư liệu sản xuất.",
+        "C": "Không ngừng nâng cao đời sống vật chất và tinh thần của nhân dân.",
+        "D": "Xây dựng một chế độ chính trị vững mạnh do Đảng Cộng sản lãnh đạo."
+      },
+      "correct_answer": "C",
+      "explanation": "Hồ Chí Minh luôn nhấn mạnh rằng mọi mục tiêu về kinh tế, chính trị, xã hội đều nhằm phục vụ con người. Mục tiêu cuối cùng và cao nhất của chủ nghĩa xã hội là giải phóng con người, làm cho mọi người được ấm no, tự do, hạnh phúc."
+    },
+    {
+      "id": "q3",
+      "question": "Hồ Chí Minh coi động lực nào là quan trọng và quyết định nhất trong công cuộc xây dựng chủ nghĩa xã hội?",
+      "options": {
+        "A": "Sự giúp đỡ của các nước xã hội chủ nghĩa anh em.",
+        "B": "Nguồn vốn và khoa học kỹ thuật tiên tiến.",
+        "C": "Con người và sức mạnh đoàn kết của toàn dân tộc.",
+        "D": "Vai trò quản lý, điều hành của nhà nước."
+      },
+      "correct_answer": "C",
+      "explanation": "Hồ Chí Minh cho rằng “muốn xây dựng chủ nghĩa xã hội, trước hết cần có những con người xã hội chủ nghĩa”. Người luôn đề cao vai trò của nhân tố con người, coi đây là vốn quý nhất, là động lực quyết định sự thành công của sự nghiệp cách mạng."
+    },
+    {
+      "id": "q4",
+      "question": "Nguyên tắc phương pháp luận quan trọng mà Hồ Chí Minh nêu ra trong quá trình xây dựng chủ nghĩa xã hội là gì?",
+      "options": {
+        "A": "Xây đi đôi với chống.",
+        "B": "Ưu tiên phát triển công nghiệp nặng.",
+        "C": "Lấy cải tạo quan hệ sản xuất làm trung tâm.",
+        "D": "Phải tiến hành nhanh, mạnh, dứt điểm."
+      },
+      "correct_answer": "A",
+      "explanation": "Nguyên tắc “Xây đi đôi với chống” thể hiện tính biện chứng. “Xây” là xây dựng cái mới, cái tiến bộ (kinh tế, văn hóa, con người mới...). “Chống” là chống lại cái cũ, cái lạc hậu, tiêu cực (đói nghèo, dốt nát, tham ô, lãng phí...). Hai mặt này phải tiến hành đồng thời và gắn bó chặt chẽ với nhau."
+    },
+    {
+      "id": "q5",
+      "question": "Về bước đi trong thời kỳ quá độ, Hồ Chí Minh đã đưa ra lời cảnh báo nào?",
+      "options": {
+        "A": "Phải học tập y nguyên mô hình của các nước đi trước.",
+        "B": "Phải thực hiện công nghiệp hóa trong thời gian ngắn nhất.",
+        "C": "Không được chủ quan, nóng vội, giáo điều, phải làm dần dần, từng bước vững chắc.",
+        "D": "Phải ưu tiên cải tạo xã hội chủ nghĩa trước khi bắt tay vào xây dựng."
+      },
+      "correct_answer": "C",
+      "explanation": "Xuất phát từ thực tiễn một nước nông nghiệp lạc hậu, Hồ Chí Minh luôn nhấn mạnh đây là một sự nghiệp lâu dài, khó khăn và phức tạp. Người cảnh báo phải tránh các căn bệnh chủ quan, duy ý chí, nóng vội đốt cháy giai đoạn, cũng như giáo điều, rập khuôn máy móc mô hình nước ngoài."
+    },
+    {
+      "id": "q6",
+      "question": "Trong lĩnh vực kinh tế của thời kỳ quá độ, Hồ Chí Minh chủ trương điều gì?",
+      "options": {
+        "A": "Chỉ tồn tại hai hình thức sở hữu là toàn dân và tập thể.",
+        "B": "Phát triển một nền kinh tế nhiều thành phần, trong đó kinh tế quốc doanh giữ vai trò chủ đạo.",
+        "C": "Xóa bỏ ngay lập tức thành phần kinh tế tư bản tư nhân.",
+        "D": "Tập trung mọi nguồn lực cho công nghiệp quốc phòng."
+      },
+      "correct_answer": "B",
+      "explanation": "Hồ Chí Minh cho rằng, trong thời kỳ quá độ, việc tồn tại một nền kinh tế nhiều thành phần là một tất yếu khách quan. Cần phải sử dụng tất cả các thành phần kinh tế, trong đó kinh tế quốc doanh phải đóng vai trò chủ đạo, dẫn dắt để định hướng đi lên chủ nghĩa xã hội."
+    },
+    {
+      "id": "q7",
+      "question": "Theo tư tưởng Hồ Chí Minh, nhiệm vụ lịch sử của thời kỳ quá độ trên lĩnh vực chính trị là gì?",
+      "options": {
+        "A": "Tập trung xây dựng quân đội chính quy, hiện đại.",
+        "B": "Xây dựng và củng cố nhà nước chuyên chính vô sản, nhà nước của dân, do dân, vì dân.",
+        "C": "Mở rộng quan hệ đối ngoại với tất cả các nước trên thế giới.",
+        "D": "Xóa bỏ hoàn toàn đấu tranh giai cấp trong xã hội."
+      },
+      "correct_answer": "B",
+      "explanation": "Nhiệm vụ trọng tâm về chính trị là phải giữ vững và phát huy vai trò lãnh đạo của Đảng, củng cố nhà nước chuyên chính vô sản - công cụ mạnh mẽ để nhân dân thực hiện quyền làm chủ và xây dựng xã hội mới."
+    },
+    {
+      "id": "q8",
+      "question": "Quan điểm của Hồ Chí Minh về mối quan hệ giữa cách mạng xã hội chủ nghĩa ở miền Bắc và cách mạng dân tộc dân chủ nhân dân ở miền Nam là gì?",
+      "options": {
+        "A": "Hai nhiệm vụ cách mạng này hoàn toàn độc lập với nhau.",
+        "B": "Ưu tiên hoàn thành cách mạng ở miền Nam rồi mới xây dựng chủ nghĩa xã hội ở miền Bắc.",
+        "C": "Miền Bắc là hậu phương lớn, có vai trò quyết định nhất đối với sự nghiệp giải phóng miền Nam.",
+        "D": "Miền Nam là tiền tuyến lớn, có vai trò quyết định trực tiếp đối với sự nghiệp giải phóng dân tộc."
+      },
+      "correct_answer": "C",
+      "explanation": "Mặc dù miền Nam có vai trò quyết định trực tiếp, nhưng Hồ Chí Minh khẳng định miền Bắc là gốc rễ, là nền tảng. Xây dựng miền Bắc vững mạnh thành hậu phương lớn là nhân tố có vai trò quyết định nhất để đảm bảo thắng lợi cuối cùng cho sự nghiệp giải phóng miền Nam, thống nhất đất nước."
+    },
+    {
+      "id": "q9",
+      "question": "Trong lĩnh vực văn hóa - xã hội, nhiệm vụ trung tâm của thời kỳ quá độ theo Hồ Chí Minh là gì?",
+      "options": {
+        "A": "Phát triển hệ thống giáo dục và y tế hiện đại.",
+        "B": "Xây dựng con người mới xã hội chủ nghĩa vừa “hồng” vừa “chuyên”.",
+        "C": "Bài trừ triệt để các hủ tục, mê tín dị đoan.",
+        "D": "Tiếp thu có chọn lọc tinh hoa văn hóa nhân loại."
+      },
+      "correct_answer": "B",
+      "explanation": "Hồ Chí Minh coi con người là mục tiêu và động lực của cách mạng. Do đó, nhiệm vụ trung tâm của cách mạng văn hóa - xã hội là phải đào tạo, xây dựng nên những con người mới có đạo đức cách mạng (hồng) và có năng lực, trình độ chuyên môn (chuyên) để làm chủ xã hội mới."
+    },
+    {
+      "id": "q10",
+      "question": "Mâu thuẫn cơ bản, chủ yếu nhất trong lòng xã hội Việt Nam thời kỳ quá độ được Hồ Chí Minh xác định là gì?",
+      "options": {
+        "A": "Mâu thuẫn giữa giai cấp công nhân và giai cấp tư sản dân tộc.",
+        "B": "Mâu thuẫn giữa phe xã hội chủ nghĩa và phe đế quốc chủ nghĩa.",
+        "C": "Mâu thuẫn giữa yêu cầu phát triển cao của đất nước với thực trạng kinh tế - xã hội còn lạc hậu.",
+        "D": "Mâu thuẫn giữa lực lượng sản xuất và quan hệ sản xuất."
+      },
+      "correct_answer": "C",
+      "explanation": "Đây là mâu thuẫn bao trùm, thể hiện rõ nhất đặc điểm của thời kỳ quá độ ở Việt Nam. Nó phản ánh cuộc đấu tranh giữa con đường đi lên chủ nghĩa xã hội và con đường tư bản chủ nghĩa, giữa cái mới và cái cũ, cái tiến bộ và cái lạc hậu để giải quyết vấn đề “ai thắng ai”."
+    }
+  ],
+  "title": "Bài kiểm tra Chương III",
+  "chapter": "Chương III",
+  "difficulty": "medium",
+  "num_questions": 10,
+  "id": "6b9afce3-1a4a-42e8-8ca6-02908b612d0f",
+  "created_at": "2025-10-05T17:28:09.748515"
+}
