@@ -1,0 +1,9 @@
+# Vercel ignore file
+node_modules
+.env.example
+logs
+*.log
+.DS_Store
+.vscode
+.git
+README.md
