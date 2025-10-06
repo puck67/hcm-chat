@@ -126,3 +126,7 @@ D:\chat\hcm-chat\dotnet-api\hcm-chatbot-api\Web_API\obj\Debug\net8.0\refint\Web_
 D:\chat\hcm-chat\dotnet-api\hcm-chatbot-api\Web_API\obj\Debug\net8.0\Web_API.pdb
 D:\chat\hcm-chat\dotnet-api\hcm-chatbot-api\Web_API\obj\Debug\net8.0\Web_API.genruntimeconfig.cache
 D:\chat\hcm-chat\dotnet-api\hcm-chatbot-api\Web_API\obj\Debug\net8.0\ref\Web_API.dll
+D:\chat\hcm-chat\dotnet-api\hcm-chatbot-api\Web_API\bin\Debug\net8.0\System.IO.Pipelines.dll
+D:\chat\hcm-chat\dotnet-api\hcm-chatbot-api\Web_API\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+D:\chat\hcm-chat\dotnet-api\hcm-chatbot-api\Web_API\bin\Debug\net8.0\System.Text.Json.dll
+D:\chat\hcm-chat\dotnet-api\hcm-chatbot-api\Web_API\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
