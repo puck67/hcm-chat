@@ -677,27 +677,6 @@ class HCMChatApp {
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 60000); // 60 seconds timeout
 
-            // ===== BƯỚC 3a: TẠO CONVERSATION NẾU CHƯA CÓ =====
-            let conversationId = this.currentConversationId;
-            
-            if (!conversationId) {
-                // Tạo conversation mới
-                const newConvResponse = await this.fetchWithAuth('/conversations', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ title: message.substring(0, 50) + '...' })
-                });
-                
-                if (newConvResponse.ok) {
-                    const convData = await newConvResponse.json();
-                    conversationId = convData.conversation.id;
-                    this.currentConversationId = conversationId;
-                    await this.loadConversations(); // Refresh conversation list
-                } else {
-                    throw new Error('Không thể tạo cuộc trò chuyện mới');
-                }
-            }
-
             // Gọi Node.js API với authentication
             const response = await this.fetchWithAuth('/messages', {
                 method: 'POST',
@@ -705,8 +684,8 @@ class HCMChatApp {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    content: message,
-                    conversationId: conversationId
+                    message: message,
+                    conversationId: this.currentConversationId // null nếu cuộc trò chuyện mới
                 }),
                 signal: controller.signal // Cho phép timeout
             });

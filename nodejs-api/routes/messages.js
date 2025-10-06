@@ -13,9 +13,10 @@ const router = express.Router();
 // ===== SEND MESSAGE (with AI Response) =====
 router.post('/', [
     body('conversationId')
+        .optional()
         .isInt({ min: 1 })
         .withMessage('Valid conversation ID is required'),
-    body('content')
+    body(['content', 'message'])
         .notEmpty()
         .isLength({ min: 1, max: 10000 })
         .withMessage('Message content must be between 1 and 10000 characters'),
@@ -34,19 +35,38 @@ router.post('/', [
             });
         }
 
-        const { conversationId, content, messageType = 'user' } = req.body;
+        let { conversationId, content, message, messageType = 'user' } = req.body;
+        
+        // Accept both 'content' and 'message' field names
+        const messageContent = content || message;
 
-        // Check if conversation exists and belongs to user
-        const conversationCheck = await Database.query(
-            'SELECT id, title FROM conversations WHERE id = $1 AND user_id = $2 AND is_active = true',
-            [conversationId, req.user.id]
-        );
-
-        if (conversationCheck.rows.length === 0) {
-            return res.status(404).json({
-                success: false,
-                message: 'Conversation not found'
+        // Auto-create conversation if not provided
+        if (!conversationId) {
+            const newConvResult = await Database.query(`
+                INSERT INTO conversations (user_id, title) 
+                VALUES ($1, $2) 
+                RETURNING *
+            `, [req.user.id, messageContent.substring(0, 50) + '...']);
+            
+            conversationId = newConvResult.rows[0].id;
+            
+            await logActivity(req.user.id, 'CONVERSATION_CREATED', { 
+                conversationId,
+                title: messageContent.substring(0, 50) + '...'
             });
+        } else {
+            // Check if conversation exists and belongs to user
+            const conversationCheck = await Database.query(
+                'SELECT id, title FROM conversations WHERE id = $1 AND user_id = $2 AND is_active = true',
+                [conversationId, req.user.id]
+            );
+
+            if (conversationCheck.rows.length === 0) {
+                return res.status(404).json({
+                    success: false,
+                    message: 'Conversation not found'
+                });
+            }
         }
 
         // Save user message
@@ -54,7 +74,7 @@ router.post('/', [
             INSERT INTO messages (conversation_id, user_id, content, message_type) 
             VALUES ($1, $2, $3, $4) 
             RETURNING *
-        `, [conversationId, req.user.id, content, messageType]);
+        `, [conversationId, req.user.id, messageContent, messageType]);
 
         const userMessage = messageResult.rows[0];
 
@@ -70,7 +90,7 @@ router.post('/', [
 
         if (messageType === 'user') {
             try {
-                aiResponse = await getAIResponse(content, conversationId);
+                aiResponse = await getAIResponse(messageContent, conversationId);
                 
                 if (aiResponse) {
                     // Save AI response as a separate message
