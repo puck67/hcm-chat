@@ -54,8 +54,15 @@ class Database {
     // Initialize database tables if they don't exist
     static async initializeTables() {
         try {
+            // Drop all existing tables to ensure clean schema
+            await this.query(`DROP TABLE IF EXISTS activity_logs CASCADE`);
+            await this.query(`DROP TABLE IF EXISTS messages CASCADE`);
+            await this.query(`DROP TABLE IF EXISTS conversations CASCADE`);
+            await this.query(`DROP TABLE IF EXISTS users CASCADE`);
+            logger.info('🔄 Dropped all existing tables for clean recreation');
+
             await this.query(`
-                CREATE TABLE IF NOT EXISTS users (
+                CREATE TABLE users (
                     id SERIAL PRIMARY KEY,
                     username VARCHAR(50) UNIQUE NOT NULL,
                     email VARCHAR(100) UNIQUE NOT NULL,
@@ -69,7 +76,7 @@ class Database {
             `);
 
             await this.query(`
-                CREATE TABLE IF NOT EXISTS conversations (
+                CREATE TABLE conversations (
                     id SERIAL PRIMARY KEY,
                     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
                     title VARCHAR(255),
@@ -80,7 +87,7 @@ class Database {
             `);
 
             await this.query(`
-                CREATE TABLE IF NOT EXISTS messages (
+                CREATE TABLE messages (
                     id SERIAL PRIMARY KEY,
                     conversation_id INTEGER REFERENCES conversations(id) ON DELETE CASCADE,
                     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
@@ -93,7 +100,7 @@ class Database {
             `);
 
             await this.query(`
-                CREATE TABLE IF NOT EXISTS activity_logs (
+                CREATE TABLE activity_logs (
                     id SERIAL PRIMARY KEY,
                     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
                     action VARCHAR(100) NOT NULL,
@@ -105,14 +112,12 @@ class Database {
             `);
 
             // Create indexes for better performance
-            await this.query(`
-                CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
-                CREATE INDEX IF NOT EXISTS idx_users_username ON users(username);
-                CREATE INDEX IF NOT EXISTS idx_conversations_user_id ON conversations(user_id);
-                CREATE INDEX IF NOT EXISTS idx_messages_conversation_id ON messages(conversation_id);
-                CREATE INDEX IF NOT EXISTS idx_messages_user_id ON messages(user_id);
-                CREATE INDEX IF NOT EXISTS idx_activity_logs_user_id ON activity_logs(user_id);
-            `);
+            await this.query(`CREATE INDEX IF NOT EXISTS idx_users_email ON users(email)`);
+            await this.query(`CREATE INDEX IF NOT EXISTS idx_users_username ON users(username)`);
+            await this.query(`CREATE INDEX IF NOT EXISTS idx_conversations_user_id ON conversations(user_id)`);
+            await this.query(`CREATE INDEX IF NOT EXISTS idx_messages_conversation_id ON messages(conversation_id)`);
+            await this.query(`CREATE INDEX IF NOT EXISTS idx_messages_user_id ON messages(user_id)`);
+            await this.query(`CREATE INDEX IF NOT EXISTS idx_activity_logs_user_id ON activity_logs(user_id)`);
 
             logger.info('✅ Database tables initialized successfully');
         } catch (error) {
