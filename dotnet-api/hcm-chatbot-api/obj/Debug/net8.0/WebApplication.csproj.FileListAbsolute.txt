@@ -1,0 +1,16 @@
+D:\chat\hochiminh-chatbot\dotnet-api\hcm-chatbot-api\obj\Debug\net8.0\WebApplication.csproj.AssemblyReference.cache
+D:\chat\hochiminh-chatbot\dotnet-api\hcm-chatbot-api\obj\Debug\net8.0\WebApplication.GeneratedMSBuildEditorConfig.editorconfig
+D:\chat\hochiminh-chatbot\dotnet-api\hcm-chatbot-api\obj\Debug\net8.0\WebApplication.AssemblyInfoInputs.cache
+D:\chat\hochiminh-chatbot\dotnet-api\hcm-chatbot-api\obj\Debug\net8.0\WebApplication.AssemblyInfo.cs
+D:\chat\hochiminh-chatbot\dotnet-api\hcm-chatbot-api\obj\Debug\net8.0\WebApplication.csproj.CoreCompileInputs.cache
+D:\chat\hochiminh-chatbot\dotnet-api\hcm-chatbot-api\obj\Debug\net8.0\WebApplication.MvcApplicationPartsAssemblyInfo.cs
+D:\chat\hochiminh-chatbot\dotnet-api\hcm-chatbot-api\obj\Debug\net8.0\WebApplication.MvcApplicationPartsAssemblyInfo.cache
+D:\chat\hochiminh-chatbot\dotnet-api\hcm-chatbot-api\obj\Debug\net8.0\WebApplication.sourcelink.json
+D:\chat\hcm-chat\dotnet-api\hcm-chatbot-api\obj\Debug\net8.0\WebApplication.csproj.AssemblyReference.cache
+D:\chat\hcm-chat\dotnet-api\hcm-chatbot-api\obj\Debug\net8.0\WebApplication.GeneratedMSBuildEditorConfig.editorconfig
+D:\chat\hcm-chat\dotnet-api\hcm-chatbot-api\obj\Debug\net8.0\WebApplication.AssemblyInfoInputs.cache
+D:\chat\hcm-chat\dotnet-api\hcm-chatbot-api\obj\Debug\net8.0\WebApplication.AssemblyInfo.cs
+D:\chat\hcm-chat\dotnet-api\hcm-chatbot-api\obj\Debug\net8.0\WebApplication.csproj.CoreCompileInputs.cache
+D:\chat\hcm-chat\dotnet-api\hcm-chatbot-api\obj\Debug\net8.0\WebApplication.MvcApplicationPartsAssemblyInfo.cs
+D:\chat\hcm-chat\dotnet-api\hcm-chatbot-api\obj\Debug\net8.0\WebApplication.MvcApplicationPartsAssemblyInfo.cache
+D:\chat\hcm-chat\dotnet-api\hcm-chatbot-api\obj\Debug\net8.0\WebApplication.sourcelink.json

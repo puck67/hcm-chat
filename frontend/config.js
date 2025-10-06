@@ -13,10 +13,10 @@ const API_CONFIG = {
         DOTNET_API: 'http://localhost:9000/api'
     },
     
-    // Production URLs (Render)
+    // Production URLs  
     production: {
-        PYTHON_AI_API: 'https://hcm-ai-backend-2024.onrender.com',
-        DOTNET_API: 'https://hcm-chatbot-dotnet-api.onrender.com/api'
+        PYTHON_AI_API: 'https://hcm-chat-2.onrender.com',
+        DOTNET_API: 'https://hcm-webapi-full.fly.dev/api'
     }
 };
 
