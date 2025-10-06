@@ -526,7 +526,7 @@
           }
         }
       },
-      "Npgsql/8.0.6": {
+      "Npgsql/8.0.5": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Logging.Abstractions": "8.0.0"
@@ -1727,10 +1727,10 @@
         "microsoft.openapi.nuspec"
       ]
     },
-    "Npgsql/8.0.6": {
-      "sha512": "KaS6CY5kY2Sd0P00MSeFcOI3t2DiQ4UWG8AuRpVOUeDWITOKfoEEG91DP3cmT6aerixPkjwKgXxnpDxIkDpO6g==",
+    "Npgsql/8.0.5": {
+      "sha512": "zRG5V8cyeZLpzJlKzFKjEwkRMYIYnHWJvEor2lWXeccS2E1G2nIWYYhnukB51iz5XsWSVEtqg3AxTWM0QJ6vfg==",
       "type": "package",
-      "path": "npgsql/8.0.6",
+      "path": "npgsql/8.0.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1745,7 +1745,7 @@
         "lib/netstandard2.0/Npgsql.xml",
         "lib/netstandard2.1/Npgsql.dll",
         "lib/netstandard2.1/Npgsql.xml",
-        "npgsql.8.0.6.nupkg.sha512",
+        "npgsql.8.0.5.nupkg.sha512",
         "npgsql.nuspec",
         "postgresql.png"
       ]
@@ -1914,6 +1914,7 @@
     "net8.0": [
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.20",
       "Microsoft.AspNetCore.OpenApi >= 8.0.16",
+      "Npgsql >= 8.0.5",
       "Services >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
@@ -1972,6 +1973,10 @@
             "target": "Package",
             "version": "[8.0.16, )"
           },
+          "Npgsql": {
+            "target": "Package",
+            "version": "[8.0.5, )"
+          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.6.2, )"
@@ -1999,5 +2004,16 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.414/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Npgsql from 8.0.6 to 8.0.5. Reference the package directly from the project to select a different version. \r\n Web_API -> Services -> Repositories -> Data -> Npgsql.EntityFrameworkCore.PostgreSQL 8.0.11 -> Npgsql (>= 8.0.6) \r\n Web_API -> Npgsql (>= 8.0.5)",
+      "libraryId": "Npgsql",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

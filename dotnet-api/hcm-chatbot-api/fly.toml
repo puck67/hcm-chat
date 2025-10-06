@@ -1,9 +1,9 @@
-# fly.toml app configuration file for HCM Chatbot Web API
+# fly.toml app configuration file generated for web-api-silent-star-1436 on 2025-10-06T15:35:54+07:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'hcm-webapi-full'
+app = 'hcm-chatbot-dotnet-api'
 primary_region = 'sin'
 
 [build]

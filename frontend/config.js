@@ -18,7 +18,7 @@ const API_CONFIG = {
     // Production URLs  
     production: {
         PYTHON_AI_API: 'https://hcm-chat-2.onrender.com',
-        DOTNET_API: 'https://hcm-webapi-full.fly.dev'
+        DOTNET_API: 'https://hcm-chatbot-dotnet-api.fly.dev'
     }
 };
 
