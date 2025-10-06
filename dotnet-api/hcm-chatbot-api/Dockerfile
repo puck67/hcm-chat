@@ -2,24 +2,14 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copy solution file if exists
-COPY *.sln ./
-
-# Copy project files
-COPY Web_API/Web_API.csproj ./Web_API/
-COPY Services/*.csproj ./Services/
-COPY Repositories/*.csproj ./Repositories/
-COPY Models/*.csproj ./Models/
-COPY Data/*.csproj ./Data/
-
-# Restore dependencies
-RUN dotnet restore Web_API/Web_API.csproj
-
-# Copy source code
+# Copy everything first
 COPY . ./
 
+# Restore dependencies
+RUN dotnet restore hcm-chatbot-api.sln
+
 # Build and publish
-RUN dotnet publish Web_API/Web_API.csproj -c Release -o /app --no-restore
+RUN dotnet publish Web_API/Web_API.csproj -c Release -o /app
 
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
