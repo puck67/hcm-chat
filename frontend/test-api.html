@@ -14,7 +14,7 @@
         try {
             // Test login first
             console.log('Testing login...');
-            const loginResponse = await fetch('http://localhost:9000/api/auth/login', {
+            const loginResponse = await fetch('https://hcm-chatbot-nodejs-api.fly.dev/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -33,12 +33,12 @@
                 return;
             }
 
-            const token = loginData.data.token;
+            const token = loginData.token;
             results.innerHTML = '<p>Login successful! Token: ' + token.substring(0, 20) + '...</p>';
 
             // Test dashboard stats
             console.log('Testing dashboard stats...');
-            const statsResponse = await fetch('http://localhost:9000/api/dashboard/stats', {
+            const statsResponse = await fetch('https://hcm-chatbot-nodejs-api.fly.dev/dashboard/stats', {
                 method: 'GET',
                 headers: {
                     'Authorization': 'Bearer ' + token,
@@ -62,7 +62,7 @@
 
             // Test messages
             console.log('Testing messages...');
-            const messagesResponse = await fetch('http://localhost:9000/api/dashboard/messages', {
+            const messagesResponse = await fetch('https://hcm-chatbot-nodejs-api.fly.dev/dashboard/messages', {
                 method: 'GET',
                 headers: {
                     'Authorization': 'Bearer ' + token,

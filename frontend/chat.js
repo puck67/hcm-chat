@@ -179,10 +179,10 @@ class HCMChatApp {
 
     async loadConversations() {
         try {
-            const response = await this.fetchWithAuth('/chat/conversations');
+            const response = await this.fetchWithAuth('/conversations');
             if (response.ok) {
                 const data = await response.json();
-                this.conversations = data.data || [];
+                this.conversations = data.conversations || [];
                 this.renderConversations();
             } else {
                 console.error('Failed to load conversations');
@@ -233,10 +233,10 @@ class HCMChatApp {
 
     async loadMessages(conversationId) {
         try {
-            const response = await this.fetchWithAuth(`/chat/conversations/${conversationId}/messages`);
+            const response = await this.fetchWithAuth(`/conversations/${conversationId}/messages`);
             if (response.ok) {
                 const data = await response.json();
-                const messages = data.data || [];
+                const messages = data.messages || [];
                 this.renderMessages(messages);
             } else {
                 console.error('Failed to load messages');
@@ -539,7 +539,7 @@ class HCMChatApp {
         try {
             console.log('🚀 Đang gọi API tạo quiz:', { chapter, numQuestions });
             
-            const response = await fetch('http://localhost:8000/quiz/generate', {
+            const response = await fetch(`${window.PYTHON_AI_API}/quiz/generate`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -678,7 +678,7 @@ class HCMChatApp {
             const timeoutId = setTimeout(() => controller.abort(), 60000); // 60 seconds timeout
 
             // Gọi .NET API với authentication
-            const response = await this.fetchWithAuth('/chat/send', {
+            const response = await this.fetchWithAuth('/messages', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -876,7 +876,7 @@ class HCMChatApp {
         }
 
         try {
-            const response = await this.fetchWithAuth(`/chat/conversations/${conversationId}`, {
+            const response = await this.fetchWithAuth(`/conversations/${conversationId}`, {
                 method: 'DELETE'
             });
 

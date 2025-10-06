@@ -28,7 +28,7 @@
             console.log('Starting API test...');
 
             // First login
-            const loginResponse = await fetch('http://localhost:9000/api/auth/login', {
+            const loginResponse = await fetch('https://hcm-chatbot-nodejs-api.fly.dev/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -47,11 +47,11 @@
                 return;
             }
 
-            token = loginData.data.token;
+            token = loginData.token;
             result.innerHTML = '<p style="color: green;">Login successful!</p>';
 
             // Test dashboard stats
-            const statsResponse = await fetch('http://localhost:9000/api/dashboard/stats', {
+            const statsResponse = await fetch('https://hcm-chatbot-nodejs-api.fly.dev/dashboard/stats', {
                 method: 'GET',
                 headers: {
                     'Authorization': 'Bearer ' + token,

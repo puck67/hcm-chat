@@ -175,6 +175,28 @@ router.post('/login', [
     }
 });
 
+// ===== VERIFY TOKEN =====
+router.get('/me', authenticateToken, async (req, res) => {
+    try {
+        res.json({
+            success: true,
+            user: {
+                id: req.user.id,
+                username: req.user.username,
+                email: req.user.email,
+                fullName: req.user.full_name,
+                role: req.user.role
+            }
+        });
+    } catch (error) {
+        logger.error('Get me error:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Failed to get user info'
+        });
+    }
+});
+
 // ===== GET PROFILE =====
 router.get('/profile', authenticateToken, async (req, res) => {
     try {
