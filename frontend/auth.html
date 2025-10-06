@@ -340,7 +340,7 @@
 
     <script src="config.js"></script>
     <script>
-        const API_BASE = window.DOTNET_API || 'https://hcm-webapi-full.fly.dev';
+        const API_BASE = window.NODEJS_API || window.API_BASE_URL || 'https://hcm-chatbot-nodejs-api.fly.dev';
 
         // Switch between login and register tabs
         function switchTab(tab) {

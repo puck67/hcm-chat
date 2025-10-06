@@ -6,7 +6,7 @@
 class AdminDashboard {
     constructor() {
         // ===== CẤU HÌNH API =====
-        this.API_BASE = window.DOTNET_API || 'https://hcm-webapi-full.fly.dev';
+        this.API_BASE = window.NODEJS_API || window.API_BASE_URL || 'https://hcm-chatbot-nodejs-api.fly.dev';
 
         // ===== STATE MANAGEMENT =====
         this.user = null;

@@ -12,6 +12,7 @@ primary_region = 'sin'
 
 [checks]
   [checks.alive]
+    type = "http"
     grace_period = "1s"
     interval = "15s"
     method = "get"
