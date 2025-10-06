@@ -5,6 +5,9 @@ WORKDIR /src
 # Copy everything first
 COPY . ./
 
+# Copy appsettings from root to Web_API if needed
+COPY appsettings*.json ./Web_API/
+
 # Restore dependencies
 RUN dotnet restore hcm-chatbot-api.sln
 
@@ -18,4 +21,6 @@ ENV ASPNETCORE_ENVIRONMENT=Production
 EXPOSE 8080
 WORKDIR /app
 COPY --from=build /app .
+# Also copy config files to ensure they're available
+COPY --from=build /src/appsettings*.json ./
 ENTRYPOINT ["dotnet", "Web_API.dll"]

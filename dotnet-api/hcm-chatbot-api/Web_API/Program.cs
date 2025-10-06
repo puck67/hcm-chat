@@ -143,7 +143,6 @@ app.UseAuthorization(); // Kiểm tra quyền truy cập
 // Map các controller endpoints
 app.MapControllers();
 
-// ===== HEALTH CHECK ENDPOINT =====
 // Endpoint để kiểm tra tình trạng sức khỏe của API
 app.MapGet("/health", () => Results.Ok(new { Status = "Healthy", Timestamp = DateTime.UtcNow, Service = "Web_API" }))
     .WithName("HealthCheck")
