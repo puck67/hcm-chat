@@ -338,8 +338,9 @@
       </aside>
     </div>
 
+    <script src="config.js"></script>
     <script>
-        const API_BASE = 'http://localhost:5000/api';
+        const API_BASE = window.DOTNET_API || 'https://hcm-webapi-full.fly.dev';
 
         // Switch between login and register tabs
         function switchTab(tab) {

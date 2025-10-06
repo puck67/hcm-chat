@@ -30,7 +30,10 @@ window.PYTHON_AI_API = CURRENT_CONFIG.PYTHON_AI_API;
 window.DOTNET_API = CURRENT_CONFIG.DOTNET_API;
 
 console.log('🌐 Current hostname:', window.location.hostname);
+console.log('🌐 Current URL:', window.location.href);
 console.log('🔧 Environment:', isDevelopment ? 'Development' : 'Production');
+console.log('🔧 isDevelopment flag:', isDevelopment);
 console.log('🔧 Python AI API:', window.PYTHON_AI_API);
 console.log('🔧 .NET API:', window.DOTNET_API);
 console.log('📋 Full config:', CURRENT_CONFIG);
+console.log('🚨 WARNING: Check Network tab - should NOT see localhost!');
