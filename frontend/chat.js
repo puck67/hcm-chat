@@ -677,15 +677,36 @@ class HCMChatApp {
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 60000); // 60 seconds timeout
 
-            // Gọi .NET API với authentication
+            // ===== BƯỚC 3a: TẠO CONVERSATION NẾU CHƯA CÓ =====
+            let conversationId = this.currentConversationId;
+            
+            if (!conversationId) {
+                // Tạo conversation mới
+                const newConvResponse = await this.fetchWithAuth('/conversations', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ title: message.substring(0, 50) + '...' })
+                });
+                
+                if (newConvResponse.ok) {
+                    const convData = await newConvResponse.json();
+                    conversationId = convData.conversation.id;
+                    this.currentConversationId = conversationId;
+                    await this.loadConversations(); // Refresh conversation list
+                } else {
+                    throw new Error('Không thể tạo cuộc trò chuyện mới');
+                }
+            }
+
+            // Gọi Node.js API với authentication
             const response = await this.fetchWithAuth('/messages', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    message: message,
-                    conversationId: this.currentConversationId // null nếu cuộc trò chuyện mới
+                    content: message,
+                    conversationId: conversationId
                 }),
                 signal: controller.signal // Cho phép timeout
             });
@@ -695,15 +716,27 @@ class HCMChatApp {
             // ===== BƯỚC 4: XỬ LÝ RESPONSE =====
             if (response.ok) {
                 const data = await response.json();
-                const result = data.data; // ChatApiResponse từ .NET
+                console.log('Message API response:', data);
+                
+                // Response from Node.js API includes userMessage and aiMessage
+                const userMessage = data.userMessage;
+                const aiResponse = data.aiResponse;
 
-                // Nếu tạo cuộc trò chuyện mới, lưu ID
-                if (!this.currentConversationId) {
-                    this.currentConversationId = result.conversationId;
+                // Add user message to UI
+                this.addMessageToUI({
+                    role: 'user',
+                    content: message,
+                    timestamp: new Date().toISOString()
+                });
+
+                // Add AI response to UI if available
+                if (aiResponse) {
+                    this.addMessageToUI({
+                        role: 'assistant', 
+                        content: aiResponse,
+                        timestamp: new Date().toISOString()
+                    });
                 }
-
-                // Hiển thị phản hồi AI với sources và confidence
-                this.addMessageToUI(result.assistantMessage);
 
                 // Cập nhật danh sách cuộc trò chuyện trong sidebar
                 await this.loadConversations();
