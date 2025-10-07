@@ -11,15 +11,8 @@ const logger = require('../utils/logger');
 const router = express.Router();
 
 // ===== SEND MESSAGE (with AI Response) =====
-router.post('/', [
-    body('conversationId')
-        .optional()
-        .isInt({ min: 1 })
-        .withMessage('Valid conversation ID is required'),
-    body(['content', 'message'])
-        .notEmpty()
-        .isLength({ min: 1, max: 10000 })
-        .withMessage('Message content must be between 1 and 10000 characters'),
+// Match .NET API endpoint: POST /chat/send  
+router.post('/send', [
     body('messageType')
         .optional()
         .isIn(['user', 'system'])
@@ -27,6 +20,30 @@ router.post('/', [
 ], async (req, res) => {
     try {
         const errors = validationResult(req);
+        
+        // Match .NET API format: { ConversationId, Message }
+        let { ConversationId, Message, conversationId, content, message, messageType = 'user' } = req.body;
+        
+        // Accept multiple field name formats
+        conversationId = ConversationId || conversationId;
+        const messageContent = Message || content || message;
+        
+        // Custom validation for message content
+        if (!messageContent || messageContent.trim().length === 0) {
+            return res.status(400).json({
+                success: false,
+                message: 'Message content is required'
+            });
+        }
+        
+        if (messageContent.length > 10000) {
+            return res.status(400).json({
+                success: false,
+                message: 'Message content must be less than 10000 characters'
+            });
+        }
+        
+        // Check other validation errors (except for content/message)
         if (!errors.isEmpty()) {
             return res.status(400).json({
                 success: false,
@@ -34,11 +51,6 @@ router.post('/', [
                 errors: errors.array()
             });
         }
-
-        let { conversationId, content, message, messageType = 'user' } = req.body;
-        
-        // Accept both 'content' and 'message' field names
-        const messageContent = content || message;
 
         // Auto-create conversation if not provided
         if (!conversationId) {
@@ -92,15 +104,29 @@ router.post('/', [
             try {
                 aiResponse = await getAIResponse(messageContent, conversationId);
                 
-                if (aiResponse) {
+                if (aiResponse && aiResponse.content) {
                     // Save AI response as a separate message
                     const aiMessageResult = await Database.query(`
-                        INSERT INTO messages (conversation_id, user_id, content, message_type, ai_response) 
-                        VALUES ($1, $2, $3, $4, $5) 
+                        INSERT INTO messages (conversation_id, user_id, content, message_type, ai_response, metadata) 
+                        VALUES ($1, $2, $3, $4, $5, $6) 
                         RETURNING *
-                    `, [conversationId, req.user.id, aiResponse, 'ai', aiResponse]);
+                    `, [
+                        conversationId, 
+                        req.user.id, 
+                        aiResponse.content, 
+                        'assistant', 
+                        JSON.stringify(aiResponse),
+                        JSON.stringify({
+                            sources: aiResponse.sources || [],
+                            confidence: aiResponse.confidence || 0,
+                            role: 'assistant'
+                        })
+                    ]);
 
                     aiMessage = aiMessageResult.rows[0];
+                    // Add sources and confidence to aiMessage for response
+                    aiMessage.sources = aiResponse.sources;
+                    aiMessage.confidence = aiResponse.confidence;
                 }
             } catch (aiError) {
                 logger.error('AI response error:', aiError);
@@ -116,12 +142,27 @@ router.post('/', [
 
         logger.info(`Message sent in conversation ${conversationId} by user ${req.user.username}`);
 
-        res.status(201).json({
+        // Match .NET API response format
+        res.status(200).json({
             success: true,
-            message: 'Message sent successfully',
-            userMessage: userMessage,
-            aiMessage: aiMessage,
-            aiResponse: aiResponse
+            message: 'Message sent successfully', 
+            data: {
+                conversationId: conversationId,
+                userMessage: {
+                    id: userMessage.id,
+                    content: userMessage.content,
+                    role: userMessage.message_type,
+                    createdAt: userMessage.created_at
+                },
+                assistantMessage: aiMessage ? {
+                    id: aiMessage.id,
+                    content: aiMessage.content,
+                    role: aiMessage.message_type,
+                    sources: aiMessage.sources || [],
+                    confidence: aiMessage.confidence || 0,
+                    createdAt: aiMessage.created_at
+                } : null
+            }
         });
 
     } catch (error) {
@@ -379,13 +420,13 @@ async function getAIResponse(userMessage, conversationId) {
         const context = contextResult.rows.reverse(); // Reverse to get chronological order
 
         // Prepare request to Python AI service
-        const aiServiceUrl = process.env.PYTHON_AI_API || 'https://hcm-chat-2.onrender.com';
+        const aiServiceUrl = process.env.PYTHON_AI_API || 'http://localhost:8000';
         const requestBody = {
-            message: userMessage,
-            context: context,
-            conversation_id: conversationId
+            question: userMessage  // Python API expects 'question' field
         };
 
+        logger.info(`Calling AI service: ${aiServiceUrl}/chat with body:`, requestBody);
+        
         const response = await fetch(`${aiServiceUrl}/chat`, {
             method: 'POST',
             headers: {
@@ -395,17 +436,32 @@ async function getAIResponse(userMessage, conversationId) {
             timeout: 30000 // 30 seconds timeout
         });
 
+        logger.info(`AI service response status: ${response.status}`);
+
         if (!response.ok) {
-            throw new Error(`AI service responded with status: ${response.status}`);
+            const errorText = await response.text();
+            logger.error(`AI service error response:`, errorText);
+            throw new Error(`AI service responded with status: ${response.status} - ${errorText}`);
         }
 
         const aiData = await response.json();
-        return aiData.response || aiData.answer || 'Xin lỗi, tôi không thể trả lời câu hỏi này lúc này.';
+        logger.info('AI service success response:', aiData);
+        
+        // Python API trả về { answer: string, sources: array, confidence: number }
+        return {
+            content: aiData.answer || 'Xin lỗi, tôi không thể trả lời câu hỏi này lúc này.',
+            sources: aiData.sources || [],
+            confidence: aiData.confidence || 0
+        };
 
     } catch (error) {
         logger.error('AI service error:', error);
-        // Return a fallback response
-        return 'Xin lỗi, dịch vụ AI tạm thời không khả dụng. Vui lòng thử lại sau.';
+        // Return a fallback response with proper structure
+        return {
+            content: 'Xin lỗi, dịch vụ AI tạm thời không khả dụng. Vui lòng thử lại sau.',
+            sources: [],
+            confidence: 0
+        };
     }
 }
 

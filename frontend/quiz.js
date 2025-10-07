@@ -228,6 +228,14 @@ class QuizApp {
 
         // Update progress
         this.updateProgress();
+
+        // Auto advance to next question after a short delay
+        setTimeout(() => {
+            const nextIndex = questionIndex + 1;
+            if (nextIndex < this.currentQuiz.questions.length) {
+                this.showQuestion(nextIndex);
+            }
+        }, 800); // 0.8 second delay to show selection feedback
     }
 
     showQuestion(index) {

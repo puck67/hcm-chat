@@ -1,0 +1,130 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Theo tư tưởng Hồ Chí Minh, Đảng Cộng sản Việt Nam là sản phẩm của sự kết hợp giữa những yếu tố nào?",
+      "options": {
+        "A": "Chủ nghĩa Mác - Lênin với phong trào công nhân.",
+        "B": "Chủ nghĩa Mác - Lênin với phong trào yêu nước.",
+        "C": "Chủ nghĩa Mác - Lênin với phong trào công nhân và phong trào yêu nước.",
+        "D": "Phong trào công nhân với phong trào nông dân và phong trào yêu nước."
+      },
+      "correct_answer": "C",
+      "explanation": "Đây là một luận điểm sáng tạo của Hồ Chí Minh, bổ sung yếu tố 'phong trào yêu nước' vào quy luật ra đời của Đảng Cộng sản ở một nước thuộc địa, phản ánh đúng đặc thù của cách mạng Việt Nam."
+    },
+    {
+      "id": "q2",
+      "question": "Luận điểm nào sau đây thể hiện rõ nhất bản chất giai cấp của Đảng Cộng sản Việt Nam theo tư tưởng Hồ Chí Minh?",
+      "options": {
+        "A": "Đảng là đội tiên phong của giai cấp công nhân.",
+        "B": "Đảng là đội tiên phong của nhân dân lao động và của dân tộc Việt Nam.",
+        "C": "Đảng của giai cấp công nhân, mà lợi ích của giai cấp công nhân và nhân dân lao động và của dân tộc là một.",
+        "D": "Đảng là đội tiên phong của giai cấp công nhân, đồng thời là đội tiên phong của nhân dân lao động và của dân tộc Việt Nam."
+      },
+      "correct_answer": "D",
+      "explanation": "Quan điểm này thể hiện đầy đủ và toàn diện bản chất của Đảng: vừa mang bản chất giai cấp công nhân, vừa gắn bó máu thịt với nhân dân lao động và toàn dân tộc, đại biểu cho lợi ích của cả dân tộc."
+    },
+    {
+      "id": "q3",
+      "question": "Theo Hồ Chí Minh, nguyên tắc tổ chức, sinh hoạt Đảng quan trọng nhất, nhằm đảm bảo sức mạnh và sự đoàn kết thống nhất của Đảng là gì?",
+      "options": {
+        "A": "Tập trung dân chủ.",
+        "B": "Tập thể lãnh đạo, cá nhân phụ trách.",
+        "C": "Tự phê bình và phê bình.",
+        "D": "Kỷ luật nghiêm minh, tự giác."
+      },
+      "correct_answer": "A",
+      "explanation": "Hồ Chí Minh coi tập trung dân chủ là nguyên tắc tổ chức cơ bản nhất. Dân chủ để phát huy trí tuệ tập thể, tập trung để thống nhất ý chí và hành động, tạo nên sức mạnh vô địch của Đảng."
+    },
+    {
+      "id": "q4",
+      "question": "Trong tư tưởng Hồ Chí Minh, đặc trưng cốt lõi của Nhà nước Việt Nam là gì?",
+      "options": {
+        "A": "Nhà nước chuyên chính vô sản.",
+        "B": "Nhà nước pháp quyền xã hội chủ nghĩa.",
+        "C": "Nhà nước của dân, do dân, vì dân.",
+        "D": "Nhà nước mang tính giai cấp và tính dân tộc."
+      },
+      "correct_answer": "C",
+      "explanation": "Luận điểm 'Nhà nước của dân, do dân, vì dân' thể hiện súc tích, đầy đủ nhất bản chất và mục tiêu của nhà nước kiểu mới ở Việt Nam, nơi tất cả quyền lực thuộc về nhân dân."
+    },
+    {
+      "id": "q5",
+      "question": "Theo tư tưởng Hồ Chí Minh, quyền lực Nhà nước ở Việt Nam được tổ chức theo nguyên tắc nào?",
+      "options": {
+        "A": "Tam quyền phân lập.",
+        "B": "Quyền lực nhà nước là thống nhất, không phân chia.",
+        "C": "Quyền lực nhà nước là thống nhất, có sự phân công, phối hợp, kiểm soát giữa các cơ quan.",
+        "D": "Tập trung quan liêu."
+      },
+      "correct_answer": "C",
+      "explanation": "Hồ Chí Minh khẳng định quyền lực nhà nước thuộc về nhân dân, là thống nhất, nhưng để thực thi hiệu quả, cần có sự phân công rành mạch, phối hợp nhịp nhàng và kiểm soát lẫn nhau giữa các cơ quan lập pháp, hành pháp và tư pháp."
+    },
+    {
+      "id": "q6",
+      "question": "Hồ Chí Minh coi những căn bệnh nào là 'giặc nội xâm', kẻ thù nguy hiểm cần phải kiên quyết chống trong bộ máy nhà nước?",
+      "options": {
+        "A": "Bảo thủ, trì trệ, giáo điều.",
+        "B": "Tham ô, lãng phí, quan liêu.",
+        "C": "Cá nhân chủ nghĩa, cục bộ, bản vị.",
+        "D": "Chia rẽ, bè phái, mất đoàn kết."
+      },
+      "correct_answer": "B",
+      "explanation": "Người nhiều lần nhấn mạnh tham ô, lãng phí, quan liêu là những kẻ thù nguy hiểm từ bên trong, chúng phá hoại sự nghiệp cách mạng, làm suy yếu nhà nước và làm mất lòng tin của nhân dân."
+    },
+    {
+      "id": "q7",
+      "question": "Mục đích của việc thực hiện nguyên tắc 'Tự phê bình và phê bình' trong Đảng theo tư tưởng Hồ Chí Minh là gì?",
+      "options": {
+        "A": "Để trừng trị, kỷ luật cán bộ, đảng viên sai phạm.",
+        "B": "Để tìm ra khuyết điểm của đồng chí mình.",
+        "C": "Để giúp nhau sửa chữa khuyết điểm, giúp nhau tiến bộ, làm cho Đảng ngày càng trong sạch, vững mạnh.",
+        "D": "Để thể hiện tính dân chủ trong sinh hoạt Đảng."
+      },
+      "correct_answer": "C",
+      "explanation": "Hồ Chí Minh ví tự phê bình và phê bình như việc 'rửa mặt hàng ngày', mục đích chính là để sửa chữa, tiến bộ, đoàn kết hơn nữa, chứ không phải để công kích, chỉ trích hay hạ bệ lẫn nhau."
+    },
+    {
+      "id": "q8",
+      "question": "Theo Hồ Chí Minh, để xây dựng một nhà nước pháp quyền vững mạnh, cần phải chú trọng điều gì?",
+      "options": {
+        "A": "Chỉ cần có một hệ thống pháp luật hoàn chỉnh.",
+        "B": "Chỉ cần có đội ngũ cán bộ có năng lực.",
+        "C": "Kết hợp nhuần nhuyễn giữa pháp luật và đạo đức.",
+        "D": "Tăng cường sự lãnh đạo tuyệt đối của Đảng."
+      },
+      "correct_answer": "C",
+      "explanation": "Hồ Chí Minh luôn nhấn mạnh sự kết hợp giữa 'đức trị' và 'pháp trị'. Pháp luật là công cụ quản lý, nhưng đạo đức là cái gốc, là nền tảng tinh thần để pháp luật được thực thi một cách tự giác và hiệu quả."
+    },
+    {
+      "id": "q9",
+      "question": "Quan điểm 'Đảng ta là đạo đức, là văn minh' của Hồ Chí Minh có ý nghĩa gì?",
+      "options": {
+        "A": "Đảng chỉ bao gồm những người có đạo đức và văn hóa cao.",
+        "B": "Sự trong sạch, vững mạnh của Đảng là nhân tố quyết định sức sống và năng lực lãnh đạo của Đảng.",
+        "C": "Đảng là một tổ chức chính trị thuần túy.",
+        "D": "Văn minh của Đảng thể hiện ở trình độ lý luận chính trị."
+      },
+      "correct_answer": "B",
+      "explanation": "Câu nói này khẳng định sự tồn tại và vai trò lãnh đạo của Đảng không chỉ dựa vào cương lĩnh, đường lối mà còn dựa vào phẩm chất đạo đức cách mạng, sự trong sạch của đội ngũ. 'Đạo đức' và 'văn minh' là thước đo uy tín và sức mạnh của Đảng trước nhân dân."
+    },
+    {
+      "id": "q10",
+      "question": "Trong Nhà nước của dân, do dân, vì dân, hình thức dân chủ nào được Hồ Chí Minh đề cao để người dân thực thi quyền làm chủ của mình?",
+      "options": {
+        "A": "Chỉ có dân chủ trực tiếp.",
+        "B": "Chỉ có dân chủ đại diện.",
+        "C": "Cả dân chủ trực tiếp và dân chủ đại diện.",
+        "D": "Dân chủ tự do theo mô hình phương Tây."
+      },
+      "correct_answer": "C",
+      "explanation": "Hồ Chí Minh chỉ rõ, người dân thực thi quyền lực của mình thông qua cả hai hình thức: dân chủ đại diện (bầu ra Quốc hội, Hội đồng nhân dân) và dân chủ trực tiếp (tham gia góp ý, giám sát, thực hiện quyền bãi miễn...)."
+    }
+  ],
+  "title": "Bài kiểm tra Chương IV",
+  "chapter": "Chương IV",
+  "difficulty": "medium",
+  "num_questions": 10,
+  "id": "e6f6f883-5bef-4641-8cf8-cbdc5da37e14",
+  "created_at": "2025-10-06T20:13:32.963838"
+}

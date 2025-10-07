@@ -83,7 +83,7 @@ app.get('/health', (req, res) => {
 app.use('/auth', authRoutes);
 app.use('/dashboard', authenticateToken, dashboardRoutes);
 app.use('/conversations', authenticateToken, conversationRoutes);
-app.use('/messages', authenticateToken, messageRoutes);
+app.use('/chat', authenticateToken, messageRoutes);
 app.use('/users', authenticateToken, userRoutes);
 
 // ===== ERROR HANDLING =====

@@ -67,7 +67,6 @@ class HCMChatbot {
             this.updateStatus('error', 'Không thể kết nối');
         }
     }
-
     updateStatus(status, text) {
         this.statusDot.className = `fas fa-circle status-dot ${status}`;
         this.statusText.textContent = text;
@@ -77,13 +76,10 @@ class HCMChatbot {
         const message = this.messageInput.value.trim();
         if (!message) return;
 
-        // Disable input and show user message
-        this.setInputState(false);
-        this.addMessage(message, 'user');
-        this.messageInput.value = '';
-
-        // Show loading
-        this.showLoading(true);
+        // Chuyển qua trang chat ngay lập tức với message
+        const encodedMessage = encodeURIComponent(message);
+        window.location.href = `chat.html?message=${encodedMessage}`;
+        return;
 
         try {
             const response = await fetch(`${this.apiUrl}/chat`, {

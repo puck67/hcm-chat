@@ -12,7 +12,7 @@ const API_CONFIG = {
     // Development URLs (local)
     development: {
         PYTHON_AI_API: 'http://localhost:8000',
-        NODEJS_API: 'http://localhost:8000'
+        NODEJS_API: 'http://localhost:8001'
     },
     
     // Production URLs  

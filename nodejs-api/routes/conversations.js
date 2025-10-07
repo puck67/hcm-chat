@@ -283,7 +283,7 @@ router.get('/:id/messages', async (req, res) => {
 
         // Check if conversation exists and belongs to user
         const conversationCheck = await Database.query(
-            'SELECT id FROM conversations WHERE id = $1 AND user_id = $2 AND is_active = true',
+            'SELECT id FROM conversations WHERE id = $1 AND user_id = $2',
             [conversationId, req.user.id]
         );
 
@@ -296,7 +296,13 @@ router.get('/:id/messages', async (req, res) => {
 
         const result = await Database.query(`
             SELECT 
-                m.*,
+                m.id,
+                m.conversation_id,
+                m.content,
+                m.message_type as role,
+                m.ai_response,
+                m.metadata as sources,
+                m.created_at,
                 u.username,
                 u.full_name
             FROM messages m

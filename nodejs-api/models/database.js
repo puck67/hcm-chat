@@ -54,15 +54,8 @@ class Database {
     // Initialize database tables if they don't exist
     static async initializeTables() {
         try {
-            // Drop all existing tables to ensure clean schema
-            await this.query(`DROP TABLE IF EXISTS activity_logs CASCADE`);
-            await this.query(`DROP TABLE IF EXISTS messages CASCADE`);
-            await this.query(`DROP TABLE IF EXISTS conversations CASCADE`);
-            await this.query(`DROP TABLE IF EXISTS users CASCADE`);
-            logger.info('🔄 Dropped all existing tables for clean recreation');
-
             await this.query(`
-                CREATE TABLE users (
+                CREATE TABLE IF NOT EXISTS users (
                     id SERIAL PRIMARY KEY,
                     username VARCHAR(50) UNIQUE NOT NULL,
                     email VARCHAR(100) UNIQUE NOT NULL,
@@ -76,7 +69,7 @@ class Database {
             `);
 
             await this.query(`
-                CREATE TABLE conversations (
+                CREATE TABLE IF NOT EXISTS conversations (
                     id SERIAL PRIMARY KEY,
                     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
                     title VARCHAR(255),
@@ -87,7 +80,7 @@ class Database {
             `);
 
             await this.query(`
-                CREATE TABLE messages (
+                CREATE TABLE IF NOT EXISTS messages (
                     id SERIAL PRIMARY KEY,
                     conversation_id INTEGER REFERENCES conversations(id) ON DELETE CASCADE,
                     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
@@ -100,7 +93,7 @@ class Database {
             `);
 
             await this.query(`
-                CREATE TABLE activity_logs (
+                CREATE TABLE IF NOT EXISTS activity_logs (
                     id SERIAL PRIMARY KEY,
                     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
                     action VARCHAR(100) NOT NULL,

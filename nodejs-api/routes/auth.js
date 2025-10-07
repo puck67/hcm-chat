@@ -301,6 +301,68 @@ router.put('/profile', authenticateToken, [
     }
 });
 
+// ===== VALIDATE TOKEN =====
+router.post('/validate-token', async (req, res) => {
+    try {
+        const { token } = req.body;
+
+        if (!token) {
+            return res.status(400).json({
+                success: false,
+                message: 'Token is required'
+            });
+        }
+
+        const jwt = require('jsonwebtoken');
+        
+        try {
+            // Verify the token
+            const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key');
+            
+            // Check if user still exists and is active
+            const userResult = await Database.query(
+                'SELECT id, username, email, full_name, role, is_active FROM users WHERE id = $1',
+                [decoded.id]
+            );
+
+            if (userResult.rows.length === 0 || !userResult.rows[0].is_active) {
+                return res.status(401).json({
+                    success: false,
+                    isValid: false,
+                    message: 'Token is invalid - user not found or inactive'
+                });
+            }
+
+            res.json({
+                success: true,
+                isValid: true,
+                message: 'Token is valid',
+                user: {
+                    id: userResult.rows[0].id,
+                    username: userResult.rows[0].username,
+                    email: userResult.rows[0].email,
+                    fullName: userResult.rows[0].full_name,
+                    role: userResult.rows[0].role
+                }
+            });
+
+        } catch (jwtError) {
+            return res.status(401).json({
+                success: false,
+                isValid: false,
+                message: 'Token is invalid or expired'
+            });
+        }
+
+    } catch (error) {
+        logger.error('Validate token error:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Failed to validate token'
+        });
+    }
+});
+
 // ===== CHANGE PASSWORD =====
 router.post('/change-password', authenticateToken, [
     body('currentPassword').notEmpty().withMessage('Current password is required'),

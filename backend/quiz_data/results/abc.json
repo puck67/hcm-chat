@@ -360,5 +360,327 @@
     "username": "abc",
     "quiz_id": "d702a32c-059b-41af-8553-359b8fc67471",
     "submitted_at": "2025-10-05T18:42:42.922608"
+  },
+  {
+    "score": 0.7,
+    "correct_count": 1,
+    "total_questions": 15,
+    "percentage": 6.7,
+    "details": [
+      {
+        "question_id": "q1",
+        "question": "Theo giáo trình, nguồn gốc lý luận quan trọng nhất, quyết định bản chất cách mạng và khoa học của tư tưởng Hồ Chí Minh là gì?",
+        "user_answer": "A",
+        "correct_answer": "A",
+        "is_correct": true,
+        "explanation": "Chủ nghĩa Mác - Lênin là cơ sở thế giới quan, phương pháp luận và là nguồn gốc lý luận trực tiếp, quyết định bản chất tư tưởng Hồ Chí Minh."
+      },
+      {
+        "question_id": "q2",
+        "question": "Đại hội nào của Đảng Cộng sản Việt Nam đã khẳng định: 'Đảng lấy chủ nghĩa Mác-Lênin và tư tưởng Hồ Chí Minh làm nền tảng tư tưởng, kim chỉ nam cho hành động'?",
+        "user_answer": "",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Đại hội đại biểu toàn quốc lần thứ VII (tháng 6/1991) của Đảng đã chính thức khẳng định lấy chủ nghĩa Mác-Lênin và tư tưởng Hồ Chí Minh làm nền tảng tư tưởng."
+      },
+      {
+        "question_id": "q3",
+        "question": "Đối tượng nghiên cứu của môn học Tư tưởng Hồ Chí Minh là gì?",
+        "user_answer": "",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Đối tượng nghiên cứu của môn học là toàn bộ hệ thống quan điểm, lý luận của Hồ Chí Minh được thể hiện trong di sản của Người."
+      },
+      {
+        "question_id": "q4",
+        "question": "Giá trị truyền thống nào của dân tộc Việt Nam là nguồn gốc sâu xa hình thành nên tư tưởng yêu nước của Hồ Chí Minh?",
+        "user_answer": "",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Chủ nghĩa yêu nước là giá trị cốt lõi, là sợi chỉ đỏ xuyên suốt lịch sử dân tộc và là động lực lớn nhất thôi thúc Nguyễn Tất Thành ra đi tìm đường cứu nước."
+      },
+      {
+        "question_id": "q5",
+        "question": "Hồ Chí Minh đã tiếp thu giá trị tích cực nào từ Nho giáo?",
+        "user_answer": "",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Người đã kế thừa và phát triển các mặt tích cực của Nho giáo như triết lý hành động, tư tưởng nhập thế, và các nguyên tắc tu dưỡng đạo đức cá nhân."
+      },
+      {
+        "question_id": "q6",
+        "question": "Sự kiện nào đánh dấu bước ngoặt Nguyễn Ái Quốc từ chủ nghĩa yêu nước đến với chủ nghĩa Mác-Lênin?",
+        "user_answer": "",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Khi đọc Luận cương của Lênin vào tháng 7/1920, Người đã tìm thấy con đường cứu nước đúng đắn cho dân tộc, con đường cách mạng vô sản."
+      },
+      {
+        "question_id": "q7",
+        "question": "Khái niệm 'Tư tưởng Hồ Chí Minh' được hiểu là gì?",
+        "user_answer": "",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Tư tưởng Hồ Chí Minh là một hệ thống quan điểm toàn diện và sâu sắc về những vấn đề cơ bản của cách mạng Việt Nam, là kết quả của sự vận dụng và phát triển sáng tạo chủ nghĩa Mác - Lênin vào điều kiện cụ thể của nước ta."
+      },
+      {
+        "question_id": "q8",
+        "question": "Giai đoạn nào được coi là thời kỳ hình thành cơ bản tư tưởng Hồ Chí Minh về con đường cách mạng Việt Nam?",
+        "user_answer": "",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Đây là giai đoạn Người hoạt động lý luận và thực tiễn sôi nổi ở Pháp, Liên Xô, Trung Quốc, truyền bá chủ nghĩa Mác-Lênin về Việt Nam và chuẩn bị các điều kiện để thành lập Đảng, hình thành những luận điểm cơ bản về cách mạng Việt Nam."
+      },
+      {
+        "question_id": "q9",
+        "question": "Một trong những ý nghĩa quan trọng của việc học tập môn Tư tưởng Hồ Chí Minh là gì?",
+        "user_answer": "",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Học tập tư tưởng Hồ Chí Minh giúp bồi đắp thế giới quan, phương pháp luận khoa học, từ đó nâng cao năng lực tư duy lý luận, phương pháp công tác và rèn luyện bản lĩnh chính trị."
+      },
+      {
+        "question_id": "q10",
+        "question": "Nhân tố chủ quan nào giữ vai trò quan trọng nhất trong việc hình thành tư tưởng Hồ Chí Minh?",
+        "user_answer": "",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Chính trí tuệ kiệt xuất, tư duy độc lập, sáng tạo cùng với phẩm chất đạo đức cao đẹp và năng lực hoạt động thực tiễn phong phú đã giúp Người tiếp thu, chuyển hóa và phát triển các giá trị tinh hoa thành tư tưởng của riêng mình."
+      },
+      {
+        "question_id": "q11",
+        "question": "Hồ Chí Minh đã tiếp thu giá trị nào từ các cuộc cách mạng tư sản phương Tây, đặc biệt là Cách mạng Pháp và Cách mạng Mỹ?",
+        "user_answer": "",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Người đặc biệt quan tâm và tiếp thu các giá trị về quyền con người, quyền bình đẳng, tự do, dân chủ thể hiện trong các bản Tuyên ngôn của Cách mạng Pháp và Mỹ."
+      },
+      {
+        "question_id": "q12",
+        "question": "Phương pháp luận cơ bản nhất để nghiên cứu tư tưởng Hồ Chí Minh là gì?",
+        "user_answer": "",
+        "correct_answer": "A",
+        "is_correct": false,
+        "explanation": "Sự thống nhất giữa phương pháp lịch sử (nghiên cứu quá trình hình thành) và logic (nghiên cứu bản chất, quy luật) là nguyên tắc phương pháp luận cơ bản và quan trọng nhất."
+      },
+      {
+        "question_id": "q13",
+        "question": "Tư tưởng Hồ Chí Minh soi đường cho sự nghiệp cách mạng của nhân dân ta giành thắng lợi có ý nghĩa như thế nào?",
+        "user_answer": "",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Đây là giá trị thực tiễn to lớn của tư tưởng Hồ Chí Minh, khi nó đã trở thành ngọn đuốc soi đường, dẫn dắt cách mạng Việt Nam đi từ thắng lợi này đến thắng lợi khác."
+      },
+      {
+        "question_id": "q14",
+        "question": "Hồ Chí Minh ra đi tìm đường cứu nước vào ngày, tháng, năm nào và tại đâu?",
+        "user_answer": "",
+        "correct_answer": "A",
+        "is_correct": false,
+        "explanation": "Ngày 05/06/1911, người thanh niên Nguyễn Tất Thành đã lên con tàu Amiral Latouche-Tréville từ Bến cảng Nhà Rồng, bắt đầu hành trình tìm đường cứu nước."
+      },
+      {
+        "question_id": "q15",
+        "question": "Tư tưởng cốt lõi của Hồ Chí Minh trong suốt cuộc đời hoạt động cách mạng là gì?",
+        "user_answer": "",
+        "correct_answer": "A",
+        "is_correct": false,
+        "explanation": "Độc lập dân tộc gắn liền với chủ nghĩa xã hội là tư tưởng cốt lõi, là sợi chỉ đỏ xuyên suốt toàn bộ hệ thống tư tưởng Hồ Chí Minh, phản ánh quy luật khách quan của sự nghiệp giải phóng dân tộc trong thời đại mới."
+      }
+    ],
+    "quiz_title": "Bài kiểm tra Chương I",
+    "quiz_chapter": "Chương I",
+    "id": "a98cd344-ea95-4096-ab32-33d3a684e192",
+    "username": "abc",
+    "quiz_id": "d52859d8-6dc1-43e7-9673-03e1c70e26d5",
+    "submitted_at": "2025-10-06T19:08:54.195477"
+  },
+  {
+    "score": 3.0,
+    "correct_count": 3,
+    "total_questions": 10,
+    "percentage": 30.0,
+    "details": [
+      {
+        "question_id": "q1",
+        "question": "Theo tư tưởng Hồ Chí Minh, Đảng Cộng sản Việt Nam là sản phẩm của sự kết hợp giữa những yếu tố nào?",
+        "user_answer": "A",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Đây là một luận điểm sáng tạo của Hồ Chí Minh, bổ sung yếu tố 'phong trào yêu nước' vào quy luật ra đời của Đảng Cộng sản ở một nước thuộc địa, phản ánh đúng đặc thù của cách mạng Việt Nam."
+      },
+      {
+        "question_id": "q2",
+        "question": "Luận điểm nào sau đây thể hiện rõ nhất bản chất giai cấp của Đảng Cộng sản Việt Nam theo tư tưởng Hồ Chí Minh?",
+        "user_answer": "C",
+        "correct_answer": "D",
+        "is_correct": false,
+        "explanation": "Quan điểm này thể hiện đầy đủ và toàn diện bản chất của Đảng: vừa mang bản chất giai cấp công nhân, vừa gắn bó máu thịt với nhân dân lao động và toàn dân tộc, đại biểu cho lợi ích của cả dân tộc."
+      },
+      {
+        "question_id": "q3",
+        "question": "Theo Hồ Chí Minh, nguyên tắc tổ chức, sinh hoạt Đảng quan trọng nhất, nhằm đảm bảo sức mạnh và sự đoàn kết thống nhất của Đảng là gì?",
+        "user_answer": "D",
+        "correct_answer": "A",
+        "is_correct": false,
+        "explanation": "Hồ Chí Minh coi tập trung dân chủ là nguyên tắc tổ chức cơ bản nhất. Dân chủ để phát huy trí tuệ tập thể, tập trung để thống nhất ý chí và hành động, tạo nên sức mạnh vô địch của Đảng."
+      },
+      {
+        "question_id": "q4",
+        "question": "Trong tư tưởng Hồ Chí Minh, đặc trưng cốt lõi của Nhà nước Việt Nam là gì?",
+        "user_answer": "C",
+        "correct_answer": "C",
+        "is_correct": true,
+        "explanation": "Luận điểm 'Nhà nước của dân, do dân, vì dân' thể hiện súc tích, đầy đủ nhất bản chất và mục tiêu của nhà nước kiểu mới ở Việt Nam, nơi tất cả quyền lực thuộc về nhân dân."
+      },
+      {
+        "question_id": "q5",
+        "question": "Theo tư tưởng Hồ Chí Minh, quyền lực Nhà nước ở Việt Nam được tổ chức theo nguyên tắc nào?",
+        "user_answer": "C",
+        "correct_answer": "C",
+        "is_correct": true,
+        "explanation": "Hồ Chí Minh khẳng định quyền lực nhà nước thuộc về nhân dân, là thống nhất, nhưng để thực thi hiệu quả, cần có sự phân công rành mạch, phối hợp nhịp nhàng và kiểm soát lẫn nhau giữa các cơ quan lập pháp, hành pháp và tư pháp."
+      },
+      {
+        "question_id": "q6",
+        "question": "Hồ Chí Minh coi những căn bệnh nào là 'giặc nội xâm', kẻ thù nguy hiểm cần phải kiên quyết chống trong bộ máy nhà nước?",
+        "user_answer": "",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Người nhiều lần nhấn mạnh tham ô, lãng phí, quan liêu là những kẻ thù nguy hiểm từ bên trong, chúng phá hoại sự nghiệp cách mạng, làm suy yếu nhà nước và làm mất lòng tin của nhân dân."
+      },
+      {
+        "question_id": "q7",
+        "question": "Mục đích của việc thực hiện nguyên tắc 'Tự phê bình và phê bình' trong Đảng theo tư tưởng Hồ Chí Minh là gì?",
+        "user_answer": "C",
+        "correct_answer": "C",
+        "is_correct": true,
+        "explanation": "Hồ Chí Minh ví tự phê bình và phê bình như việc 'rửa mặt hàng ngày', mục đích chính là để sửa chữa, tiến bộ, đoàn kết hơn nữa, chứ không phải để công kích, chỉ trích hay hạ bệ lẫn nhau."
+      },
+      {
+        "question_id": "q8",
+        "question": "Theo Hồ Chí Minh, để xây dựng một nhà nước pháp quyền vững mạnh, cần phải chú trọng điều gì?",
+        "user_answer": "",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Hồ Chí Minh luôn nhấn mạnh sự kết hợp giữa 'đức trị' và 'pháp trị'. Pháp luật là công cụ quản lý, nhưng đạo đức là cái gốc, là nền tảng tinh thần để pháp luật được thực thi một cách tự giác và hiệu quả."
+      },
+      {
+        "question_id": "q9",
+        "question": "Quan điểm 'Đảng ta là đạo đức, là văn minh' của Hồ Chí Minh có ý nghĩa gì?",
+        "user_answer": "",
+        "correct_answer": "B",
+        "is_correct": false,
+        "explanation": "Câu nói này khẳng định sự tồn tại và vai trò lãnh đạo của Đảng không chỉ dựa vào cương lĩnh, đường lối mà còn dựa vào phẩm chất đạo đức cách mạng, sự trong sạch của đội ngũ. 'Đạo đức' và 'văn minh' là thước đo uy tín và sức mạnh của Đảng trước nhân dân."
+      },
+      {
+        "question_id": "q10",
+        "question": "Trong Nhà nước của dân, do dân, vì dân, hình thức dân chủ nào được Hồ Chí Minh đề cao để người dân thực thi quyền làm chủ của mình?",
+        "user_answer": "",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Hồ Chí Minh chỉ rõ, người dân thực thi quyền lực của mình thông qua cả hai hình thức: dân chủ đại diện (bầu ra Quốc hội, Hội đồng nhân dân) và dân chủ trực tiếp (tham gia góp ý, giám sát, thực hiện quyền bãi miễn...)."
+      }
+    ],
+    "quiz_title": "Bài kiểm tra Chương IV",
+    "quiz_chapter": "Chương IV",
+    "id": "a7889d49-f7ce-4021-8bfb-bfe72756258e",
+    "username": "abc",
+    "quiz_id": "e6f6f883-5bef-4641-8cf8-cbdc5da37e14",
+    "submitted_at": "2025-10-06T20:21:09.226842"
+  },
+  {
+    "score": 3.0,
+    "correct_count": 3,
+    "total_questions": 10,
+    "percentage": 30.0,
+    "details": [
+      {
+        "question_id": "q1",
+        "question": "Theo tư tưởng Hồ Chí Minh, Đảng Cộng sản Việt Nam là sản phẩm của sự kết hợp giữa những yếu tố nào?",
+        "user_answer": "A",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Đây là một luận điểm sáng tạo của Hồ Chí Minh, bổ sung yếu tố 'phong trào yêu nước' vào quy luật ra đời của Đảng Cộng sản ở một nước thuộc địa, phản ánh đúng đặc thù của cách mạng Việt Nam."
+      },
+      {
+        "question_id": "q2",
+        "question": "Luận điểm nào sau đây thể hiện rõ nhất bản chất giai cấp của Đảng Cộng sản Việt Nam theo tư tưởng Hồ Chí Minh?",
+        "user_answer": "A",
+        "correct_answer": "D",
+        "is_correct": false,
+        "explanation": "Quan điểm này thể hiện đầy đủ và toàn diện bản chất của Đảng: vừa mang bản chất giai cấp công nhân, vừa gắn bó máu thịt với nhân dân lao động và toàn dân tộc, đại biểu cho lợi ích của cả dân tộc."
+      },
+      {
+        "question_id": "q3",
+        "question": "Theo Hồ Chí Minh, nguyên tắc tổ chức, sinh hoạt Đảng quan trọng nhất, nhằm đảm bảo sức mạnh và sự đoàn kết thống nhất của Đảng là gì?",
+        "user_answer": "A",
+        "correct_answer": "A",
+        "is_correct": true,
+        "explanation": "Hồ Chí Minh coi tập trung dân chủ là nguyên tắc tổ chức cơ bản nhất. Dân chủ để phát huy trí tuệ tập thể, tập trung để thống nhất ý chí và hành động, tạo nên sức mạnh vô địch của Đảng."
+      },
+      {
+        "question_id": "q4",
+        "question": "Trong tư tưởng Hồ Chí Minh, đặc trưng cốt lõi của Nhà nước Việt Nam là gì?",
+        "user_answer": "A",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Luận điểm 'Nhà nước của dân, do dân, vì dân' thể hiện súc tích, đầy đủ nhất bản chất và mục tiêu của nhà nước kiểu mới ở Việt Nam, nơi tất cả quyền lực thuộc về nhân dân."
+      },
+      {
+        "question_id": "q5",
+        "question": "Theo tư tưởng Hồ Chí Minh, quyền lực Nhà nước ở Việt Nam được tổ chức theo nguyên tắc nào?",
+        "user_answer": "A",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Hồ Chí Minh khẳng định quyền lực nhà nước thuộc về nhân dân, là thống nhất, nhưng để thực thi hiệu quả, cần có sự phân công rành mạch, phối hợp nhịp nhàng và kiểm soát lẫn nhau giữa các cơ quan lập pháp, hành pháp và tư pháp."
+      },
+      {
+        "question_id": "q6",
+        "question": "Hồ Chí Minh coi những căn bệnh nào là 'giặc nội xâm', kẻ thù nguy hiểm cần phải kiên quyết chống trong bộ máy nhà nước?",
+        "user_answer": "B",
+        "correct_answer": "B",
+        "is_correct": true,
+        "explanation": "Người nhiều lần nhấn mạnh tham ô, lãng phí, quan liêu là những kẻ thù nguy hiểm từ bên trong, chúng phá hoại sự nghiệp cách mạng, làm suy yếu nhà nước và làm mất lòng tin của nhân dân."
+      },
+      {
+        "question_id": "q7",
+        "question": "Mục đích của việc thực hiện nguyên tắc 'Tự phê bình và phê bình' trong Đảng theo tư tưởng Hồ Chí Minh là gì?",
+        "user_answer": "A",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Hồ Chí Minh ví tự phê bình và phê bình như việc 'rửa mặt hàng ngày', mục đích chính là để sửa chữa, tiến bộ, đoàn kết hơn nữa, chứ không phải để công kích, chỉ trích hay hạ bệ lẫn nhau."
+      },
+      {
+        "question_id": "q8",
+        "question": "Theo Hồ Chí Minh, để xây dựng một nhà nước pháp quyền vững mạnh, cần phải chú trọng điều gì?",
+        "user_answer": "B",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Hồ Chí Minh luôn nhấn mạnh sự kết hợp giữa 'đức trị' và 'pháp trị'. Pháp luật là công cụ quản lý, nhưng đạo đức là cái gốc, là nền tảng tinh thần để pháp luật được thực thi một cách tự giác và hiệu quả."
+      },
+      {
+        "question_id": "q9",
+        "question": "Quan điểm 'Đảng ta là đạo đức, là văn minh' của Hồ Chí Minh có ý nghĩa gì?",
+        "user_answer": "B",
+        "correct_answer": "B",
+        "is_correct": true,
+        "explanation": "Câu nói này khẳng định sự tồn tại và vai trò lãnh đạo của Đảng không chỉ dựa vào cương lĩnh, đường lối mà còn dựa vào phẩm chất đạo đức cách mạng, sự trong sạch của đội ngũ. 'Đạo đức' và 'văn minh' là thước đo uy tín và sức mạnh của Đảng trước nhân dân."
+      },
+      {
+        "question_id": "q10",
+        "question": "Trong Nhà nước của dân, do dân, vì dân, hình thức dân chủ nào được Hồ Chí Minh đề cao để người dân thực thi quyền làm chủ của mình?",
+        "user_answer": "A",
+        "correct_answer": "C",
+        "is_correct": false,
+        "explanation": "Hồ Chí Minh chỉ rõ, người dân thực thi quyền lực của mình thông qua cả hai hình thức: dân chủ đại diện (bầu ra Quốc hội, Hội đồng nhân dân) và dân chủ trực tiếp (tham gia góp ý, giám sát, thực hiện quyền bãi miễn...)."
+      }
+    ],
+    "quiz_title": "Bài kiểm tra Chương IV",
+    "quiz_chapter": "Chương IV",
+    "id": "e21abc9a-66fe-429f-9e25-c98f2649d914",
+    "username": "abc",
+    "quiz_id": "e6f6f883-5bef-4641-8cf8-cbdc5da37e14",
+    "submitted_at": "2025-10-06T20:40:37.368359"
   }
 ]

@@ -1,0 +1,190 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Theo giáo trình, nguồn gốc lý luận quan trọng nhất, quyết định bản chất cách mạng và khoa học của tư tưởng Hồ Chí Minh là gì?",
+      "options": {
+        "A": "Chủ nghĩa Mác - Lênin",
+        "B": "Giá trị truyền thống dân tộc Việt Nam",
+        "C": "Tinh hoa văn hóa phương Đông",
+        "D": "Tinh hoa văn hóa phương Tây"
+      },
+      "correct_answer": "A",
+      "explanation": "Chủ nghĩa Mác - Lênin là cơ sở thế giới quan, phương pháp luận và là nguồn gốc lý luận trực tiếp, quyết định bản chất tư tưởng Hồ Chí Minh."
+    },
+    {
+      "id": "q2",
+      "question": "Đại hội nào của Đảng Cộng sản Việt Nam đã khẳng định: 'Đảng lấy chủ nghĩa Mác-Lênin và tư tưởng Hồ Chí Minh làm nền tảng tư tưởng, kim chỉ nam cho hành động'?",
+      "options": {
+        "A": "Đại hội V (1982)",
+        "B": "Đại hội VI (1986)",
+        "C": "Đại hội VII (1991)",
+        "D": "Đại hội VIII (1996)"
+      },
+      "correct_answer": "C",
+      "explanation": "Đại hội đại biểu toàn quốc lần thứ VII (tháng 6/1991) của Đảng đã chính thức khẳng định lấy chủ nghĩa Mác-Lênin và tư tưởng Hồ Chí Minh làm nền tảng tư tưởng."
+    },
+    {
+      "id": "q3",
+      "question": "Đối tượng nghiên cứu của môn học Tư tưởng Hồ Chí Minh là gì?",
+      "options": {
+        "A": "Toàn bộ cuộc đời và sự nghiệp của Hồ Chí Minh",
+        "B": "Hệ thống các quan điểm, lý luận của Hồ Chí Minh về cách mạng Việt Nam",
+        "C": "Lịch sử Đảng Cộng sản Việt Nam",
+        "D": "Quá trình Đảng vận dụng tư tưởng Hồ Chí Minh"
+      },
+      "correct_answer": "B",
+      "explanation": "Đối tượng nghiên cứu của môn học là toàn bộ hệ thống quan điểm, lý luận của Hồ Chí Minh được thể hiện trong di sản của Người."
+    },
+    {
+      "id": "q4",
+      "question": "Giá trị truyền thống nào của dân tộc Việt Nam là nguồn gốc sâu xa hình thành nên tư tưởng yêu nước của Hồ Chí Minh?",
+      "options": {
+        "A": "Tinh thần cần cù, dũng cảm",
+        "B": "Chủ nghĩa yêu nước và ý chí bất khuất đấu tranh dựng nước, giữ nước",
+        "C": "Tinh thần lạc quan, yêu đời",
+        "D": "Truyền thống nhân ái, khoan dung"
+      },
+      "correct_answer": "B",
+      "explanation": "Chủ nghĩa yêu nước là giá trị cốt lõi, là sợi chỉ đỏ xuyên suốt lịch sử dân tộc và là động lực lớn nhất thôi thúc Nguyễn Tất Thành ra đi tìm đường cứu nước."
+    },
+    {
+      "id": "q5",
+      "question": "Hồ Chí Minh đã tiếp thu giá trị tích cực nào từ Nho giáo?",
+      "options": {
+        "A": "Tư tưởng đẳng cấp, phân biệt nam nữ",
+        "B": "Triết lý hành động, tu dưỡng đạo đức cá nhân",
+        "C": "Tư tưởng bảo thủ, lạc hậu",
+        "D": "Tư tưởng 'trung quân' một cách mù quáng"
+      },
+      "correct_answer": "B",
+      "explanation": "Người đã kế thừa và phát triển các mặt tích cực của Nho giáo như triết lý hành động, tư tưởng nhập thế, và các nguyên tắc tu dưỡng đạo đức cá nhân."
+    },
+    {
+      "id": "q6",
+      "question": "Sự kiện nào đánh dấu bước ngoặt Nguyễn Ái Quốc từ chủ nghĩa yêu nước đến với chủ nghĩa Mác-Lênin?",
+      "options": {
+        "A": "Gửi 'Bản yêu sách của nhân dân An Nam' tới Hội nghị Vécxai (1919)",
+        "B": "Đọc 'Sơ thảo lần thứ nhất những luận cương về vấn đề dân tộc và vấn đề thuộc địa' của Lênin (1920)",
+        "C": "Tham gia sáng lập Đảng Cộng sản Pháp (1920)",
+        "D": "Sáng lập Hội Việt Nam Cách mạng Thanh niên (1925)"
+      },
+      "correct_answer": "B",
+      "explanation": "Khi đọc Luận cương của Lênin vào tháng 7/1920, Người đã tìm thấy con đường cứu nước đúng đắn cho dân tộc, con đường cách mạng vô sản."
+    },
+    {
+      "id": "q7",
+      "question": "Khái niệm 'Tư tưởng Hồ Chí Minh' được hiểu là gì?",
+      "options": {
+        "A": "Toàn bộ những bài nói, bài viết của Hồ Chí Minh",
+        "B": "Kết quả của sự vận dụng sáng tạo chủ nghĩa Mác-Lênin vào điều kiện cụ thể của Việt Nam",
+        "C": "Chỉ là tư tưởng về đạo đức cách mạng",
+        "D": "Chỉ là tư tưởng về xây dựng Đảng"
+      },
+      "correct_answer": "B",
+      "explanation": "Tư tưởng Hồ Chí Minh là một hệ thống quan điểm toàn diện và sâu sắc về những vấn đề cơ bản của cách mạng Việt Nam, là kết quả của sự vận dụng và phát triển sáng tạo chủ nghĩa Mác - Lênin vào điều kiện cụ thể của nước ta."
+    },
+    {
+      "id": "q8",
+      "question": "Giai đoạn nào được coi là thời kỳ hình thành cơ bản tư tưởng Hồ Chí Minh về con đường cách mạng Việt Nam?",
+      "options": {
+        "A": "Trước năm 1911",
+        "B": "1911 - 1920",
+        "C": "1921 - 1930",
+        "D": "1930 - 1945"
+      },
+      "correct_answer": "C",
+      "explanation": "Đây là giai đoạn Người hoạt động lý luận và thực tiễn sôi nổi ở Pháp, Liên Xô, Trung Quốc, truyền bá chủ nghĩa Mác-Lênin về Việt Nam và chuẩn bị các điều kiện để thành lập Đảng, hình thành những luận điểm cơ bản về cách mạng Việt Nam."
+    },
+    {
+      "id": "q9",
+      "question": "Một trong những ý nghĩa quan trọng của việc học tập môn Tư tưởng Hồ Chí Minh là gì?",
+      "options": {
+        "A": "Chỉ để biết về lịch sử",
+        "B": "Nâng cao năng lực tư duy lý luận và phương pháp công tác",
+        "C": "Chỉ để phục vụ cho việc thi cử",
+        "D": "Chỉ để hiểu về cuộc đời của Bác"
+      },
+      "correct_answer": "B",
+      "explanation": "Học tập tư tưởng Hồ Chí Minh giúp bồi đắp thế giới quan, phương pháp luận khoa học, từ đó nâng cao năng lực tư duy lý luận, phương pháp công tác và rèn luyện bản lĩnh chính trị."
+    },
+    {
+      "id": "q10",
+      "question": "Nhân tố chủ quan nào giữ vai trò quan trọng nhất trong việc hình thành tư tưởng Hồ Chí Minh?",
+      "options": {
+        "A": "Khả năng tư duy và trí tuệ kiệt xuất của Người",
+        "B": "Phẩm chất đạo đức và năng lực hoạt động thực tiễn",
+        "C": "Cả A và B đều đúng",
+        "D": "Sự giúp đỡ của bạn bè quốc tế"
+      },
+      "correct_answer": "C",
+      "explanation": "Chính trí tuệ kiệt xuất, tư duy độc lập, sáng tạo cùng với phẩm chất đạo đức cao đẹp và năng lực hoạt động thực tiễn phong phú đã giúp Người tiếp thu, chuyển hóa và phát triển các giá trị tinh hoa thành tư tưởng của riêng mình."
+    },
+    {
+      "id": "q11",
+      "question": "Hồ Chí Minh đã tiếp thu giá trị nào từ các cuộc cách mạng tư sản phương Tây, đặc biệt là Cách mạng Pháp và Cách mạng Mỹ?",
+      "options": {
+        "A": "Tư tưởng về nhà nước pháp quyền",
+        "B": "Giá trị về quyền con người, quyền tự do, dân chủ",
+        "C": "Lý thuyết kinh tế thị trường",
+        "D": "Hệ thống nghị viện"
+      },
+      "correct_answer": "B",
+      "explanation": "Người đặc biệt quan tâm và tiếp thu các giá trị về quyền con người, quyền bình đẳng, tự do, dân chủ thể hiện trong các bản Tuyên ngôn của Cách mạng Pháp và Mỹ."
+    },
+    {
+      "id": "q12",
+      "question": "Phương pháp luận cơ bản nhất để nghiên cứu tư tưởng Hồ Chí Minh là gì?",
+      "options": {
+        "A": "Phương pháp lịch sử và logic",
+        "B": "Phương pháp phân tích văn bản",
+        "C": "Phương pháp liên ngành",
+        "D": "Phương pháp phỏng vấn"
+      },
+      "correct_answer": "A",
+      "explanation": "Sự thống nhất giữa phương pháp lịch sử (nghiên cứu quá trình hình thành) và logic (nghiên cứu bản chất, quy luật) là nguyên tắc phương pháp luận cơ bản và quan trọng nhất."
+    },
+    {
+      "id": "q13",
+      "question": "Tư tưởng Hồ Chí Minh soi đường cho sự nghiệp cách mạng của nhân dân ta giành thắng lợi có ý nghĩa như thế nào?",
+      "options": {
+        "A": "Giá trị lịch sử",
+        "B": "Giá trị lý luận",
+        "C": "Giá trị thực tiễn",
+        "D": "Giá trị quốc tế"
+      },
+      "correct_answer": "C",
+      "explanation": "Đây là giá trị thực tiễn to lớn của tư tưởng Hồ Chí Minh, khi nó đã trở thành ngọn đuốc soi đường, dẫn dắt cách mạng Việt Nam đi từ thắng lợi này đến thắng lợi khác."
+    },
+    {
+      "id": "q14",
+      "question": "Hồ Chí Minh ra đi tìm đường cứu nước vào ngày, tháng, năm nào và tại đâu?",
+      "options": {
+        "A": "05/06/1911 tại Bến cảng Nhà Rồng",
+        "B": "02/09/1945 tại Quảng trường Ba Đình",
+        "C": "03/02/1930 tại Hương Cảng (Trung Quốc)",
+        "D": "19/05/1890 tại làng Sen, Nam Đàn"
+      },
+      "correct_answer": "A",
+      "explanation": "Ngày 05/06/1911, người thanh niên Nguyễn Tất Thành đã lên con tàu Amiral Latouche-Tréville từ Bến cảng Nhà Rồng, bắt đầu hành trình tìm đường cứu nước."
+    },
+    {
+      "id": "q15",
+      "question": "Tư tưởng cốt lõi của Hồ Chí Minh trong suốt cuộc đời hoạt động cách mạng là gì?",
+      "options": {
+        "A": "Độc lập dân tộc gắn liền với chủ nghĩa xã hội",
+        "B": "Đoàn kết toàn dân tộc",
+        "C": "Xây dựng Đảng trong sạch, vững mạnh",
+        "D": "Kết hợp sức mạnh dân tộc với sức mạnh thời đại"
+      },
+      "correct_answer": "A",
+      "explanation": "Độc lập dân tộc gắn liền với chủ nghĩa xã hội là tư tưởng cốt lõi, là sợi chỉ đỏ xuyên suốt toàn bộ hệ thống tư tưởng Hồ Chí Minh, phản ánh quy luật khách quan của sự nghiệp giải phóng dân tộc trong thời đại mới."
+    }
+  ],
+  "title": "Bài kiểm tra Chương I",
+  "chapter": "Chương I",
+  "difficulty": "easy",
+  "num_questions": 15,
+  "id": "d52859d8-6dc1-43e7-9673-03e1c70e26d5",
+  "created_at": "2025-10-06T19:08:36.758932"
+}
