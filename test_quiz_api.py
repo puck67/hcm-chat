@@ -2,7 +2,7 @@ import requests
 import json
 
 def test_quiz_api():
-    url = "http://localhost:8000/quiz/generate"
+    url = "https://hcm-chat-2.onrender.com/quiz/generate"
     data = {
         "chapter": "Chương III",
         "num_questions": 10,

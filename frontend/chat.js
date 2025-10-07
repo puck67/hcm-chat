@@ -67,7 +67,7 @@ function linkInlineCitations(renderedHtml, citationMap, sources){
     return renderedHtml.replace(/\[Nguồn\s*(\d+)\s*[-–]([^\]]*)\]/gi, (match, sourceNum, citationText)=>{
         // Tạo URL đến trang book với highlight text (không cần phụ thuộc vào citationMap)
         const cleanText = citationText.trim();
-        const bookUrl = `http://localhost:3000/book/tu-tuong-ho-chi-minh.html#chuong${sourceNum}?hl=${encodeURIComponent(cleanText)}`;
+        const bookUrl = `https://hcm-chat.vercel.app/book/tu-tuong-ho-chi-minh.html#chuong${sourceNum}?hl=${encodeURIComponent(cleanText)}`;
         
         return `<a class="citation-link" href="${bookUrl}" target="_blank" rel="noopener noreferrer" onclick="return openBookWithHighlight('${sourceNum}', '${cleanText.replace(/'/g, "\\'")}')" style="color: #007bff; text-decoration: underline; cursor: pointer;">${match}</a>`;
     });
@@ -571,8 +571,8 @@ class HCMChatApp {
             }
 
             const bookUrl = highlightText
-                ? `http://localhost:3000/book/tu-tuong-ho-chi-minh.html#${chapterSlug}?hl=${encodeURIComponent(highlightText)}`
-                : `http://localhost:3000/book/tu-tuong-ho-chi-minh.html#${chapterSlug}`;
+                ? `https://hcm-chat.vercel.app/book/tu-tuong-ho-chi-minh.html#${chapterSlug}?hl=${encodeURIComponent(highlightText)}`
+                : `https://hcm-chat.vercel.app/book/tu-tuong-ho-chi-minh.html#${chapterSlug}`;
 
             return `<a class="citation-link" href="${bookUrl}" target="_blank" style="color: #007bff !important; text-decoration: underline !important; font-weight: bold !important; cursor: pointer !important;">${match}</a>`;
         });
@@ -678,7 +678,7 @@ class HCMChatApp {
             console.log('🔧 Calling image search API...');
 
             // Gọi API tìm ảnh
-            const response = await fetch('http://localhost:8000/images/search', {
+            const response = await fetch((window.PYTHON_AI_API || 'https://hcm-chat-2.onrender.com') + '/images/search', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -1646,8 +1646,8 @@ class HCMChatApp {
             }
 
             const bookUrl = highlightText
-                ? `http://localhost:3000/book/tu-tuong-ho-chi-minh.html#${chapterSlug}?hl=${encodeURIComponent(highlightText)}`
-                : `http://localhost:3000/book/tu-tuong-ho-chi-minh.html#${chapterSlug}`;
+                ? `https://hcm-chat.vercel.app/book/tu-tuong-ho-chi-minh.html#${chapterSlug}?hl=${encodeURIComponent(highlightText)}`
+                : `https://hcm-chat.vercel.app/book/tu-tuong-ho-chi-minh.html#${chapterSlug}`;
             return `<a class="citation-link" href="${bookUrl}" target="_blank" style="color: #007bff !important; text-decoration: underline !important; font-weight: bold !important; cursor: pointer !important;">${match}</a>`;
         });
 
@@ -2072,7 +2072,7 @@ document.head.appendChild(style);
 
 // Function để mở trang book với highlight text
 function openBookWithHighlight(chapterNum, text) {
-    const bookUrl = `http://localhost:3000/book/tu-tuong-ho-chi-minh.html#chuong${chapterNum}?hl=${encodeURIComponent(text)}`;
+    const bookUrl = `https://hcm-chat.vercel.app/book/tu-tuong-ho-chi-minh.html#chuong${chapterNum}?hl=${encodeURIComponent(text)}`;
     window.open(bookUrl, '_blank', 'noopener,noreferrer');
     return false;
 }

@@ -85,8 +85,8 @@ def main():
     # Hiển thị hướng dẫn sử dụng
     print("\n📋 Hướng dẫn:")
     print("- Khởi động server: python -m app.main")
-    print("- Test API: POST http://localhost:8000/chat")
-    print("- Reindex khi có data mới: POST http://localhost:8000/admin/reindex")
+    print("- Test API: POST https://hcm-chat-2.onrender.com/chat")
+    print("- Reindex khi có data mới: POST https://hcm-chat-2.onrender.com/admin/reindex")
 
 if __name__ == "__main__":
     main()

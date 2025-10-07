@@ -174,7 +174,7 @@ function highlightInElement(root, phrase){
 async function loadTOC(){
   const tocEl = document.getElementById('tocList');
   tocEl.innerHTML = '';
-  const list = await fetchJSON('http://localhost:8000/book/list');
+  const list = await fetchJSON((window.PYTHON_AI_API || 'https://hcm-chat-2.onrender.com') + '/book/list');
   list.forEach(item=>{
     const a = document.createElement('a');
     a.href = '#'+item.slug;
@@ -202,7 +202,7 @@ function selectTOC(slug){
 async function loadPage(slug, opts={}){
   const contentEl = document.getElementById('content');
   contentEl.innerHTML = '<div class="page-skeleton"><div class="line w60"></div><div class="line w90"></div><div class="line w85"></div><div class="line w75"></div><div class="line w95"></div><div class="line w70"></div></div>';
-  const data = await fetchJSON('http://localhost:8000/book/content/'+slug);
+  const data = await fetchJSON((window.PYTHON_AI_API || 'https://hcm-chat-2.onrender.com') + '/book/content/' + slug);
   document.getElementById('pageTitle').textContent = '— '+data.title;
   const html = renderMarkdown(data.markdown);
   contentEl.innerHTML = '<div class="markdown">'+html+'</div>';

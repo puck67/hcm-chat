@@ -46,8 +46,7 @@ const corsOptions = {
         'http://localhost:3000',
         'http://localhost:5173', 
         'http://localhost:8080',
-        'https://hcm-chat.vercel.app',
-        'https://hcm-chatbot-frontend.onrender.com'
+        'https://hcm-chat.vercel.app'
     ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
