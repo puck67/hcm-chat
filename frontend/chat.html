@@ -6,28 +6,30 @@
     <title>HCM Chatbot - Chat</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="global-styles.css">
+    <script src="config.js"></script>
     <style>
         /* Modern Glassmorphism UI Theme */
         :root {
-            /* Gradients & Colors */
-            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --gradient-warm: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-            --gradient-cool: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
-            --gradient-dark: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            /* HCM Theme Colors - Match Auth/Welcome */
+            --primary-red: #da251c;
+            --primary-yellow: #ffcd00;
+            --soft-pink: #ffb3ba;
+            --soft-yellow: #fffacd;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
             
-            /* Base colors */
-            --bg-primary: #1a1a2e;
-            --bg-secondary: #16213e;
+            /* Glass effects for chat */
             --bg-glass: rgba(255, 255, 255, 0.05);
             --bg-glass-light: rgba(255, 255, 255, 0.1);
             --bg-glass-dark: rgba(0, 0, 0, 0.2);
             
-            /* Text colors */
-            --text-primary: #ffffff;
-            --text-secondary: #a8b2d1;
-            --text-muted: #64748b;
+            /* Text colors - Match Auth */
+            --text-primary: var(--text-dark);
+            --text-secondary: var(--text-light);
+            --text-muted: #95a5a6;
             
             /* Glass effect colors */
             --glass-border: rgba(255, 255, 255, 0.18);
@@ -66,14 +68,15 @@
             height: 100vh;
             display: flex;
             overflow: hidden;
-            background: var(--gradient-dark);
+            background: transparent !important;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             position: relative;
+            filter: none !important;
         }
 
-        /* Animated background */
+        /* Background Image - Clear and sharp */
         body::before {
             content: '';
             position: fixed;
@@ -81,35 +84,41 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(249, 115, 108, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(240, 147, 251, 0.2) 0%, transparent 50%);
-            animation: gradientShift 15s ease infinite;
+            background: url('auth-bg.png') center/cover no-repeat;
+            opacity: 1.0 !important;
             z-index: -1;
+            filter: none !important;
         }
 
+        /* Force no background overlay */
+        html, body {
+            background: transparent !important;
+        }
+        
+        .chat-area, 
+        .chat-messages {
+            background: transparent !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
         @keyframes gradientShift {
             0%, 100% { transform: rotate(0deg) scale(1); }
             50% { transform: rotate(180deg) scale(1.1); }
         }
 
-        /* Glass Sidebar */
+        /* Glass Sidebar - Match Auth Style */
         .sidebar {
             width: 280px;
-            background: var(--bg-glass);
-            backdrop-filter: blur(var(--blur-md));
-            -webkit-backdrop-filter: blur(var(--blur-md));
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-right: 1px solid var(--glass-border);
             display: flex;
             flex-direction: column;
-            height: 100vh;
-            border-right: 1px solid var(--glass-border);
             position: relative;
-            overflow: hidden;
-            box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.05);
-            animation: slideInLeft 0.5s ease-out;
+            z-index: 10;
+            transition: width 0.3s ease;
         }
-
         @keyframes slideInLeft {
             from {
                 transform: translateX(-100%);
@@ -133,19 +142,40 @@
             transform: rotate(45deg);
             animation: floatGradient 20s ease-in-out infinite;
         }
-
         @keyframes floatGradient {
             0%, 100% { transform: rotate(45deg) translateY(0); }
             50% { transform: rotate(45deg) translateY(-50px); }
         }
 
-        .sidebar-header {
-            padding: 20px;
-            background: var(--bg-glass-light);
-            backdrop-filter: blur(var(--blur-sm));
-            border-bottom: 1px solid var(--glass-border);
+        .chat-input-container {
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             z-index: 2;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-yellow);
         }
 
         .user-info {
@@ -153,9 +183,9 @@
             align-items: center;
             gap: 12px;
             padding: 12px;
-            border-radius: var(--radius-md);
+            border-radius: 20px;
             margin-bottom: 12px;
-            background: var(--bg-glass);
+            background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             transition: all 0.3s ease;
         }
@@ -193,35 +223,26 @@
             font-size: 0.9rem;
             font-weight: 500;
             margin: 0;
-            color: var(--text-primary);
+            color: var(--text-dark);
         }
 
         .user-details span {
             font-size: 0.75rem;
-            color: var(--text-secondary);
+            color: var(--text-light);
         }
 
         .new-chat-btn {
             width: 100%;
             padding: 14px;
-            background: var(--gradient-primary);
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-yellow));
             color: white;
             border: none;
-            border-radius: var(--radius-lg);
+            border-radius: 20px;
             cursor: pointer;
-            font-family: inherit;
-            font-weight: 500;
             font-size: 0.9rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
             display: flex;
             align-items: center;
-            gap: 12px;
-            box-shadow: var(--shadow-md);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .new-chat-btn::before {
             content: '';
             position: absolute;
             top: 0;
@@ -342,7 +363,7 @@
             padding: 8px;
         }
 
-        /* Profile Modal */
+        /* Profile Modal - Glassmorphism Design */
         .profile-modal {
             display: none;
             position: fixed;
@@ -351,31 +372,59 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            animation: fadeIn 0.3s ease;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { 
+                opacity: 0;
+                backdrop-filter: blur(0px);
+                -webkit-backdrop-filter: blur(0px);
+            }
+            to { 
+                opacity: 1;
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+            }
         }
 
         .profile-modal-content {
-            background: var(--bg-glass-light);
-            backdrop-filter: blur(var(--blur-lg));
-            -webkit-backdrop-filter: blur(var(--blur-lg));
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
             margin: 2% auto;
-            padding: 30px;
-            border-radius: var(--radius-xl);
+            padding: 35px;
+            border-radius: 25px;
             width: 95%;
-            max-width: 500px;
+            max-width: 520px;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: var(--shadow-lg), 0 0 60px rgba(102, 126, 234, 0.3);
-            border: 1px solid var(--glass-border);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 80px rgba(102, 126, 234, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             position: relative;
-            animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .profile-modal-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.1) 0%, 
+                rgba(118, 75, 162, 0.05) 50%, 
+                rgba(218, 37, 28, 0.1) 100%);
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0.6;
         }
 
         @keyframes slideUp {
@@ -427,35 +476,39 @@
         }
 
         .profile-modal-header h2 {
-            background: var(--gradient-primary);
+            background: linear-gradient(135deg, #667eea, #764ba2, #da251c);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             margin: 0;
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
         }
 
         .close-btn {
-            background: var(--bg-glass);
-            border: 1px solid var(--glass-border);
-            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 1.2rem;
             cursor: pointer;
-            color: var(--text-secondary);
-            width: 36px;
-            height: 36px;
+            color: rgba(255, 255, 255, 0.8);
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .close-btn:hover {
-            background: var(--gradient-primary);
+            background: rgba(218, 37, 28, 0.8);
             color: white;
-            transform: rotate(90deg) scale(1.1);
+            transform: rotate(90deg) scale(1.15);
             border-color: transparent;
+            box-shadow: 0 8px 25px rgba(218, 37, 28, 0.4);
         }
 
         .profile-form-group {
@@ -464,34 +517,48 @@
 
         .profile-form-group label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: var(--text-primary);
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .profile-form-group input {
             width: 100%;
-            padding: 14px;
-            background: var(--bg-glass-dark);
-            border: 2px solid var(--glass-border);
-            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
             font-size: 16px;
-            color: var(--text-primary);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(var(--blur-sm));
+            color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
         }
 
         .profile-form-group input:focus {
             outline: none;
-            border-color: rgba(102, 126, 234, 0.5);
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: rgba(102, 126, 234, 0.6);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 
+                inset 0 2px 10px rgba(0, 0, 0, 0.1),
+                0 0 0 3px rgba(102, 126, 234, 0.2),
+                0 8px 25px rgba(102, 126, 234, 0.15);
+            transform: translateY(-2px);
         }
 
         .profile-form-group input[readonly] {
-            background: rgba(255, 255, 255, 0.02);
-            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.6);
             cursor: not-allowed;
+            border-color: rgba(255, 255, 255, 0.1);
         }
 
         .profile-buttons {
@@ -502,18 +569,20 @@
         }
 
         .profile-btn-primary {
-            padding: 14px 28px;
-            background: var(--gradient-primary);
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
-            border-radius: var(--radius-lg);
+            border-radius: 20px;
             cursor: pointer;
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .profile-btn-primary::before {
@@ -523,15 +592,16 @@
             left: 50%;
             width: 0;
             height: 0;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.4);
             border-radius: 50%;
             transform: translate(-50%, -50%);
             transition: width 0.6s, height 0.6s;
         }
 
         .profile-btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg), var(--shadow-glow);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, #7c88ea, #8a5fc2);
         }
 
         .profile-btn-primary:hover::before {
@@ -540,21 +610,24 @@
         }
 
         .profile-btn-secondary {
-            padding: 14px 28px;
-            background: var(--bg-glass);
-            backdrop-filter: blur(var(--blur-sm));
-            color: var(--text-primary);
-            border: 2px solid var(--glass-border);
-            border-radius: var(--radius-lg);
+            padding: 16px 32px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            color: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
             cursor: pointer;
             font-size: 16px;
-            transition: all 0.3s ease;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .profile-btn-secondary:hover {
-            background: var(--hover-accent);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         .conversations-list {
@@ -721,54 +794,20 @@
             flex-direction: column;
             height: 100vh;
             position: relative;
-            background: var(--bg-glass-dark);
-            backdrop-filter: blur(var(--blur-lg));
+            background: transparent !important;
             overflow: hidden;
         }
-
-        /* Background image overlay với hiệu ứng mờ */
-        .chat-area::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('bg-image.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: blur(8px);
-            opacity: 0.25;
-            z-index: 0;
-        }
-
-        /* Gradient overlay để tăng độ tương phản */
-        .chat-area::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, 
-                rgba(15, 12, 41, 0.6) 0%, 
-                rgba(48, 43, 99, 0.5) 50%, 
-                rgba(36, 36, 62, 0.65) 100%);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            z-index: 1;
-        }
+        /* Clean background like auth */
 
         .chat-header {
             padding: 20px 24px;
-            background: var(--bg-glass);
-            backdrop-filter: blur(var(--blur-md));
-            border-bottom: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: var(--shadow-sm);
             animation: slideInTop 0.5s ease-out;
             position: relative;
             z-index: 2;
@@ -1109,9 +1148,10 @@
 
         .chat-input-container {
             padding: 24px;
-            background: var(--bg-glass);
-            backdrop-filter: blur(var(--blur-md));
-            border-top: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
             position: relative;
             z-index: 2;
@@ -1336,13 +1376,6 @@
         /* Extension Tags */
         .extension-tag {
             display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--bg-glass);
-            backdrop-filter: blur(var(--blur-sm));
-            -webkit-backdrop-filter: blur(var(--blur-sm));
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-lg);
             padding: 6px 12px;
             margin-bottom: 8px;
             font-size: 0.85rem;
@@ -1865,6 +1898,102 @@
             font-size: 0.8rem;
             opacity: 0.8;
         }
+
+        /* Background Selection Grid */
+        .background-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+            padding: 0;
+        }
+
+        .background-option {
+            position: relative;
+            aspect-ratio: 16/9;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 3px solid transparent;
+            background: var(--bg-glass);
+            backdrop-filter: blur(var(--blur-sm));
+        }
+
+        .background-option:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .background-option.selected {
+            border-color: var(--primary-red) !important;
+            box-shadow: 0 0 25px rgba(218, 37, 28, 0.5) !important;
+            transform: scale(1.05) !important;
+        }
+
+        .background-option img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .background-option:hover img {
+            transform: scale(1.1);
+        }
+
+        .background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(2px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .background-option:hover .background-overlay {
+            opacity: 1;
+        }
+
+        .background-option.selected .background-overlay {
+            opacity: 1 !important;
+            background: rgba(218, 37, 28, 0.8) !important;
+        }
+
+        .background-overlay i {
+            color: white;
+            font-size: 2rem;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .background-option:hover .background-overlay i,
+        .background-option.selected .background-overlay i {
+            transform: scale(1);
+        }
+
+        /* Mobile responsive for background grid */
+        @media (max-width: 768px) {
+            .background-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .background-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1873,6 +2002,12 @@
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
+            <div class="brand-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <span class="logo-text">HCM Chatbot</span>
+            </div>
             <div class="user-info">
                 <div class="user-avatar">
                     <i class="fas fa-user"></i>
@@ -2022,8 +2157,8 @@
                     <input type="text" id="profileRole" readonly>
                 </div>
 
-                <div style="border-top: 2px solid #f0f0f0; padding-top: 20px; margin-top: 20px;">
-                    <h3 style="margin-bottom: 15px; color: #333;">Đổi mật khẩu</h3>
+                <div style="border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 25px; margin-top: 25px;">
+                    <h3 style="margin-bottom: 20px; color: rgba(255, 255, 255, 0.9); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">🔐 Đổi mật khẩu</h3>
 
                     <div class="profile-form-group">
                         <label for="userCurrentPassword">Mật khẩu hiện tại:</label>
@@ -2041,6 +2176,70 @@
                     </div>
                 </div>
 
+                <!-- Background Selection Section -->
+                <div style="border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 25px; margin-top: 25px;">
+                    <h3 style="margin-bottom: 20px; color: rgba(255, 255, 255, 0.9); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">
+                        🖼️ Chọn ảnh nền
+                    </h3>
+                    
+                    <div class="background-grid">
+                        <div class="background-option" data-bg="auth-bg.png" onclick="testBackgroundClick('auth-bg.png')" style="cursor: pointer;">
+                            <img src="auth-bg.png" alt="Nền mặc định">
+                            <div class="background-overlay">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                        <div class="background-option" data-bg="Background/1.png" onclick="testBackgroundClick('Background/1.png')" style="cursor: pointer;">
+                            <img src="Background/1.png" alt="Background 1">
+                            <div class="background-overlay">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                        <div class="background-option" data-bg="Background/2.png" onclick="testBackgroundClick('Background/2.png')" style="cursor: pointer;">
+                            <img src="Background/2.png" alt="Background 2">
+                            <div class="background-overlay">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                        <div class="background-option" data-bg="Background/3.png" onclick="testBackgroundClick('Background/3.png')" style="cursor: pointer;">
+                            <img src="Background/3.png" alt="Background 3">
+                            <div class="background-overlay">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                        <div class="background-option" data-bg="Background/4.png" onclick="testBackgroundClick('Background/4.png')" style="cursor: pointer;">
+                            <img src="Background/4.png" alt="Background 4">
+                            <div class="background-overlay">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                        <div class="background-option" data-bg="Background/5.png" onclick="testBackgroundClick('Background/5.png')" style="cursor: pointer;">
+                            <img src="Background/5.png" alt="Background 5">
+                            <div class="background-overlay">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                        <div class="background-option" data-bg="Background/6.png" onclick="testBackgroundClick('Background/6.png')" style="cursor: pointer;">
+                            <img src="Background/6.png" alt="Background 6">
+                            <div class="background-overlay">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                        <div class="background-option" data-bg="Background/7.png" onclick="testBackgroundClick('Background/7.png')" style="cursor: pointer;">
+                            <img src="Background/7.png" alt="Background 7">
+                            <div class="background-overlay">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                        <div class="background-option" data-bg="Background/8.png" onclick="testBackgroundClick('Background/8.png')" style="cursor: pointer;">
+                            <img src="Background/8.png" alt="Background 8">
+                            <div class="background-overlay">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="profile-buttons">
                     <button type="button" class="profile-btn-secondary" onclick="closeUserProfile()">Hủy</button>
                     <button type="button" class="profile-btn-primary" onclick="updateUserProfile()">Cập nhật Profile</button>
@@ -2053,6 +2252,12 @@
     <script>
         // Profile functionality - Embedded to bypass cache issues
         // (Các hàm bên dưới tương tự với bản trong chat.js; để dự phòng cache)
+
+        // Test function to check if clicking works
+        function testBackgroundClick(bgPath) {
+            console.log('🧪 Test click:', bgPath);
+            selectBackground(bgPath);
+        }
 
         function openUserProfile() {
             const modal = document.getElementById('profileModal');
@@ -2070,7 +2275,15 @@
                 document.getElementById('userCurrentPassword').value = '';
                 document.getElementById('userNewPassword').value = '';
                 document.getElementById('userConfirmPassword').value = '';
+                
                 modal.style.display = 'block';
+                
+                // Initialize background selection after modal is shown
+                setTimeout(() => {
+                    initBackgroundSelection();
+                    showCurrentSelection();
+                }, 300);
+                
             } catch (error) {
                 console.error('Error parsing user data:', error);
                 alert('Lỗi khi tải thông tin người dùng!');
@@ -2139,6 +2352,155 @@
             } catch (e) {
                 console.error('Change password error:', e);
                 alert('Lỗi khi đổi mật khẩu. Vui lòng thử lại!');
+            }
+        }
+
+        // Background selection functionality
+        function initBackgroundSelection() {
+            console.log('🎨 Initializing background selection...');
+            
+            // Remove existing event listeners by replacing onclick
+            const backgroundOptions = document.querySelectorAll('.background-option');
+            console.log('Found options:', backgroundOptions.length);
+            
+            // Clear all selections first
+            backgroundOptions.forEach(option => {
+                option.classList.remove('selected');
+                option.onclick = null; // Clear existing handlers
+            });
+            
+            // Get current background
+            const currentBg = localStorage.getItem('selectedBackground') || 'auth-bg.png';
+            console.log('Current background:', currentBg);
+            
+            // Set current selection and add click handlers
+            backgroundOptions.forEach((option, index) => {
+                const bgPath = option.getAttribute('data-bg');
+                console.log(`Option ${index}: ${bgPath}`);
+                
+                // Mark selected
+                if (bgPath === currentBg) {
+                    option.classList.add('selected');
+                    console.log('✅ Marked as selected:', bgPath);
+                }
+                
+                // Add click handler using onclick (more reliable)
+                option.onclick = function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('🖱️ Clicked:', bgPath);
+                    selectBackground(bgPath);
+                };
+                
+                // Also add cursor pointer
+                option.style.cursor = 'pointer';
+            });
+        }
+
+        function selectBackground(backgroundPath) {
+            console.log('🔄 Selecting background:', backgroundPath);
+            
+            // Remove selected class from all options
+            const backgroundOptions = document.querySelectorAll('.background-option');
+            backgroundOptions.forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            const selectedOption = document.querySelector(`[data-bg="${backgroundPath}"]`);
+            if (selectedOption) {
+                selectedOption.classList.add('selected');
+                console.log('✅ Added selected class to:', backgroundPath);
+                
+                // Force style update
+                selectedOption.style.borderColor = '#da251c';
+                selectedOption.style.boxShadow = '0 0 25px rgba(218, 37, 28, 0.5)';
+                selectedOption.style.transform = 'scale(1.05)';
+                
+            } else {
+                console.error('❌ Could not find option for:', backgroundPath);
+            }
+            
+            // Change background immediately
+            changeBackground(backgroundPath);
+            
+            // Save selection
+            localStorage.setItem('selectedBackground', backgroundPath);
+            console.log('💾 Saved background:', backgroundPath);
+            
+            // Show brief visual feedback
+            console.log('🎉 Background changed successfully!');
+        }
+
+        function changeBackground(backgroundPath) {
+            // Remove existing background styles
+            const existingStyle = document.getElementById('dynamic-background');
+            if (existingStyle) {
+                existingStyle.remove();
+            }
+            
+            // Also remove any gradient background from body
+            document.body.style.background = 'transparent';
+            
+            // Create new background style
+            const style = document.createElement('style');
+            style.id = 'dynamic-background';
+            style.textContent = `
+                html, body {
+                    background: transparent !important;
+                }
+                body::before {
+                    content: '';
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: url('${backgroundPath}') center/cover no-repeat !important;
+                    opacity: 1.0 !important;
+                    z-index: -1;
+                    filter: none !important;
+                }
+                .chat-area, 
+                .chat-messages {
+                    background: transparent !important;
+                    backdrop-filter: none !important;
+                    -webkit-backdrop-filter: none !important;
+                }
+            `;
+            
+            document.head.appendChild(style);
+        }
+
+        // Load saved background on page load
+        function loadSavedBackground() {
+            const savedBg = localStorage.getItem('selectedBackground');
+            if (savedBg && savedBg !== 'auth-bg.png') {
+                changeBackground(savedBg);
+            }
+        }
+
+        // Show current selection visually
+        function showCurrentSelection() {
+            const currentBg = localStorage.getItem('selectedBackground') || 'auth-bg.png';
+            console.log('🎯 Showing current selection:', currentBg);
+            
+            // Clear all selections first
+            document.querySelectorAll('.background-option').forEach(option => {
+                option.classList.remove('selected');
+                option.style.borderColor = '';
+                option.style.boxShadow = '';
+                option.style.transform = '';
+            });
+            
+            // Mark current selection
+            const currentOption = document.querySelector(`[data-bg="${currentBg}"]`);
+            if (currentOption) {
+                currentOption.classList.add('selected');
+                currentOption.style.borderColor = '#da251c';
+                currentOption.style.boxShadow = '0 0 25px rgba(218, 37, 28, 0.5)';
+                currentOption.style.transform = 'scale(1.05)';
+                console.log('✅ Marked current selection:', currentBg);
             }
         }
 
@@ -2267,6 +2629,9 @@
                     if (e.target === profileModal) closeUserProfile();
                 });
             }
+
+            // Load saved background
+            loadSavedBackground();
 
             // Restore sidebar state
             const sidebarCollapsed = localStorage.getItem('sidebarCollapsed');

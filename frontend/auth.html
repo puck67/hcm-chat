@@ -3,78 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HCM Chatbot - Đăng nhập</title>
+    <title>HCM Chatbot - Đăng nhập / Đăng ký</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="global-styles.css">
+    <script src="config.js"></script>
     <style>
-        /* Modern Glassmorphism UI Theme - Đồng nhất với chat */
-        :root {
-            /* Gradients & Colors */
-            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --gradient-warm: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-            --gradient-cool: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
-            --gradient-dark: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            
-            /* Base colors */
-            --bg-primary: #1a1a2e;
-            --bg-secondary: #16213e;
-            --bg-glass: rgba(255, 255, 255, 0.05);
-            --bg-glass-light: rgba(255, 255, 255, 0.1);
-            --bg-glass-dark: rgba(0, 0, 0, 0.2);
-            
-            /* Text colors */
-            --text-primary: #ffffff;
-            --text-secondary: #a8b2d1;
-            --text-muted: #64748b;
-            
-            /* Glass effect colors */
-            --glass-border: rgba(255, 255, 255, 0.18);
-            --glass-shadow: rgba(0, 0, 0, 0.25);
-            
-            /* Interactive colors */
-            --hover-light: rgba(255, 255, 255, 0.08);
-            --hover-accent: rgba(102, 126, 234, 0.2);
-            --active-accent: rgba(102, 126, 234, 0.3);
-            
-            /* Blur values */
-            --blur-sm: 10px;
-            --blur-md: 20px;
-            --blur-lg: 30px;
-            
-            /* Radius values */
-            --radius-sm: 12px;
-            --radius-md: 20px;
-            --radius-lg: 30px;
-            --radius-xl: 40px;
-            
-            /* Shadows */
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-            --shadow-glow: 0 0 40px rgba(102, 126, 234, 0.3);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            background: var(--gradient-dark);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            position: relative;
-            overflow: hidden;
+        :root {
+            --primary-red: #da251c;
+            --primary-yellow: #ffcd00;
+            --soft-pink: #ffb3ba;
+            --soft-yellow: #fffacd;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
         }
 
-        /* Animated background */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e8f5ff 0%, #ffeaa7 30%, #fab1a0 60%, #fd79a8 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Background Image */
         body::before {
             content: '';
             position: fixed;
@@ -82,747 +43,1024 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(249, 115, 108, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(240, 147, 251, 0.2) 0%, transparent 50%);
-            animation: gradientShift 15s ease infinite;
+            background: url('auth-bg.png') center/cover no-repeat;
+            opacity: 0.4;
             z-index: -1;
         }
 
-        /* Background image overlay */
-        body::after {
-            content: '';
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 15px 30px;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            background: var(--primary-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-yellow);
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-dark);
+            border: 1px solid rgba(44, 62, 80, 0.3);
+        }
+
+        .btn-ghost:hover {
+            background: rgba(44, 62, 80, 0.1);
+            border-color: var(--text-dark);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-red), #ff4757);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(218, 37, 28, 0.4);
+        }
+
+        .btn-dark {
+            background: var(--text-dark);
+            color: white;
+        }
+
+        .btn-dark:hover {
+            background: #34495e;
+            transform: translateY(-2px);
+        }
+
+        /* Main Layout */
+        .auth-container {
+            display: flex;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        /* Left Content */
+        .auth-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+            max-width: 500px;
+        }
+
+        .content-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .content-subtitle {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .content-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 400px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        .features-list li i {
+            color: var(--primary-red);
+            font-size: 1.1rem;
+        }
+
+        /* Right Form */
+        .auth-form-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+        }
+
+        .form-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .form-subtitle {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Form Tabs */
+        .form-tabs {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 5px;
+            margin-bottom: 30px;
+        }
+
+        .form-tab {
+            flex: 1;
+            background: none;
+            border: none;
+            padding: 12px;
+            border-radius: 15px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-tab.active {
+            background: rgba(255, 255, 255, 0.3);
+            color: var(--text-dark);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* Form Fields */
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: var(--text-dark);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input::placeholder {
+            color: var(--text-light);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-red);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(218, 37, 28, 0.2);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary-red), #ff4757);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(218, 37, 28, 0.4);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-footer p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .auth-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .auth-content {
+                padding: 60px 40px;
+                text-align: center;
+            }
+            
+            .auth-form-container {
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+            }
+            
+            .header-nav .language-selector {
+                display: none;
+            }
+            
+            .content-title,
+            .content-subtitle {
+                font-size: 2rem;
+            }
+            
+            .auth-content {
+                padding: 40px 30px;
+            }
+            
+            .form-card {
+                padding: 40px 30px;
+            }
+        }
+
+        /* Hidden class for form switching */
+        .hidden {
+            display: none;
+        }
+
+        /* Dragon Loading Overlay */
+        .loading-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('bg-image.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: blur(8px);
-            opacity: 0.15;
-            z-index: -2;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
         }
 
-        @keyframes gradientShift {
-            0%, 100% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.1); }
+        .loading-overlay.show {
+            opacity: 1;
+            visibility: visible;
         }
 
-        .auth-layout {
-            width: 100%;
-            max-width: 480px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .auth-container {
-            background: var(--bg-glass);
-            backdrop-filter: blur(var(--blur-md));
-            -webkit-backdrop-filter: blur(var(--blur-md));
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-lg);
-            padding: 40px;
-            width: 100%;
+        .loading-content {
             text-align: center;
-            animation: slideInScale 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .auth-container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: var(--gradient-primary);
-            opacity: 0.03;
-            animation: float 6s ease-in-out infinite;
-            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+            max-width: 450px;
+            animation: slideInScale 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         @keyframes slideInScale {
-            from {
+            0% {
                 opacity: 0;
                 transform: translateY(30px) scale(0.9);
             }
-            to {
+            100% {
                 opacity: 1;
                 transform: translateY(0) scale(1);
             }
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
+        /* Dragon Loading Original */
+        @keyframes zoomIn {
+            100% {
+                transform: scale(1.16, 1.16);
+            }
         }
 
-        .logo {
-            width: 100px;
-            height: 100px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: var(--text-primary);
-            box-shadow: var(--shadow-glow);
-            animation: pulse 3s ease-in-out infinite;
+        @keyframes swingRight {
+            100% {
+                transform: rotate(5deg);
+            }
+        }
+
+        @keyframes swingLeft {
+            100% {
+                transform: rotate(-5deg);
+            }
+        }
+
+        @keyframes blush {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes openMouth {
+            0% {
+                clip-path: ellipse(20% 0% at 50% 0);
+            }
+            50% {
+                clip-path: ellipse(100% 100% at 50% 0);
+            }
+            70% {
+                clip-path: ellipse(100% 100% at 50% 0);
+            }
+            100% {
+                clip-path: ellipse(20% 0% at 50% 0);
+            }
+        }
+
+        @keyframes tailUp {
+            0% {
+                transform: scaleY(0.9);
+            }
+            100% {
+                transform: scaleY(1.06);
+            }
+        }
+
+        @keyframes loading {
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes fireUp {
+            0% {
+                top: 70px;
+            }
+            20% {
+                top: 70px;
+            }
+            100% {
+                top: -80px;
+            }
+        }
+
+        @keyframes fire {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.8;
+            }
+            20% {
+                transform: scale(0, 0);
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1, 1);
+                opacity: 0;
+            }
+        }
+
+        /* Dragon Container */
+        .dragon-main {
             position: relative;
-            z-index: 2;
-        }
-
-        .logo::before {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            background: var(--gradient-accent);
-            border-radius: 50%;
-            z-index: -1;
-            opacity: 0;
-            animation: logoGlow 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        @keyframes logoGlow {
-            0%, 100% { opacity: 0; transform: scale(0.8); }
-            50% { opacity: 0.3; transform: scale(1.1); }
-        }
-
-        h1 {
-            color: var(--text-primary);
-            margin-bottom: 15px;
-            font-size: 2.2rem;
-            font-weight: 700;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
-            z-index: 2;
-        }
-
-        .subtitle {
-            color: var(--text-secondary);
             margin-bottom: 30px;
-            font-size: 1rem;
-            opacity: 0.9;
-            position: relative;
-            z-index: 2;
         }
 
-        .auth-tabs {
-            display: flex;
-            margin-bottom: 30px;
-            border-radius: var(--radius-md);
-            background: var(--bg-glass);
-            backdrop-filter: blur(var(--blur-sm));
-            -webkit-backdrop-filter: blur(var(--blur-sm));
-            border: 1px solid var(--glass-border);
-            padding: 6px;
-            position: relative;
-            z-index: 2;
+        .dragon {
+            width: 200px;
+            height: 140px;
+            transform-origin: 50% 80%;
+            animation: zoomIn .5s cubic-bezier(0.47, 0, 0.75, 0.72) infinite alternate;
         }
 
-        .tab {
-            flex: 1;
-            padding: 12px 20px;
-            background: transparent;
-            border: none;
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-weight: 500;
-            color: var(--text-secondary);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tab::before {
-            content: '';
+        .dragon .body {
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.5s ease;
+            right: 0;
+            width: 180px;
+            height: 128px;
+            background: url("https://i.imgur.com/0VXBlXF.png") no-repeat center center;
+            background-size: contain;
+            z-index: 10;
         }
 
-        .tab:hover::before {
-            left: 100%;
-        }
-
-        .tab.active {
-            background: var(--gradient-primary);
-            color: var(--text-primary);
-            box-shadow: var(--shadow-glow);
-            transform: translateY(-1px);
-        }
-
-        .tab:hover:not(.active) {
-            background: var(--hover-light);
-            color: var(--text-primary);
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-            text-align: left;
-            position: relative;
-            z-index: 2;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--text-primary);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        input {
-            width: 100%;
-            padding: 16px 20px;
-            background: var(--bg-glass-dark);
-            border: 2px solid var(--glass-border);
-            border-radius: var(--radius-md);
-            font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-            color: var(--text-primary);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(var(--blur-sm));
-            -webkit-backdrop-filter: blur(var(--blur-sm));
-        }
-
-        input::placeholder {
-            color: var(--text-muted);
-        }
-
-        input:focus {
-            outline: none;
-            border-color: rgba(102, 126, 234, 0.6);
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-            transform: translateY(-1px);
-        }
-
-        input:hover:not(:focus) {
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .auth-btn {
-            width: 100%;
-            padding: 16px 24px;
-            background: var(--gradient-primary);
-            color: var(--text-primary);
-            border: none;
-            border-radius: var(--radius-md);
-            font-size: 1.1rem;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            margin-top: 20px;
-            box-shadow: var(--shadow-glow);
-            position: relative;
-            overflow: hidden;
-            z-index: 2;
-        }
-
-        .auth-btn::before {
-            content: '';
+        .dragon .horn-left {
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
+            top: -17px;
+            left: 32px;
+            width: 31px;
+            height: 31px;
+            background: url("https://i.imgur.com/aYCLYpV.png") no-repeat;
+            background-size: contain;
+            z-index: 9;
+            transform-origin: 150% 200%;
+            transform: rotate(-5deg);
+            animation: swingRight .5s cubic-bezier(0.47, 0, 0.75, 0.72) infinite alternate;
         }
 
-        .auth-btn:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            background: var(--gradient-accent);
+        .dragon .horn-right {
+            position: absolute;
+            top: -16px;
+            left: 110px;
+            width: 34px;
+            height: 31px;
+            background: url("https://i.imgur.com/VJFC2aE.png") no-repeat;
+            background-size: contain;
+            z-index: 9;
+            transform-origin: -50% 200%;
+            transform: rotate(5deg);
+            animation: swingLeft .5s cubic-bezier(0.47, 0, 0.75, 0.72) infinite alternate;
         }
 
-        .auth-btn:hover::before {
-            left: 100%;
+        .dragon .eye {
+            position: absolute;
+            top: 39px;
+            width: 11px;
+            height: 11px;
+            background: url("https://i.imgur.com/GBCGR0f.png") no-repeat;
+            background-size: contain;
+            z-index: 12;
         }
 
-        .auth-btn:active {
-            transform: translateY(-1px) scale(0.98);
+        .dragon .eye.left {
+            left: 49px;
         }
 
-        .auth-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
+        .dragon .eye.right {
+            left: 118px;
+            transform-origin: 50% 50%;
+            transform: rotate(180deg);
         }
 
-        .auth-btn:disabled:hover {
-            transform: none;
-            background: var(--gradient-primary);
+        .dragon .blush {
+            position: absolute;
+            top: 46px;
+            width: 15px;
+            height: 9px;
+            background: url("https://i.imgur.com/3cYOsTK.png") no-repeat;
+            background-size: 100% 100%;
+            z-index: 11;
+            animation: blush .5s ease infinite alternate;
         }
 
-        .error-message {
-            background: rgba(244, 67, 54, 0.1);
-            backdrop-filter: blur(var(--blur-sm));
-            -webkit-backdrop-filter: blur(var(--blur-sm));
-            color: #ff6b6b;
-            padding: 16px;
-            border-radius: var(--radius-md);
-            border: 1px solid rgba(244, 67, 54, 0.3);
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            display: none;
-            position: relative;
-            z-index: 2;
-            animation: slideInScale 0.3s ease;
+        .dragon .blush.left {
+            left: 43px;
         }
 
-        .success-message {
-            background: rgba(76, 175, 80, 0.1);
-            backdrop-filter: blur(var(--blur-sm));
-            -webkit-backdrop-filter: blur(var(--blur-sm));
-            color: #4caf50;
-            padding: 16px;
-            border-radius: var(--radius-md);
-            border: 1px solid rgba(76, 175, 80, 0.3);
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            display: none;
-            position: relative;
-            z-index: 2;
-            animation: slideInScale 0.3s ease;
+        .dragon .blush.right {
+            left: 120px;
         }
 
-        /* Visual side - hidden */
-        .auth-visual {
-            display: none;
+        .dragon .mouth {
+            position: absolute;
+            top: 52px;
+            left: 49px;
+            width: 78px;
+            height: 56px;
+            background: url("https://i.imgur.com/i0LRzdP.png") no-repeat;
+            background-size: 100%;
+            z-index: 11;
+            animation: openMouth 1s ease infinite;
         }
 
-        .loading {
-            display: none;
-            margin: 20px 0;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .loading-content {
-            background: var(--bg-glass);
-            backdrop-filter: blur(var(--blur-sm));
-            -webkit-backdrop-filter: blur(var(--blur-sm));
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-md);
-            padding: 30px;
-            animation: slideInScale 0.3s ease;
-        }
-
-        .spinner {
+        .dragon .tail-sting {
+            position: absolute;
+            top: 67px;
+            left: 139px;
             width: 40px;
-            height: 40px;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            border-top: 3px solid;
-            border-image: var(--gradient-primary) 1;
-            border-radius: 50%;
-            animation: spin 1.2s linear infinite;
-            margin: 0 auto 15px;
-            position: relative;
+            height: 38px;
+            background: url("https://i.imgur.com/v2CUSXY.png") no-repeat;
+            background-size: contain;
+            z-index: 9;
+            transform-origin: 0 100%;
+            animation: tailUp .5s cubic-bezier(0.47, 0, 0.75, 0.72) infinite alternate;
         }
 
-        .spinner::before {
-            content: '';
+        .shadow-wrapper {
             position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
+            top: 110px;
+            width: 100%;
+        }
+
+        .shadow {
+            margin: 0 auto;
+            width: 110px;
+            height: 30px;
+            background: rgba(0, 0, 0, 0.15);
             border-radius: 50%;
-            background: conic-gradient(from 0deg, transparent, rgba(102, 126, 234, 0.8), transparent);
-            mask: radial-gradient(circle, transparent 17px, black 18px);
-            -webkit-mask: radial-gradient(circle, transparent 17px, black 18px);
+            z-index: 0;
+            animation: zoomIn .5s cubic-bezier(0.47, 0, 0.75, 0.72) infinite alternate;
         }
 
-        .loading-text {
-            font-size: 1rem;
-            color: var(--text-primary);
-            font-weight: 500;
-            margin-bottom: 5px;
-        }
-
-        .loading-dots {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            margin-top: 5px;
-        }
-
-        .loading-dots::after {
-            content: '';
-            animation: dots 1.5s infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes dots {
-            0%, 20% { content: ''; }
-            40% { content: '.'; }
-            60% { content: '..'; }
-            80%, 100% { content: '...'; }
-        }
-
-        .flag-decoration {
+        .fire-wrapper {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 2rem;
+            width: 40px;
+            top: 60px;
+            left: 88px;
+            transform: translate(-50%, -50%);
+            transform-origin: 50% 100%;
+            animation: fireUp 1s ease-in infinite;
         }
 
-        .quote {
-            margin-top: 30px;
-            padding: 25px;
-            background: var(--bg-glass);
-            backdrop-filter: blur(var(--blur-sm));
-            -webkit-backdrop-filter: blur(var(--blur-sm));
-            border-radius: var(--radius-md);
-            border-left: 4px solid rgba(102, 126, 234, 0.8);
-            font-style: italic;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            border: 1px solid var(--glass-border);
-            position: relative;
-            z-index: 2;
-            animation: slideInScale 0.6s ease 0.5s both;
+        .fire {
+            padding-bottom: 135%;
+            width: 100%;
+            height: 100%;
+            background: url("https://i.imgur.com/iR9OQMg.png") no-repeat;
+            background-size: contain;
+            animation: fire 1s ease-out infinite;
         }
 
-        .quote p {
-            margin-bottom: 10px;
-            line-height: 1.6;
+        .loading-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
-        .quote small {
-            opacity: 0.8;
-            font-weight: 500;
+        .loading-subtitle {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            line-height: 1.5;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
         }
 
-        @media (max-width: 480px) {
-            .auth-layout {
-                max-width: 100%;
-                padding: 0 15px;
-            }
+        .progress {
+            width: 100%;
+            margin-top: 20px;
+        }
 
-            .auth-container {
-                padding: 30px 25px;
-            }
+        .progress span {
+            font-weight: bold;
+            color: var(--primary-red);
+            margin-left: 4px;
+            font-size: 1.1rem;
+        }
 
-            .logo {
-                width: 80px;
-                height: 80px;
-                font-size: 2rem;
-            }
+        .progress .outer {
+            width: 100%;
+            height: 14px;
+            border-radius: 7px;
+            background: rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-top: 3px;
+        }
 
-            h1 {
-                font-size: 1.8rem;
-            }
+        .progress .inner {
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-yellow));
+            animation: loading 2s linear infinite;
+        }
 
-            .flag-decoration {
-                display: none;
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-            .tab {
-                padding: 10px 15px;
-                font-size: 0.85rem;
-            }
-
-            input {
-                padding: 14px 16px;
-            }
+        .auth-content,
+        .form-card {
+            animation: fadeInUp 0.8s ease-out;
         }
     </style>
 </head>
 <body>
-    <div class="flag-decoration">🇻🇳</div>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <span>HCM Chatbot</span>
+            </div>
+            <nav class="header-nav">
+                <div class="language-selector">
+                    <i class="fas fa-globe"></i>
+                    <span>Tiếng Việt</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="auth-buttons">
+                    <button class="btn btn-ghost" onclick="showLogin()">Đăng nhập</button>
+                    <button class="btn btn-dark" onclick="showRegister()">Đăng ký</button>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-    <div class="auth-layout">
-      <div class="auth-container">
-        <div class="logo">
-            <i class="fas fa-user-tie"></i>
+    <!-- Main Container -->
+    <div class="auth-container">
+        <!-- Left Content -->
+        <div class="auth-content">
+            <h1 class="content-title">Khám phá tri thức</h1>
+            <h2 class="content-subtitle">Cùng với chúng tôi</h2>
+            <p class="content-description">
+                Tham gia cộng đồng học tập về tư tưởng Hồ Chí Minh thông qua công nghệ AI hiện đại. 
+                Trò chuyện, tìm hiểu và khám phá di sản vĩ đại của Người.
+            </p>
+            <ul class="features-list">
+                <li><i class="fas fa-check-circle"></i> Trò chuyện với AI thông minh</li>
+                <li><i class="fas fa-check-circle"></i> Kho tri thức phong phú</li>
+                <li><i class="fas fa-check-circle"></i> Quiz và bài tập tương tác</li>
+                <li><i class="fas fa-check-circle"></i> Theo dõi tiến độ học tập</li>
+            </ul>
         </div>
 
-        <h1>HCM Chatbot</h1>
-        <p class="subtitle">Tìm hiểu tư tưởng Hồ Chí Minh</p>
+        <!-- Right Form -->
+        <div class="auth-form-container">
+            <div class="form-card">
+                <div class="form-header">
+                    <h2 class="form-title">Chào mừng bạn!</h2>
+                    <p class="form-subtitle">Bắt đầu hành trình khám phá tri thức</p>
+                </div>
 
-        <div class="auth-tabs">
-            <button class="tab active" onclick="switchTab('login')">Đăng nhập</button>
-            <button class="tab" onclick="switchTab('register')">Đăng ký</button>
+                <!-- Form Tabs -->
+                <div class="form-tabs">
+                    <button class="form-tab active" onclick="showLogin()">Đăng nhập</button>
+                    <button class="form-tab" onclick="showRegister()">Đăng ký</button>
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm" class="auth-form">
+                    <div class="form-group">
+                        <label class="form-label">Email hoặc tên đăng nhập</label>
+                        <input type="text" name="email" class="form-input" placeholder="Nhập email hoặc tên đăng nhập" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mật khẩu</label>
+                        <input type="password" name="password" class="form-input" placeholder="Nhập mật khẩu" required>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-sign-in-alt"></i> Đăng nhập
+                    </button>
+                </form>
+
+                <!-- Register Form -->
+                <form id="registerForm" class="auth-form hidden">
+                    <div class="form-group">
+                        <label class="form-label">Họ và tên</label>
+                        <input type="text" name="fullName" class="form-input" placeholder="Nhập họ và tên" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tên đăng nhập</label>
+                        <input type="text" name="username" class="form-input" placeholder="Nhập tên đăng nhập" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" class="form-input" placeholder="Nhập địa chỉ email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mật khẩu</label>
+                        <input type="password" name="password" class="form-input" placeholder="Tạo mật khẩu" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Xác nhận mật khẩu</label>
+                        <input type="password" name="confirmPassword" class="form-input" placeholder="Nhập lại mật khẩu" required>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-user-plus"></i> Đăng ký
+                    </button>
+                </form>
+
+                <div class="form-footer">
+                    <p>Hoặc tiếp tục với</p>
+                    <div class="social-login">
+                        <a href="#" class="social-btn"><i class="fab fa-google"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="error-message" id="errorMessage"></div>
-        <div class="success-message" id="successMessage"></div>
-
-        <!-- Login Form -->
-        <form id="loginForm" style="display: block;">
-            <div class="form-group">
-                <label for="loginUsername">Tên đăng nhập</label>
-                <input type="text" id="loginUsername" required>
-            </div>
-
-            <div class="form-group">
-                <label for="loginPassword">Mật khẩu</label>
-                <input type="password" id="loginPassword" required>
-            </div>
-
-            <button type="submit" class="auth-btn" id="loginBtn">
-                <i class="fas fa-sign-in-alt"></i> Đăng nhập
-            </button>
-        </form>
-
-        <!-- Register Form -->
-        <form id="registerForm" style="display: none;">
-            <div class="form-group">
-                <label for="registerUsername">Tên đăng nhập</label>
-                <input type="text" id="registerUsername" required>
-            </div>
-
-            <div class="form-group">
-                <label for="registerEmail">Email</label>
-                <input type="email" id="registerEmail" required>
-            </div>
-
-            <div class="form-group">
-                <label for="registerFullName">Họ và tên</label>
-                <input type="text" id="registerFullName" required>
-            </div>
-
-            <div class="form-group">
-                <label for="registerPassword">Mật khẩu</label>
-                <input type="password" id="registerPassword" required>
-            </div>
-
-            <button type="submit" class="auth-btn" id="registerBtn">
-                <i class="fas fa-user-plus"></i> Đăng ký
-            </button>
-        </form>
-
-        <div class="loading" id="loading">
-            <div class="loading-content">
-                <div class="spinner"></div>
-                <div class="loading-text">Đang đăng nhập</div>
-                <div class="loading-dots"></div>
-            </div>
-        </div>
-
-        <div class="quote">
-            <p>"Không có gì quý hơn độc lập tự do"</p>
-            <small>- Chủ tịch Hồ Chí Minh</small>
-        </div>
-      </div>
-
-      <aside class="auth-visual">
-        <div class="visual-content">
-            <h2>Chào mừng trở lại</h2>
-            <p>Đăng nhập để tiếp tục trò chuyện, tạo quiz, xem lịch sử và khám phá kho tri thức về tư tưởng Hồ Chí Minh.</p>
-        </div>
-      </aside>
     </div>
 
-    <script src="config.js"></script>
+    <!-- Dragon Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="dragon-main">
+                <div class="shadow-wrapper">
+                    <div class="shadow"></div>
+                </div>
+                <div class="dragon">
+                    <div class="body"></div>
+                    <div class="horn-left"></div>
+                    <div class="horn-right"></div>
+                    <div class="eye left"></div>
+                    <div class="eye right"></div>
+                    <div class="blush left"></div>
+                    <div class="blush right"></div>
+                    <div class="mouth"></div>
+                    <div class="tail-sting"></div>
+                </div>
+                <div class="fire-wrapper">
+                    <div class="fire"></div>
+                </div>
+            </div>
+            <h2 class="loading-title">HCM AI đang suy nghĩ...</h2>
+            <p class="loading-subtitle">Rồng thần đang mang tri thức Hồ Chí Minh đến với bạn</p>
+            <div class="progress">
+                <span>Đang tải...</span>
+                <div class="outer">
+                    <div class="inner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        const API_BASE = window.NODEJS_API || window.API_BASE_URL || 'https://hcm-chatbot-nodejs-api.fly.dev';
-
-        // Switch between login and register tabs
-        function switchTab(tab) {
-            const tabs = document.querySelectorAll('.tab');
-            const loginForm = document.getElementById('loginForm');
-            const registerForm = document.getElementById('registerForm');
-
-            tabs.forEach(t => t.classList.remove('active'));
-
-            if (tab === 'login') {
-                document.querySelector('.tab:first-child').classList.add('active');
-                loginForm.style.display = 'block';
-                registerForm.style.display = 'none';
-            } else {
-                document.querySelector('.tab:last-child').classList.add('active');
-                loginForm.style.display = 'none';
-                registerForm.style.display = 'block';
-            }
-
-            clearMessages();
-        }
-
-        // Clear error/success messages
-        function clearMessages() {
-            document.getElementById('errorMessage').style.display = 'none';
-            document.getElementById('successMessage').style.display = 'none';
-        }
-
-        // Show error message
-        function showError(message) {
-            const errorEl = document.getElementById('errorMessage');
-            errorEl.textContent = message;
-            errorEl.style.display = 'block';
-            document.getElementById('successMessage').style.display = 'none';
-        }
-
-        // Show success message
-        function showSuccess(message) {
-            const successEl = document.getElementById('successMessage');
-            successEl.textContent = message;
-            successEl.style.display = 'block';
-            document.getElementById('errorMessage').style.display = 'none';
-        }
-
-        // Show/hide loading
-        function setLoading(show, type = 'login') {
-            const loading = document.getElementById('loading');
-            const loadingText = document.querySelector('.loading-text');
+        function showLogin() {
+            // Switch tabs
+            document.querySelectorAll('.form-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.form-tab')[0].classList.add('active');
             
-            if (show) {
-                loading.style.display = 'block';
-                loadingText.textContent = type === 'login' ? 'Đang đăng nhập' : 'Đang đăng ký';
-            } else {
-                loading.style.display = 'none';
-            }
+            // Switch forms
+            document.getElementById('loginForm').classList.remove('hidden');
+            document.getElementById('registerForm').classList.add('hidden');
             
-            document.getElementById('loginBtn').disabled = show;
-            document.getElementById('registerBtn').disabled = show;
+            // Update header buttons
+            document.querySelector('.header-nav .btn-ghost').style.background = 'rgba(44, 62, 80, 0.1)';
+            document.querySelector('.header-nav .btn-dark').style.background = 'var(--text-dark)';
         }
 
-        // Login form handler
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        function showRegister() {
+            // Switch tabs
+            document.querySelectorAll('.form-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.form-tab')[1].classList.add('active');
+            
+            // Switch forms
+            document.getElementById('registerForm').classList.remove('hidden');
+            document.getElementById('loginForm').classList.add('hidden');
+            
+            // Update header buttons
+            document.querySelector('.header-nav .btn-dark').style.background = 'rgba(44, 62, 80, 0.1)';
+            document.querySelector('.header-nav .btn-ghost').style.background = 'transparent';
+        }
+
+        // Loading functions
+        function showLoading() {
+            document.getElementById('loadingOverlay').classList.add('show');
+        }
+
+        function hideLoading() {
+            document.getElementById('loadingOverlay').classList.remove('show');
+        }
+
+        function updateLoadingText(title, subtitle) {
+            document.querySelector('.loading-title').textContent = title;
+            document.querySelector('.loading-subtitle').textContent = subtitle;
+        }
+
+        // Form submissions
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            clearMessages();
-            setLoading(true);
+            
+            const formData = new FormData(e.target);
+            const loginData = {
+                username: formData.get('email'), // Server expects 'username' field but can accept email value
+                password: formData.get('password')
+            };
 
-            const username = document.getElementById('loginUsername').value;
-            const password = document.getElementById('loginPassword').value;
-
+            // Show loading
+            showLoading();
+            updateLoadingText('Rồng thần đang thức tỉnh...', 'Đang xác thực thông tin đăng nhập...');
+            
             try {
+                const API_BASE = window.NODEJS_API || 'http://localhost:8001';
                 const response = await fetch(`${API_BASE}/auth/login`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ username, password })
+                    body: JSON.stringify(loginData)
                 });
 
-                const data = await response.json();
+                const result = await response.json();
 
-                if (response.ok && data.success) {
+                if (response.ok) {
                     // Save token and user info
-                    localStorage.setItem('token', data.token);
-                    localStorage.setItem('user', JSON.stringify(data.user));
-
-                    // Keep loading and redirect directly
-                    setTimeout(() => {
-                        if (data.user.role === 'admin') {
-                            window.location.href = 'admin.html';
-                        } else {
-                            window.location.href = 'chat.html';
-                        }
-                    }, 800);
+                    localStorage.setItem('token', result.token);
+                    localStorage.setItem('user', JSON.stringify(result.user));
+                    
+                    updateLoadingText('Đăng nhập thành công!', 'Rồng thần đang dẫn bạn vào thế giới tri thức...');
+                    
+                    setTimeout(function() {
+                        hideLoading();
+                        window.location.href = 'chat.html';
+                    }, 1500);
                 } else {
-                    setLoading(false);
-                    showError(data.message || 'Đăng nhập thất bại');
+                    hideLoading();
+                    alert(result.message || 'Đăng nhập thất bại!');
                 }
             } catch (error) {
                 console.error('Login error:', error);
-                setLoading(false);
-                showError('Lỗi kết nối. Vui lòng thử lại.');
+                hideLoading();
+                alert('Lỗi kết nối server. Vui lòng thử lại sau!');
             }
         });
 
-        // Register form handler
-        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+        document.getElementById('registerForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            clearMessages();
-            setLoading(true, 'register');
+            
+            const formData = new FormData(e.target);
+            const password = formData.get('password');
+            const confirmPassword = formData.get('confirmPassword');
+            
+            // Validate password confirmation
+            if (password !== confirmPassword) {
+                alert('Mật khẩu xác nhận không khớp!');
+                return;
+            }
+            
+            const registerData = {
+                username: formData.get('username'),
+                email: formData.get('email'), 
+                password: password,
+                fullName: formData.get('fullName')
+            };
 
-            const username = document.getElementById('registerUsername').value;
-            const email = document.getElementById('registerEmail').value;
-            const fullName = document.getElementById('registerFullName').value;
-            const password = document.getElementById('registerPassword').value;
-
+            // Show loading
+            showLoading();
+            updateLoadingText('Rồng thần đang nhận diện...', 'Đang tạo tài khoản mới...');
+            
             try {
+                const API_BASE = window.NODEJS_API || 'http://localhost:8001';
                 const response = await fetch(`${API_BASE}/auth/register`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({
-                        username,
-                        email,
-                        password,
-                        fullName
-                    })
+                    body: JSON.stringify(registerData)
                 });
 
-                const data = await response.json();
+                const result = await response.json();
 
-                if (response.ok && data.success) {
-                    showSuccess('Đăng ký thành công! Vui lòng đăng nhập.');
-
-                    // Switch to login tab after successful registration
-                    setTimeout(() => {
-                        switchTab('login');
-                        document.getElementById('loginUsername').value = username;
-                    }, 1500);
+                if (response.ok) {
+                    // Save token and user info
+                    localStorage.setItem('token', result.token);
+                    localStorage.setItem('user', JSON.stringify(result.user));
+                    
+                    updateLoadingText('Chào mừng chiến binh tri thức!', 'Rồng thần sẽ dẫn bạn khám phá tư tưởng Hồ Chí Minh...');
+                    
+                    setTimeout(function() {
+                        hideLoading();
+                        window.location.href = 'chat.html';
+                    }, 2000);
                 } else {
-                    showError(data.message || 'Đăng ký thất bại');
+                    hideLoading();
+                    alert(result.message || 'Đăng ký thất bại!');
                 }
             } catch (error) {
                 console.error('Register error:', error);
-                showError('Lỗi kết nối. Vui lòng thử lại.');
-            } finally {
-                setLoading(false);
-            }
-        });
-
-        // Check if user is already logged in
-        window.addEventListener('load', () => {
-            const token = localStorage.getItem('token');
-            if (token) {
-                // Verify token validity
-                fetch(`${API_BASE}/auth/me`, {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                })
-                .then(response => {
-                    if (response.ok) {
-                        window.location.href = 'chat.html';
-                    } else {
-                        // Token invalid, clear storage
-                        localStorage.removeItem('token');
-                        localStorage.removeItem('user');
-                    }
-                })
-                .catch(() => {
-                    // Network error, stay on auth page
-                });
+                hideLoading();
+                alert('Lỗi kết nối server. Vui lòng thử lại sau!');
             }
         });
     </script>

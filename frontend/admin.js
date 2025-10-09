@@ -8,7 +8,7 @@ class AdminDashboard {
     constructor() {
         console.log('🚀 AdminDashboard constructor called - Script loaded successfully!');
         // ===== CẤU HÌNH API =====
-        this.API_BASE = window.NODEJS_API || window.API_BASE_URL || 'https://hcm-chatbot-nodejs-api.fly.dev';
+        this.API_BASE = window.NODEJS_API || window.API_BASE_URL || 'http://localhost:8001';
 
         // ===== STATE MANAGEMENT =====
         this.user = null;

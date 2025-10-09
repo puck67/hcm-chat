@@ -1,0 +1,190 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Cơ sở lý luận quan trọng nhất, quyết định bản chất cách mạng và khoa học của tư tưởng Hồ Chí Minh là gì?",
+      "options": {
+        "A": "Chủ nghĩa Mác - Lênin",
+        "B": "Giá trị truyền thống dân tộc Việt Nam",
+        "C": "Tinh hoa văn hóa phương Đông",
+        "D": "Tinh hoa văn hóa phương Tây"
+      },
+      "correct_answer": "A",
+      "explanation": "Chủ nghĩa Mác - Lênin là cơ sở thế giới quan và phương pháp luận, quyết định bản chất tư tưởng Hồ Chí Minh, giúp Người tìm ra con đường cứu nước đúng đắn."
+    },
+    {
+      "id": "q2",
+      "question": "Hồ Chí Minh ra đi tìm đường cứu nước vào năm nào và tại đâu?",
+      "options": {
+        "A": "Năm 1911, tại Bến cảng Nhà Rồng (Sài Gòn)",
+        "B": "Năm 1905, tại cảng Hải Phòng",
+        "C": "Năm 1912, tại Phan Thiết",
+        "D": "Năm 1910, tại kinh đô Huế"
+      },
+      "correct_answer": "A",
+      "explanation": "Ngày 5/6/1911, người thanh niên Nguyễn Tất Thành đã lên con tàu Amiral Latouche-Tréville từ Bến cảng Nhà Rồng, bắt đầu hành trình tìm đường cứu nước."
+    },
+    {
+      "id": "q3",
+      "question": "Sự kiện nào đánh dấu bước ngoặt Nguyễn Ái Quốc từ chủ nghĩa yêu nước đến với chủ nghĩa Mác - Lênin?",
+      "options": {
+        "A": "Gửi bản Yêu sách của nhân dân An Nam đến Hội nghị Vécxai (1919)",
+        "B": "Đọc “Sơ thảo lần thứ nhất những luận cương về vấn đề dân tộc và vấn đề thuộc địa” của V.I. Lênin (7/1920)",
+        "C": "Tham gia sáng lập Đảng Cộng sản Pháp (12/1920)",
+        "D": "Thành lập Hội Liên hiệp thuộc địa (1921)"
+      },
+      "correct_answer": "B",
+      "explanation": "Việc đọc Luận cương của Lênin đã giúp Nguyễn Ái Quốc tìm thấy câu trả lời cho con đường giải phóng dân tộc, đó là con đường cách mạng vô sản."
+    },
+    {
+      "id": "q4",
+      "question": "Giai đoạn nào được coi là giai đoạn hình thành cơ bản tư tưởng Hồ Chí Minh về cách mạng Việt Nam?",
+      "options": {
+        "A": "Trước năm 1911",
+        "B": "1911 - 1920",
+        "C": "1921 - 1930",
+        "D": "1930 - 1945"
+      },
+      "correct_answer": "C",
+      "explanation": "Trong giai đoạn 1921-1930, Nguyễn Ái Quốc đã hoạt động tích cực, nghiên cứu lý luận và truyền bá chủ nghĩa Mác-Lênin vào Việt Nam, hình thành những luận điểm cơ bản về con đường cách mạng Việt Nam."
+    },
+    {
+      "id": "q5",
+      "question": "Tác phẩm nào của Nguyễn Ái Quốc đã vạch trần bản chất của chủ nghĩa thực dân và được xem là một trong những tác phẩm lý luận quan trọng đầu tiên?",
+      "options": {
+        "A": "Đường Kách mệnh (1927)",
+        "B": "Bản án chế độ thực dân Pháp (1925)",
+        "C": "Tuyên ngôn độc lập (1945)",
+        "D": "Di chúc (1969)"
+      },
+      "correct_answer": "B",
+      "explanation": "Tác phẩm \"Bản án chế độ thực dân Pháp\" (1925) tập hợp các bài viết tố cáo tội ác của chủ nghĩa thực dân, thức tỉnh lòng yêu nước và ý thức dân tộc của các dân tộc thuộc địa."
+    },
+    {
+      "id": "q6",
+      "question": "Giá trị truyền thống tốt đẹp nào của dân tộc Việt Nam là cơ sở đầu tiên, sâu sắc cho sự hình thành tư tưởng Hồ Chí Minh?",
+      "options": {
+        "A": "Chủ nghĩa yêu nước",
+        "B": "Tinh thần cần cù, sáng tạo trong lao động",
+        "C": "Truyền thống đoàn kết, nhân ái",
+        "D": "Truyền thống lạc quan, yêu đời"
+      },
+      "correct_answer": "A",
+      "explanation": "Chủ nghĩa yêu nước là sợi chỉ đỏ xuyên suốt lịch sử dân tộc, là động lực lớn nhất thôi thúc Nguyễn Tất Thành ra đi tìm đường cứu nước."
+    },
+    {
+      "id": "q7",
+      "question": "Vào cuối thế kỷ XIX, đầu thế kỷ XX, xã hội Việt Nam có mâu thuẫn cơ bản và chủ yếu nhất là gì?",
+      "options": {
+        "A": "Mâu thuẫn giữa giai cấp nông dân và giai cấp địa chủ phong kiến",
+        "B": "Mâu thuẫn giữa toàn thể dân tộc Việt Nam với thực dân Pháp xâm lược",
+        "C": "Mâu thuẫn giữa giai cấp công nhân và giai cấp tư sản",
+        "D": "Mâu thuẫn giữa tầng lớp tiểu tư sản với giai cấp tư sản"
+      },
+      "correct_answer": "B",
+      "explanation": "Khi thực dân Pháp xâm lược, mâu thuẫn bao trùm lên toàn xã hội Việt Nam là mâu thuẫn giữa dân tộc ta với đế quốc xâm lược và tay sai của chúng."
+    },
+    {
+      "id": "q8",
+      "question": "Yếu tố nào sau đây thuộc về nhân tố chủ quan hình thành nên tư tưởng Hồ Chí Minh?",
+      "options": {
+        "A": "Chủ nghĩa Mác - Lênin",
+        "B": "Bối cảnh thế giới",
+        "C": "Phẩm chất cá nhân, năng lực hoạt động thực tiễn của Hồ Chí Minh",
+        "D": "Truyền thống văn hóa dân tộc"
+      },
+      "correct_answer": "C",
+      "explanation": "Nhân tố chủ quan là những yếu tố thuộc về bản thân con người Hồ Chí Minh như trí tuệ, đạo đức, năng lực, ý chí... Đây là yếu tố có vai trò quyết định trong việc tiếp thu và chuyển hóa các cơ sở khách quan."
+    },
+    {
+      "id": "q9",
+      "question": "Giai đoạn từ năm 1945 đến năm 1969, tư tưởng Hồ Chí Minh có đặc điểm nổi bật là gì?",
+      "options": {
+        "A": "Bắt đầu hình thành",
+        "B": "Tìm tòi, khảo nghiệm",
+        "C": "Vượt qua thử thách, kiên trì",
+        "D": "Tiếp tục phát triển, hoàn thiện"
+      },
+      "correct_answer": "D",
+      "explanation": "Đây là giai đoạn Hồ Chí Minh cùng Trung ương Đảng lãnh đạo cách mạng Việt Nam, tư tưởng của Người được bổ sung, phát triển và hoàn thiện, soi đường cho sự nghiệp kháng chiến và xây dựng đất nước."
+    },
+    {
+      "id": "q10",
+      "question": "Hồ Chí Minh đã tiếp thu những mặt tích cực nào từ Nho giáo?",
+      "options": {
+        "A": "Tư tưởng bình đẳng, bác ái",
+        "B": "Tư tưởng duy vật biện chứng",
+        "C": "Học thuyết về nhà nước pháp quyền",
+        "D": "Triết lý hành động, tu dưỡng đạo đức cá nhân"
+      },
+      "correct_answer": "D",
+      "explanation": "Người đã kế thừa và phát triển những yếu tố tích cực của Nho giáo như tinh thần hiếu học, các triết lý hành động, quan niệm về một xã hội bình trị, và các quy tắc tu dưỡng đạo đức cá nhân."
+    },
+    {
+      "id": "q11",
+      "question": "Năm 1930, sự kiện nào đã đánh dấu sự hình thành cơ bản về đường lối cách mạng Việt Nam của Hồ Chí Minh?",
+      "options": {
+        "A": "Sự ra đời của tác phẩm \"Đường Kách mệnh\"",
+        "B": "Việc Nguyễn Ái Quốc tham gia sáng lập Đảng Cộng sản Pháp",
+        "C": "Việc thành lập Đảng Cộng sản Việt Nam",
+        "D": "Việc thành lập Mặt trận Việt Minh"
+      },
+      "correct_answer": "C",
+      "explanation": "Việc thành lập Đảng Cộng sản Việt Nam với Cương lĩnh chính trị đầu tiên do Người soạn thảo đã chứng tỏ tư tưởng của Người về cách mạng Việt Nam đã được hình thành một cách cơ bản."
+    },
+    {
+      "id": "q12",
+      "question": "Tư tưởng Hồ Chí Minh về con đường cách mạng Việt Nam là gì?",
+      "options": {
+        "A": "Cách mạng dân chủ tư sản",
+        "B": "Cách mạng xã hội chủ nghĩa",
+        "C": "Đấu tranh nghị trường",
+        "D": "Cách mạng giải phóng dân tộc tiến lên chủ nghĩa xã hội"
+      },
+      "correct_answer": "D",
+      "explanation": "Hồ Chí Minh đã xác định con đường cách mạng Việt Nam là độc lập dân tộc gắn liền với chủ nghĩa xã hội, đây là một sáng tạo lớn về lý luận."
+    },
+    {
+      "id": "q13",
+      "question": "Hồ Chí Minh tiếp thu tư tưởng dân chủ và tiến bộ từ đâu?",
+      "options": {
+        "A": "Cách mạng tháng Mười Nga năm 1917",
+        "B": "Văn hóa phương Đông (Nho giáo, Phật giáo)",
+        "C": "Cách mạng tư sản Pháp và Mỹ",
+        "D": "Chủ nghĩa Tam dân của Tôn Trung Sơn"
+      },
+      "correct_answer": "C",
+      "explanation": "Người đã nghiên cứu và tiếp thu những giá trị về quyền con người, quyền công dân, tư tưởng dân chủ, tự do, bình đẳng từ các cuộc cách mạng tư sản điển hình như Cách mạng Pháp và Mỹ."
+    },
+    {
+      "id": "q14",
+      "question": "Đâu là tiền đề tư tưởng, lý luận trực tiếp cho sự ra đời tư tưởng Hồ Chí Minh?",
+      "options": {
+        "A": "Chủ nghĩa yêu nước Việt Nam",
+        "B": "Truyền thống đoàn kết của dân tộc",
+        "C": "Tinh hoa văn hóa nhân loại",
+        "D": "Tư tưởng của các nhà khai sáng Pháp"
+      },
+      "correct_answer": "A",
+      "explanation": "Chủ nghĩa yêu nước và ý chí bất khuất của dân tộc là nguồn động lực mạnh mẽ, là điểm xuất phát, là tiền đề tư tưởng trực tiếp hình thành nên tư tưởng Hồ Chí Minh."
+    },
+    {
+      "id": "q15",
+      "question": "Giai đoạn trước năm 1911 có ý nghĩa như thế nào đối với sự hình thành tư tưởng Hồ Chí Minh?",
+      "options": {
+        "A": "Tìm thấy con đường cứu nước đúng đắn",
+        "B": "Hình thành tư tưởng yêu nước và chí hướng cứu nước",
+        "C": "Hoàn thiện lý luận về cách mạng giải phóng dân tộc",
+        "D": "Tiếp thu chủ nghĩa Mác - Lênin"
+      },
+      "correct_answer": "B",
+      "explanation": "Đây là giai đoạn Người sống ở trong nước, chứng kiến nỗi thống khổ của nhân dân, tiếp thu truyền thống gia đình và quê hương, từ đó hình thành lòng yêu nước và ý chí tìm một con đường mới để cứu nước."
+    }
+  ],
+  "title": "Bài kiểm tra Chương II",
+  "chapter": "Chương II",
+  "difficulty": "easy",
+  "num_questions": 15,
+  "id": "1a49405f-3f21-4270-a977-ce9af0e49133",
+  "created_at": "2025-10-09T20:08:46.022794"
+}

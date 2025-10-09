@@ -76,7 +76,7 @@ function linkInlineCitations(renderedHtml, citationMap, sources){
 class HCMChatApp {
     constructor() {
         // ===== CẤU HÌNH API =====
-        this.API_BASE = window.NODEJS_API || window.API_BASE_URL || 'https://hcm-chatbot-nodejs-api.fly.dev';
+        this.API_BASE = window.NODEJS_API || window.API_BASE_URL || 'http://localhost:8001';
 
         // ===== STATE MANAGEMENT =====
         this.currentConversationId = null; // ID cuộc trò chuyện hiện tại
