@@ -368,8 +368,10 @@
 
         .data-table {
             width: 100%;
-            border-collapse: collapse;
+            border-collapse: separate;
+            border-spacing: 0;
             margin-top: 10px;
+            table-layout: fixed;
         }
 
         .data-table th, .data-table td {
@@ -385,6 +387,17 @@
             text-transform: uppercase;
             font-size: 0.85rem;
             letter-spacing: 0.5px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .data-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .data-table th:last-child {
+            border-top-right-radius: 8px;
         }
 
         .data-table tbody tr {
@@ -406,12 +419,15 @@
 
         .data-table tbody tr:hover {
             background: linear-gradient(90deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.03));
-            transform: translateX(4px);
             box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
         }
 
         .data-table tbody tr:hover::before {
             transform: scaleY(1);
+        }
+
+        .data-table tbody tr:hover td {
+            transform: translateX(3px);
         }
 
         .data-table td {
