@@ -242,6 +242,12 @@ class HCMChatApp {
             return; // Already added
         }
 
+        // Remove any existing extension (chỉ cho phép 1 extension tại một thời điểm)
+        if (this.activeExtensions.size > 0) {
+            const existingExtension = Array.from(this.activeExtensions)[0];
+            this.removeExtensionTag(existingExtension);
+        }
+
         this.activeExtensions.add(extensionType);
         
         const inputWrapper = document.querySelector('.input-wrapper');
@@ -264,6 +270,14 @@ class HCMChatApp {
         
         // Update placeholder based on extension
         this.updateInputPlaceholder(extensionType);
+        
+        // Focus input để user có thể gõ ngay
+        setTimeout(() => {
+            document.getElementById('messageInput').focus();
+        }, 100);
+        
+        // Show brief notification
+        this.showExtensionNotification(title);
     }
 
     removeExtensionTag(extensionType) {
@@ -277,6 +291,10 @@ class HCMChatApp {
         // Reset placeholder if no extensions
         if (this.activeExtensions.size === 0) {
             document.getElementById('messageInput').placeholder = 'Hỏi bất kỳ điều gì';
+        } else {
+            // Update placeholder based on remaining extension
+            const remainingExtension = Array.from(this.activeExtensions)[0];
+            this.updateInputPlaceholder(remainingExtension);
         }
     }
 
@@ -284,10 +302,60 @@ class HCMChatApp {
         const messageInput = document.getElementById('messageInput');
         
         const placeholders = {
-            'mindmap': 'Nhập chủ đề để tạo sơ đồ tư duy...'
+            'mindmap': 'Nhập chủ đề để tạo sơ đồ tư duy...',
+            'image-search': 'Nhập từ khóa để tìm hình ảnh...',
+            'quiz-create': 'Nhập chủ đề để tạo bài kiểm tra...'
         };
         
         messageInput.placeholder = placeholders[extensionType] || 'Hỏi bất kỳ điều gì';
+    }
+
+    showExtensionNotification(extensionTitle) {
+        // Tạo notification element
+        const notification = document.createElement('div');
+        notification.className = 'extension-notification';
+        notification.innerHTML = `
+            <i class="fas fa-check-circle"></i>
+            <span>Đã kích hoạt: ${extensionTitle}</span>
+        `;
+        
+        // Thêm CSS inline cho animation
+        notification.style.cssText = `
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-yellow));
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 8px 25px rgba(218, 37, 28, 0.3);
+            z-index: 1001;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        `;
+        
+        // Thêm vào body
+        document.body.appendChild(notification);
+        
+        // Animate in
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+        }, 100);
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 300);
+        }, 3000);
     }
 
     /**
@@ -399,6 +467,27 @@ class HCMChatApp {
             if (response.ok) {
                 const data = await response.json();
                 this.conversations = data.conversations || [];
+                
+                // Debug: Log để kiểm tra cấu trúc dữ liệu conversations từ API
+                if (this.conversations.length > 0) {
+                    console.log('💬 Sample conversation from API:', JSON.stringify(this.conversations[0], null, 2));
+                    const conv = this.conversations[0];
+                    const testDate = conv.updated_at || conv.updatedAt || conv.created_at || conv.createdAt;
+                    if (testDate) {
+                        console.log('🕒 Conversation timestamp analysis:', {
+                            raw_timestamp: testDate,
+                            parsed_date: new Date(testDate),
+                            utc_string: new Date(testDate).toISOString(),
+                            vn_time: new Date(testDate).toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })
+                        });
+                    }
+                }
+                
+                // Debug: Kiểm tra dữ liệu date từ server (chỉ khi có lỗi)  
+                if (this.conversations.some(conv => !conv.createdAt && !conv.created_at && !conv.updatedAt && !conv.updated_at)) {
+                    console.log('📅 Found conversations with missing dates:', this.conversations);
+                }
+                
                 this.renderConversations();
             } else {
                 console.error('Failed to load conversations');
@@ -422,17 +511,25 @@ class HCMChatApp {
             return;
         }
 
-        const conversationsHTML = this.conversations.map(conv => `
-            <div class="conversation-item ${conv.id === this.currentConversationId ? 'active' : ''}"
-                 onclick="chatApp.selectConversation('${conv.id}')">
-                <div class="conversation-title">${conv.title}</div>
-                <div class="conversation-meta">
-                    <span>${this.formatDate(conv.updatedAt)}</span>
+        const conversationsHTML = this.conversations.map(conv => {
+            // Handle both snake_case (from backend) and camelCase (from frontend)
+            const updatedAt = conv.updatedAt || conv.updated_at;
+            const createdAt = conv.createdAt || conv.created_at;
+            const dateToDisplay = updatedAt || createdAt || null;
+            const formattedDate = this.formatConversationDate(dateToDisplay);
+            
+            return `
+                <div class="conversation-item ${conv.id === this.currentConversationId ? 'active' : ''}"
+                     onclick="chatApp.selectConversation('${conv.id}')">
+                    <div class="conversation-title">${conv.title || 'Cuộc trò chuyện'}</div>
+                    <div class="conversation-meta">
+                        <span>${formattedDate}</span>
+                    </div>
+                    <i class="fas fa-trash delete-conversation"
+                       onclick="event.stopPropagation(); chatApp.deleteConversation('${conv.id}')"></i>
                 </div>
-                <i class="fas fa-trash delete-conversation"
-                   onclick="event.stopPropagation(); chatApp.deleteConversation('${conv.id}')"></i>
-            </div>
-        `).join('');
+            `;
+        }).join('');
 
         container.innerHTML = conversationsHTML;
     }
@@ -453,6 +550,18 @@ class HCMChatApp {
             if (response.ok) {
                 const data = await response.json();
                 const messages = data.messages || [];
+                
+                // Debug: Log để kiểm tra cấu trúc dữ liệu từ API
+                if (messages.length > 0) {
+                    console.log('📨 Sample message from API:', JSON.stringify(messages[0], null, 2));
+                    console.log('🕒 Message timestamp analysis:', {
+                        raw_created_at: messages[0].created_at,
+                        parsed_date: new Date(messages[0].created_at),
+                        local_time: new Date(messages[0].created_at).toLocaleString('vi-VN'),
+                        utc_time: new Date(messages[0].created_at).toISOString()
+                    });
+                }
+                
                 this.renderMessages(messages);
             } else {
                 console.error('Failed to load messages');
@@ -519,9 +628,20 @@ class HCMChatApp {
 
         let metaHTML = '';
         if (!isUser) {
+            // Handle both snake_case (from backend) and camelCase (from frontend)
+            const messageTime = message.createdAt || message.created_at || new Date().toISOString();
+            
+            // Debug log cho message time (chỉ khi có vấn đề)
+            if (messageTime && messageTime.includes('03:')) {
+                console.log('⚠️ Potential timezone issue:', {
+                    raw: messageTime,
+                    formatted: this.formatDateTime(messageTime)
+                });
+            }
+            
             metaHTML = `
                 <div class="message-meta">
-                    <span>${this.formatDateTime(message.createdAt)}</span>
+                    <span>${this.formatDateTime(messageTime)}</span>
                 </div>
             `;
         }
@@ -779,12 +899,32 @@ class HCMChatApp {
         let numQuestions = 10;
         let chapter = '';
 
-        // Tìm số câu hỏi
-        const numMatch = message.match(/(\d+)\s*câu/i);
+        // Tìm số câu hỏi - hỗ trợ nhiều cách viết
+        const numberWords = {
+            'một': 1, 'hai': 2, 'ba': 3, 'bốn': 4, 'năm': 5, 'sáu': 6, 'bảy': 7, 'tám': 8, 'chín': 9, 'mười': 10,
+            'mười một': 11, 'mười hai': 12, 'mười ba': 13, 'mười bốn': 14, 'mười lăm': 15, 'mười sáu': 16,
+            'mười bảy': 17, 'mười tám': 18, 'mười chín': 19, 'hai mười': 20, 'ba mười': 30
+        };
+        
+        // Thử tìm số bằng chữ số
+        let numMatch = message.match(/(\d+)\s*câu/i);
         if (numMatch) {
             numQuestions = parseInt(numMatch[1]);
-            numQuestions = Math.max(5, Math.min(30, numQuestions));
+        } else {
+            // Thử tìm số bằng chữ
+            for (const [word, num] of Object.entries(numberWords)) {
+                const wordPattern = new RegExp(`\\b${word}\\s*câu`, 'i');
+                if (wordPattern.test(message)) {
+                    numQuestions = num;
+                    break;
+                }
+            }
         }
+        
+        // Cho phép từ 1-30 câu, tôn trọng yêu cầu của user
+        numQuestions = Math.max(1, Math.min(30, numQuestions));
+        
+        console.log(`🔢 Parsed number of questions: ${numQuestions} from message: "${message}"`);
 
         // Tìm chương - hỗ trợ nhiều cách viết
         const chapterPatterns = [
@@ -807,9 +947,19 @@ class HCMChatApp {
             chapter = 'Tất cả';
         }
 
+        // Tìm độ khó từ message
+        let difficulty = 'medium';
+        if (/\b(dễ|easy)\b/i.test(message)) {
+            difficulty = 'easy';
+        } else if (/\b(khó|hard|difficult)\b/i.test(message)) {
+            difficulty = 'hard';
+        } else if (/\b(trung bình|medium|normal)\b/i.test(message)) {
+            difficulty = 'medium';
+        }
+
         // Gọi API tạo quiz
         try {
-            console.log('🚀 Đang gọi API tạo quiz:', { chapter, numQuestions });
+            console.log('🚀 Đang gọi API tạo quiz:', { chapter, numQuestions, difficulty });
             
             const response = await fetch(`${window.PYTHON_AI_API}/quiz/generate`, {
                 method: 'POST',
@@ -817,7 +967,7 @@ class HCMChatApp {
                 body: JSON.stringify({
                     chapter: chapter,
                     num_questions: numQuestions,
-                    difficulty: 'medium'
+                    difficulty: difficulty
                 })
             });
 
@@ -831,6 +981,18 @@ class HCMChatApp {
 
             const quiz = await response.json();
             console.log('✅ Quiz created successfully:', quiz.id);
+            
+            // Kiểm tra nếu số câu hỏi thực tế khác với yêu cầu
+            let mismatchWarning = '';
+            if (quiz.num_questions !== numQuestions) {
+                console.warn(`⚠️ Mismatch: Requested ${numQuestions} questions, got ${quiz.num_questions}`);
+                mismatchWarning = `
+                    <div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 0.75rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <i class="fas fa-exclamation-triangle" style="color: #d63031; margin-right: 0.5rem;"></i>
+                        <strong>Lưu ý:</strong> Bạn yêu cầu ${numQuestions} câu nhưng hệ thống tạo ${quiz.num_questions} câu.
+                    </div>
+                `;
+            }
 
             // Tạo response với nút làm bài
             const quizResponse = `
@@ -838,6 +1000,7 @@ class HCMChatApp {
                     <h3 style="color: #333; margin-bottom: 1rem;">
                         ✅ Đã tạo bài kiểm tra thành công!
                     </h3>
+                    ${mismatchWarning}
                     <p style="color: #666; margin-bottom: 1rem;">
                         <strong>${quiz.title}</strong><br>
                         Số câu hỏi: ${quiz.num_questions}<br>
@@ -909,14 +1072,24 @@ class HCMChatApp {
             const loadingMessageId = 'loading-' + Date.now();
             this.addLoadingMessage(loadingMessageId);
 
-            // ===== BƯỚC 3: KIỂM TRA MIND MAP MODE =====
+            // ===== BƯỚC 3: KIỂM TRA EXTENSION MODE =====
             let actualMessage = message;
             let messagePrefix = '';
+            let extensionMode = null;
             
             // Check for active extensions
             if (this.activeExtensions.has('mindmap')) {
                 messagePrefix = 'vẽ sơ đồ tư duy về ';
+                extensionMode = 'mindmap';
                 this.removeExtensionTag('mindmap');
+            } else if (this.activeExtensions.has('image-search')) {
+                messagePrefix = 'tìm hình ảnh về ';
+                extensionMode = 'image-search';
+                this.removeExtensionTag('image-search');
+            } else if (this.activeExtensions.has('quiz-create')) {
+                messagePrefix = 'tạo bài kiểm tra về ';
+                extensionMode = 'quiz-create';
+                this.removeExtensionTag('quiz-create');
             }
             
             actualMessage = messagePrefix + message;
@@ -928,7 +1101,9 @@ class HCMChatApp {
             }
 
             // ===== BƯỚC 4: XỬ LÝ CÁC YÊU CẦU ĐẶC BIỆT =====
-            if (this.checkImageSearchRequest(actualMessage)) {
+            
+            // Xử lý theo extension mode hoặc detection tự động
+            if (extensionMode === 'image-search' || this.checkImageSearchRequest(actualMessage)) {
                 const imageResult = await this.handleImageSearchRequest(actualMessage);
                 
                 // Thay thế loading message bằng kết quả tìm ảnh
@@ -947,7 +1122,7 @@ class HCMChatApp {
             }
 
             // ===== KIỂM TRA NẾU LÀ YÊU CẦU TẠO QUIZ =====
-            if (this.checkQuizRequest(message)) {
+            if (extensionMode === 'quiz-create' || this.checkQuizRequest(message)) {
                 const quizResult = await this.handleQuizRequest(message);
                 
                 // Thay thế loading message bằng kết quả quiz
@@ -1032,6 +1207,12 @@ class HCMChatApp {
             // ===== BƯỚC 5: CLEANUP =====
             // Luôn enable lại form
             this.setInputDisabled(false);
+            
+            // Reset placeholder về mặc định
+            if (this.activeExtensions.size === 0) {
+                document.getElementById('messageInput').placeholder = 'Hỏi bất kỳ điều gì';
+            }
+            
             document.getElementById('messageInput').focus();
         }
     }
@@ -1691,19 +1872,73 @@ class HCMChatApp {
     }
 
     async startNewChat() {
-        this.currentConversationId = null;
-        document.getElementById('chatMessages').innerHTML = `
-            <div class="empty-state">
-                <i class="fas fa-comment-dots"></i>
-                <h3>Cuộc trò chuyện mới</h3>
-                <p>Hãy bắt đầu với câu hỏi đầu tiên về tư tưởng Hồ Chí Minh</p>
-            </div>
+        // Add loading animation to new chat button
+        const newChatBtn = document.querySelector('.new-chat-btn');
+        const originalContent = newChatBtn.innerHTML;
+        
+        newChatBtn.innerHTML = `
+            <i class="fas fa-spinner fa-spin"></i>
+            <span>Đang tạo...</span>
         `;
+        newChatBtn.style.pointerEvents = 'none';
+
+        // Reset conversation state
+        this.currentConversationId = null;
+        
+        // Smooth transition for messages container
+        const chatMessages = document.getElementById('chatMessages');
+        chatMessages.style.opacity = '0';
+        chatMessages.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            chatMessages.innerHTML = `
+                <div class="empty-state" style="animation: fadeInScale 0.6s ease-out;">
+                    <i class="fas fa-comment-dots"></i>
+                    <h3>Cuộc trò chuyện mới</h3>
+                    <p>Hãy bắt đầu với câu hỏi đầu tiên về tư tưởng Hồ Chí Minh</p>
+                    
+                    <div class="suggestion-topics">
+                        <div class="topic-btn" onclick="chatApp.sendSuggestedMessage('Tư tưởng Hồ Chí Minh về độc lập dân tộc là gì?')">
+                            <h4>🇻🇳 Độc lập dân tộc</h4>
+                            <p>Tìm hiểu về tư tưởng độc lập của Bác Hồ</p>
+                        </div>
+                        <div class="topic-btn" onclick="chatApp.sendSuggestedMessage('Giải thích tư tưởng dân chủ của Hồ Chí Minh')">
+                            <h4>🏛️ Dân chủ</h4>
+                            <p>Khám phá quan điểm về dân chủ</p>
+                        </div>
+                        <div class="topic-btn" onclick="chatApp.sendSuggestedMessage('Tư tưởng đạo đức của Hồ Chí Minh có gì đặc biệt?')">
+                            <h4>🌟 Đạo đức</h4>
+                            <p>Tìm hiểu về phẩm chất đạo đức</p>
+                        </div>
+                        <div class="topic-btn" onclick="chatApp.sendSuggestedMessage('Hồ Chí Minh nói gì về giáo dục?')">
+                            <h4>📚 Giáo dục</h4>
+                            <p>Quan điểm về giáo dục và học tập</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Animate in
+            chatMessages.style.opacity = '1';
+            chatMessages.style.transform = 'translateY(0)';
+            chatMessages.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            
+            // Restore button
+            setTimeout(() => {
+                newChatBtn.innerHTML = originalContent;
+                newChatBtn.style.pointerEvents = '';
+            }, 500);
+            
+        }, 200);
 
         // Clear active conversation
         this.renderConversations();
         this.closeSidebar();
-        document.getElementById('messageInput').focus();
+        
+        // Focus input after animation
+        setTimeout(() => {
+            document.getElementById('messageInput').focus();
+        }, 600);
     }
 
     async deleteConversation(conversationId) {
@@ -1826,25 +2061,211 @@ class HCMChatApp {
         window.location.href = 'auth.html';
     }
 
-    formatDate(dateString) {
-        const date = new Date(dateString);
-        const now = new Date();
-        const diffDays = Math.floor((now - date) / (1000 * 60 * 60 * 24));
+    /**
+     * Helper function để convert UTC timestamp sang VN timezone
+     */
+    parseUTCToVN(dateString) {
+        try {
+            if (!dateString) return null;
+            
+            // Tạo Date object từ UTC string
+            const utcDate = new Date(dateString);
+            if (isNaN(utcDate.getTime())) return null;
+            
+            // Convert sang VN timezone (UTC+7)
+            // Nếu backend gửi UTC, ta cần add 7 tiếng
+            const vnOffset = 7 * 60; // 7 hours in minutes
+            const localOffset = utcDate.getTimezoneOffset(); // Local offset in minutes
+            const vnTime = new Date(utcDate.getTime() + (vnOffset + localOffset) * 60000);
+            
+            // Minimal logging
+            if (dateString.includes('03:')) {
+                console.log('🔄 UTC to VN conversion:', dateString, '->', vnTime.toLocaleString('vi-VN'));
+            }
+            
+            return vnTime;
+        } catch (error) {
+            console.error('Error parsing UTC to VN:', error);
+            return null;
+        }
+    }
 
-        if (diffDays === 0) {
-            return 'Hôm nay';
-        } else if (diffDays === 1) {
-            return 'Hôm qua';
-        } else if (diffDays < 7) {
-            return `${diffDays} ngày trước`;
-        } else {
-            return date.toLocaleDateString('vi-VN');
+    formatConversationDate(dateString) {
+        try {
+            // Kiểm tra input - fallback tốt hơn cho conversations
+            if (!dateString || dateString === '' || dateString === 'null' || dateString === 'undefined') {
+                return 'Vừa xong';
+            }
+
+            // Thử parse nhiều format khác nhau
+            let date;
+            
+            // Nếu là timestamp number
+            if (typeof dateString === 'number') {
+                date = new Date(dateString);
+            }
+            // Nếu là string timestamp
+            else if (!isNaN(dateString) && dateString.length > 10) {
+                date = new Date(Number(dateString));
+            }
+            // Nếu là ISO string hoặc các format khác
+            else {
+                date = new Date(dateString);
+            }
+            
+            // Kiểm tra tính hợp lệ của date
+            if (isNaN(date.getTime())) {
+                console.warn('Invalid conversation date:', dateString, typeof dateString);
+                return 'Vừa xong';
+            }
+
+            // Sử dụng thời gian hiện tại theo múi giờ Việt Nam
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMinutes = Math.floor(diffMs / (1000 * 60));
+            const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+            const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+            // Xử lý thời gian gần đây
+            if (diffMinutes < 1) {
+                return 'Vừa xong';
+            } else if (diffMinutes < 60) {
+                return `${diffMinutes} phút trước`;
+            } else if (diffHours < 24) {
+                return `${diffHours} giờ trước`;
+            } else if (diffDays === 1) {
+                return 'Hôm qua';
+            } else if (diffDays < 7) {
+                return `${diffDays} ngày trước`;
+            } else {
+                return date.toLocaleDateString('vi-VN', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: diffDays > 365 ? 'numeric' : undefined,
+                    timeZone: 'Asia/Ho_Chi_Minh'
+                });
+            }
+        } catch (error) {
+            console.error('Error formatting conversation date:', error, dateString);
+            return 'Vừa xong';
+        }
+    }
+
+    formatDate(dateString) {
+        try {
+            // Kiểm tra input
+            if (!dateString) {
+                return 'Chưa có thời gian';
+            }
+
+            const date = new Date(dateString);
+            
+            // Kiểm tra tính hợp lệ của date
+            if (isNaN(date.getTime())) {
+                console.warn('Invalid date string:', dateString);
+                return 'Thời gian không hợp lệ';
+            }
+
+            const now = new Date();
+            const diffDays = Math.floor((now - date) / (1000 * 60 * 60 * 24));
+
+            if (diffDays === 0) {
+                return 'Hôm nay';
+            } else if (diffDays === 1) {
+                return 'Hôm qua';
+            } else if (diffDays < 7) {
+                return `${diffDays} ngày trước`;
+            } else {
+                return date.toLocaleDateString('vi-VN', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    timeZone: 'Asia/Ho_Chi_Minh'
+                });
+            }
+        } catch (error) {
+            console.error('Error formatting date:', error, dateString);
+            return 'Lỗi thời gian';
         }
     }
 
     formatDateTime(dateString) {
-        const date = new Date(dateString);
-        return date.toLocaleString('vi-VN');
+        try {
+            // Kiểm tra input
+            if (!dateString) {
+                return 'Chưa có thời gian';
+            }
+
+            // Parse UTC date và convert sang VN timezone
+            const date = new Date(dateString);
+            
+            // Kiểm tra tính hợp lệ của date
+            if (isNaN(date.getTime())) {
+                console.warn('Invalid datetime string:', dateString);
+                return 'Thời gian không hợp lệ';
+            }
+
+            // Nếu backend gửi UTC và không có timezone info, ta cần adjust
+            let vnTime = date;
+            
+            // Kiểm tra nếu string có timezone info hay không
+            if (typeof dateString === 'string' && !dateString.includes('+') && !dateString.includes('Z')) {
+                // Không có timezone info -> assume backend time
+                // Không cần điều chỉnh gì, chỉ format với VN timezone
+            }
+
+            // Format với timezone Việt Nam
+            const formatted = vnTime.toLocaleString('vi-VN', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false,
+                timeZone: 'Asia/Ho_Chi_Minh'
+            });
+
+            // Debug logging chỉ khi có vấn đề timezone
+            if (typeof dateString === 'string' && dateString.includes('03:') && formatted.includes('10:')) {
+                console.log('✅ Timezone fixed:', {
+                    input: dateString,
+                    output: formatted
+                });
+            }
+
+            return formatted;
+        } catch (error) {
+            console.error('Error formatting datetime:', error, dateString);
+            return 'Lỗi thời gian';
+        }
+    }
+
+    // Test function cho date formatting (chỉ dùng để debug)
+    testDateFormatting() {
+        const testCases = [
+            null,
+            undefined,
+            '',
+            'null',
+            'undefined',
+            'invalid-date',
+            '2024-01-15T10:30:00.000Z',
+            '2024-01-15',
+            Date.now(),
+            Date.now().toString(),
+            new Date().toISOString()
+        ];
+
+        console.log('🧪 Testing date formatting functions:');
+        testCases.forEach((testCase, index) => {
+            console.log(`Test ${index + 1}:`, {
+                input: testCase,
+                type: typeof testCase,
+                formatConversationDate: this.formatConversationDate(testCase),
+                formatDate: this.formatDate(testCase),
+                formatDateTime: this.formatDateTime(testCase)
+            });
+        });
     }
 }
 
@@ -2071,8 +2492,38 @@ style.textContent = `
 document.head.appendChild(style);
 
 // Function để mở trang book với highlight text
-function openBookWithHighlight(chapterNum, text) {
-    const bookUrl = `https://hcm-chat.vercel.app/book/tu-tuong-ho-chi-minh.html#chuong${chapterNum}?hl=${encodeURIComponent(text)}`;
+function openBookWithHighlight(chapter, text) {
+    const bookUrl = `https://hcm-chat.vercel.app/book/tu-tuong-ho-chi-minh.html#${chapter}?hl=${encodeURIComponent(text)}`;
     window.open(bookUrl, '_blank', 'noopener,noreferrer');
     return false;
+}
+
+// Test function cho date formatting (có thể gọi từ console)
+function testDateFormatting() {
+    if (window.chatApp) {
+        window.chatApp.testDateFormatting();
+    } else {
+        console.log('❌ ChatApp chưa được khởi tạo');
+    }
+}
+
+// Test timezone conversion
+function testTimezone() {
+    if (window.chatApp) {
+        const testTimestamps = [
+            '2025-10-10T03:35:24',  // Backend UTC time
+            '2025-10-10T10:35:24',  // VN time
+            '2025-10-10T03:35:24.000Z', // UTC with Z
+            '2025-10-10 03:35:24'   // SQL format
+        ];
+        
+        console.log('🧪 Testing timezone conversion:');
+        testTimestamps.forEach(ts => {
+            console.log(`Input: ${ts}`);
+            console.log(`Formatted: ${window.chatApp.formatDateTime(ts)}`);
+            console.log('---');
+        });
+    } else {
+        console.log('❌ ChatApp chưa được khởi tạo');
+    }
 }

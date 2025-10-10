@@ -115,13 +115,13 @@ router.post('/', [
         }
 
         const { title } = req.body;
-        const conversationTitle = title || `Cuộc trò chuyện ${new Date().toLocaleString('vi-VN')}`;
+        const conversationTitle = title || `Cuộc trò chuyện ${new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })}`;
 
         const result = await Database.query(`
-            INSERT INTO conversations (user_id, title) 
-            VALUES ($1, $2) 
+            INSERT INTO conversations (user_id, title, created_at, updated_at) 
+            VALUES ($1, $2, $3, $3) 
             RETURNING *
-        `, [req.user.id, conversationTitle]);
+        `, [req.user.id, conversationTitle, Date.vnNow()]);
 
         const newConversation = result.rows[0];
 
@@ -190,10 +190,10 @@ router.put('/:id', [
 
         const result = await Database.query(`
             UPDATE conversations 
-            SET title = $1, updated_at = CURRENT_TIMESTAMP 
-            WHERE id = $2 AND user_id = $3 
+            SET title = $1, updated_at = $2 
+            WHERE id = $3 AND user_id = $4 
             RETURNING *
-        `, [title, conversationId, req.user.id]);
+        `, [title, Date.vnNow(), conversationId, req.user.id]);
 
         await logActivity(req.user.id, 'CONVERSATION_UPDATED', { 
             conversationId,
@@ -242,8 +242,8 @@ router.delete('/:id', async (req, res) => {
 
         // Soft delete - mark as inactive
         await Database.query(
-            'UPDATE conversations SET is_active = false, updated_at = CURRENT_TIMESTAMP WHERE id = $1',
-            [conversationId]
+            'UPDATE conversations SET is_active = false, updated_at = $1 WHERE id = $2',
+            [Date.vnNow(), conversationId]
         );
 
         await logActivity(req.user.id, 'CONVERSATION_DELETED', { 

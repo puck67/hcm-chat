@@ -1,0 +1,70 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Theo tư tưởng Hồ Chí Minh, đặc điểm lớn nhất, bao trùm nhất của thời kỳ quá độ lên chủ nghĩa xã hội ở Việt Nam là gì?",
+      "options": {
+        "A": "Từ một nước nông nghiệp lạc hậu, tiến thẳng lên chủ nghĩa xã hội, không qua giai đoạn phát triển tư bản chủ nghĩa.",
+        "B": "Đất nước bị chia cắt làm hai miền với hai chế độ chính trị khác nhau.",
+        "C": "Luôn phải đối phó với sự bao vây, cấm vận của các thế lực thù địch.",
+        "D": "Lực lượng sản xuất đã phát triển ở trình độ cao nhưng không đồng đều."
+      },
+      "correct_answer": "A",
+      "explanation": "Hồ Chí Minh chỉ rõ, đặc điểm lớn nhất và cũng là mâu thuẫn cơ bản của thời kỳ quá độ ở Việt Nam là xuất phát từ một nước nông nghiệp lạc hậu, bỏ qua giai đoạn phát triển tư bản chủ nghĩa để đi lên chủ nghĩa xã hội. Đặc điểm này chi phối toàn bộ quá trình và quy định nội dung, bước đi của cách mạng xã hội chủ nghĩa."
+    },
+    {
+      "id": "q2",
+      "question": "Trong mối quan hệ giữa cải tạo xã hội cũ và xây dựng xã hội mới trong thời kỳ quá độ, Hồ Chí Minh nhấn mạnh điều gì?",
+      "options": {
+        "A": "Phải ưu tiên cải tạo triệt để xã hội cũ rồi mới bắt tay vào xây dựng xã hội mới.",
+        "B": "Kết hợp chặt chẽ giữa cải tạo và xây dựng, trong đó xây dựng là nội dung chủ chốt, lâu dài.",
+        "C": "Nhiệm vụ xây dựng xã hội mới quan trọng hơn và phải được thực hiện độc lập với nhiệm vụ cải tạo.",
+        "D": "Cải tạo là nhiệm vụ chính, xây dựng chỉ là nhiệm vụ thứ yếu, hỗ trợ."
+      },
+      "correct_answer": "B",
+      "explanation": "Hồ Chí Minh cho rằng cải tạo và xây dựng là hai mặt của một quá trình, có quan hệ biện chứng với nhau, không thể tách rời. Tuy nhiên, Người khẳng định \"lấy xây làm chính\", vì xây dựng các yếu tố mới của chủ nghĩa xã hội mới là mục tiêu cơ bản, lâu dài và quyết định sự thắng lợi của chủ nghĩa xã hội."
+    },
+    {
+      "id": "q3",
+      "question": "Theo Hồ Chí Minh, động lực quan trọng và quyết định nhất để xây dựng chủ nghĩa xã hội ở Việt Nam là gì?",
+      "options": {
+        "A": "Sự giúp đỡ, viện trợ của các nước xã hội chủ nghĩa anh em.",
+        "B": "Nguồn vốn đầu tư từ các nước tư bản tiên tiến.",
+        "C": "Nội lực, sức mạnh của toàn dân tộc, của con người Việt Nam.",
+        "D": "Các nguồn tài nguyên thiên nhiên phong phú của đất nước."
+      },
+      "correct_answer": "C",
+      "explanation": "Hồ Chí Minh luôn đề cao vai trò của nhân tố con người và sức mạnh nội sinh của dân tộc. Người khẳng định phải \"đem sức ta mà tự giải phóng cho ta\", coi nội lực (con người, trí tuệ, sức lao động) là nguồn lực quyết định nhất, còn sự giúp đỡ từ bên ngoài là quan trọng nhưng chỉ phát huy tác dụng thông qua nội lực."
+    },
+    {
+      "id": "q4",
+      "question": "Luận điểm nào sau đây thể hiện đúng nhất quan điểm của Hồ Chí Minh về bước đi trong thời kỳ quá độ lên chủ nghĩa xã hội?",
+      "options": {
+        "A": "Phải tiến hành nhanh chóng, đốt cháy giai đoạn để đuổi kịp các nước tiên tiến.",
+        "B": "Phải làm dần dần, không được nóng vội, \"tiến nhanh, tiến mạnh, tiến vững chắc\".",
+        "C": "Sao chép hoàn toàn mô hình xây dựng chủ nghĩa xã hội của Liên Xô và Trung Quốc.",
+        "D": "Ưu tiên tuyệt đối cho phát triển công nghiệp nặng ngay từ đầu bằng mọi giá."
+      },
+      "correct_answer": "B",
+      "explanation": "Xuất phát từ thực tiễn một nước nông nghiệp lạc hậu, Hồ Chí Minh nhấn mạnh phải đi từng bước, vững chắc, không được chủ quan, duy ý chí. Khẩu hiệu \"tiến nhanh, tiến mạnh, tiến vững chắc lên chủ nghĩa xã hội\" thể hiện sự kết hợp giữa quyết tâm cao và sự thận trọng, phù hợp với quy luật khách quan."
+    },
+    {
+      "id": "q5",
+      "question": "Về lĩnh vực kinh tế, Hồ Chí Minh chủ trương xây dựng một nền kinh tế như thế nào trong thời kỳ quá độ?",
+      "options": {
+        "A": "Chỉ bao gồm thành phần kinh tế quốc doanh và kinh tế tập thể.",
+        "B": "Ưu tiên phát triển thương mại và dịch vụ hơn sản xuất công-nông nghiệp.",
+        "C": "Xây dựng cơ cấu kinh tế công - nông nghiệp hợp lý, vừa phát triển công nghiệp vừa củng cố nông nghiệp.",
+        "D": "Xóa bỏ hoàn toàn kinh tế tư nhân, thực hiện công hữu hóa toàn bộ tư liệu sản xuất."
+      },
+      "correct_answer": "C",
+      "explanation": "Hồ Chí Minh chủ trương xây dựng một cơ cấu kinh tế cân đối, hợp lý giữa công nghiệp và nông nghiệp. Người nhấn mạnh tầm quan trọng của cả hai lĩnh vực: công nghiệp là then chốt, nền tảng, còn nông nghiệp là cơ sở để phát triển công nghiệp. Đây là quan điểm phù hợp với thực tiễn Việt Nam."
+    }
+  ],
+  "title": "Bài kiểm tra Chương III",
+  "chapter": "Chương III",
+  "difficulty": "medium",
+  "num_questions": 5,
+  "id": "100cbc1e-2355-4619-a968-f89a4af2eb70",
+  "created_at": "2025-10-10T10:33:12.834883"
+}

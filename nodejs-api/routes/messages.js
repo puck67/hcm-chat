@@ -55,10 +55,10 @@ router.post('/send', [
         // Auto-create conversation if not provided
         if (!conversationId) {
             const newConvResult = await Database.query(`
-                INSERT INTO conversations (user_id, title) 
-                VALUES ($1, $2) 
+                INSERT INTO conversations (user_id, title, created_at, updated_at) 
+                VALUES ($1, $2, $3, $3) 
                 RETURNING *
-            `, [req.user.id, messageContent.substring(0, 50) + '...']);
+            `, [req.user.id, messageContent.substring(0, 50) + '...', Date.vnNow()]);
             
             conversationId = newConvResult.rows[0].id;
             
@@ -81,19 +81,19 @@ router.post('/send', [
             }
         }
 
-        // Save user message
+        // Save user message with VN timezone
         const messageResult = await Database.query(`
-            INSERT INTO messages (conversation_id, user_id, content, message_type) 
-            VALUES ($1, $2, $3, $4) 
+            INSERT INTO messages (conversation_id, user_id, content, message_type, created_at) 
+            VALUES ($1, $2, $3, $4, $5) 
             RETURNING *
-        `, [conversationId, req.user.id, messageContent, messageType]);
+        `, [conversationId, req.user.id, messageContent, messageType, Date.vnNow()]);
 
         const userMessage = messageResult.rows[0];
 
-        // Update conversation timestamp
+        // Update conversation timestamp with VN timezone
         await Database.query(
-            'UPDATE conversations SET updated_at = CURRENT_TIMESTAMP WHERE id = $1',
-            [conversationId]
+            'UPDATE conversations SET updated_at = $1 WHERE id = $2',
+            [Date.vnNow(), conversationId]
         );
 
         // Get AI response if it's a user message
@@ -105,10 +105,10 @@ router.post('/send', [
                 aiResponse = await getAIResponse(messageContent, conversationId);
                 
                 if (aiResponse && aiResponse.content) {
-                    // Save AI response as a separate message
+                    // Save AI response as a separate message with VN timezone
                     const aiMessageResult = await Database.query(`
-                        INSERT INTO messages (conversation_id, user_id, content, message_type, ai_response, metadata) 
-                        VALUES ($1, $2, $3, $4, $5, $6) 
+                        INSERT INTO messages (conversation_id, user_id, content, message_type, ai_response, metadata, created_at) 
+                        VALUES ($1, $2, $3, $4, $5, $6, $7) 
                         RETURNING *
                     `, [
                         conversationId, 
@@ -120,7 +120,8 @@ router.post('/send', [
                             sources: aiResponse.sources || [],
                             confidence: aiResponse.confidence || 0,
                             role: 'assistant'
-                        })
+                        }),
+                        Date.vnNow()
                     ]);
 
                     aiMessage = aiMessageResult.rows[0];

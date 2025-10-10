@@ -4,6 +4,31 @@
  */
 
 require('dotenv').config();
+
+// ===== TIMEZONE CONFIGURATION =====
+// Set timezone cho toàn bộ ứng dụng Node.js
+process.env.TZ = 'Asia/Ho_Chi_Minh';
+
+// Override Date constructor để luôn tạo thời gian theo VN timezone
+const originalDate = Date;
+global.Date = class extends originalDate {
+    constructor(...args) {
+        if (args.length === 0) {
+            // Tạo new Date() với VN timezone
+            super();
+        } else {
+            super(...args);
+        }
+    }
+    
+    // Static method để tạo VN timestamp
+    static vnNow() {
+        return new originalDate().toLocaleString('sv-SE', { 
+            timeZone: 'Asia/Ho_Chi_Minh' 
+        }).replace(' ', 'T') + '.000Z';
+    }
+};
+
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -64,7 +89,8 @@ app.get('/', (req, res) => {
     res.json({
         message: 'HCM Chatbot Node.js API is running!',
         version: '1.0.0',
-        timestamp: new Date().toISOString(),
+        timestamp: Date.vnNow(),
+        timezone: 'Asia/Ho_Chi_Minh',
         status: 'healthy'
     });
 });
@@ -72,7 +98,8 @@ app.get('/', (req, res) => {
 app.get('/health', (req, res) => {
     res.json({
         status: 'healthy',
-        timestamp: new Date().toISOString(),
+        timestamp: Date.vnNow(),
+        timezone: 'Asia/Ho_Chi_Minh',
         service: 'nodejs-api',
         uptime: process.uptime()
     });

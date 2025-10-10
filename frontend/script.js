@@ -1,6 +1,8 @@
 class HCMChatbot {
     constructor() {
         this.apiUrl = window.PYTHON_AI_API || 'http://localhost:8000';
+        // this.apiUrl = 'http://localhost:8000';
+
         this.chatMessages = document.getElementById('chatMessages');
         this.messageInput = document.getElementById('messageInput');
         this.sendButton = document.getElementById('sendButton');

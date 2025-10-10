@@ -243,6 +243,16 @@
             font-weight: 500;
             display: flex;
             align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(218, 37, 28, 0.3);
+        }
+
+        .new-chat-btn::before {
             content: '';
             position: absolute;
             top: 0;
@@ -254,8 +264,9 @@
         }
 
         .new-chat-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg), var(--shadow-glow);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(218, 37, 28, 0.4), 0 0 30px rgba(255, 205, 0, 0.3);
+            background: linear-gradient(135deg, #e73c2f, #ffdc1a);
         }
 
         .new-chat-btn:hover::before {
@@ -263,7 +274,17 @@
         }
 
         .new-chat-btn:active {
-            transform: translateY(0);
+            transform: translateY(0) scale(0.98);
+            transition: transform 0.1s;
+        }
+
+        .new-chat-btn i {
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .new-chat-btn:hover i {
+            transform: rotate(90deg);
         }
 
         .profile-btn,
@@ -896,8 +917,92 @@
             font-size: 1.2rem;
         }
 
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .quick-new-chat-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-yellow));
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 3px 10px rgba(218, 37, 28, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quick-new-chat-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .quick-new-chat-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(218, 37, 28, 0.4);
+            background: linear-gradient(135deg, #e73c2f, #ffdc1a);
+        }
+
+        .quick-new-chat-btn:hover::before {
+            left: 100%;
+        }
+
+        .quick-new-chat-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .quick-new-chat-btn i {
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .quick-new-chat-btn:hover i {
+            transform: rotate(90deg);
+        }
+
+        /* Hide text on smaller screens */
+        @media (max-width: 768px) {
+            .quick-new-chat-btn span {
+                display: none;
+            }
+            .quick-new-chat-btn {
+                padding: 10px;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                justify-content: center;
+            }
+        }
+
         .status-indicator {
-            display: none !important;
+            display: flex !important;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
         }
 
         .chat-messages {
@@ -2054,9 +2159,15 @@
                     <span>Chatbot Tư Tưởng Hồ Chí Minh</span>
                 </div>
             </div>
-            <div class="status-indicator">
-                <div class="status-dot"></div>
-                <span>Đã kết nối</span>
+            <div class="header-actions">
+                <button class="quick-new-chat-btn" onclick="startNewChat()" title="Tạo cuộc trò chuyện mới">
+                    <i class="fas fa-plus"></i>
+                    <span>Chat mới</span>
+                </button>
+                <div class="status-indicator">
+                    <div class="status-dot"></div>
+                    <span>Đã kết nối</span>
+                </div>
             </div>
         </div>
 
@@ -2120,6 +2231,20 @@
                             <div class="item-content">
                                 <span class="item-title">Sơ đồ tư duy</span>
                                 <span class="item-desc">Tạo sơ đồ tư duy từ chủ đề</span>
+                            </div>
+                        </div>
+                        <div class="dropdown-item" data-extension="image-search">
+                            <i class="fas fa-images"></i>
+                            <div class="item-content">
+                                <span class="item-title">Tìm hình ảnh</span>
+                                <span class="item-desc">Tìm kiếm hình ảnh liên quan</span>
+                            </div>
+                        </div>
+                        <div class="dropdown-item" data-extension="quiz-create">
+                            <i class="fas fa-question-circle"></i>
+                            <div class="item-content">
+                                <span class="item-title">Tạo bài kiểm tra</span>
+                                <span class="item-desc">Tạo câu hỏi trắc nghiệm</span>
                             </div>
                         </div>
                     </div>

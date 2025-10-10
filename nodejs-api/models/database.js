@@ -19,6 +19,8 @@ const dbConfig = {
     max: 20,
     idleTimeoutMillis: 30000,
     connectionTimeoutMillis: 2000,
+    // Set timezone cho tất cả connections
+    options: '-c timezone=Asia/Ho_Chi_Minh',
 };
 
 const pool = new Pool(dbConfig);
@@ -51,9 +53,20 @@ class Database {
         return await pool.connect();
     }
 
+    // Helper để tạo VN timestamp
+    static vnNow() {
+        return new Date().toLocaleString('sv-SE', { 
+            timeZone: 'Asia/Ho_Chi_Minh' 
+        }).replace(' ', 'T') + '.000Z';
+    }
+
     // Initialize database tables if they don't exist
     static async initializeTables() {
         try {
+            // Set timezone cho database session
+            await this.query(`SET timezone = 'Asia/Ho_Chi_Minh'`);
+            logger.info('✅ Database timezone set to Asia/Ho_Chi_Minh');
+
             await this.query(`
                 CREATE TABLE IF NOT EXISTS users (
                     id SERIAL PRIMARY KEY,
@@ -146,9 +159,18 @@ class Database {
     // Test database connection
     static async testConnection() {
         try {
-            const result = await this.query('SELECT NOW() as current_time, version() as pg_version');
+            // Set timezone và test
+            await this.query(`SET timezone = 'Asia/Ho_Chi_Minh'`);
+            const result = await this.query(`
+                SELECT 
+                    NOW() as current_time, 
+                    version() as pg_version,
+                    current_setting('TIMEZONE') as timezone
+            `);
+            
             logger.info('✅ Database connection test successful:', {
                 time: result.rows[0].current_time,
+                timezone: result.rows[0].timezone,
                 version: result.rows[0].pg_version.split(' ')[0]
             });
             return true;

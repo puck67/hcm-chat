@@ -302,12 +302,62 @@ class EnhancedRAGService:
             # Tăng số lượng kết quả và ưu tiên đoạn chứa định nghĩa chuẩn
             search_results = self.vector_store.search(question, n_results=12)
 
-            # Quyết định fallback theo ngưỡng điểm tương tự
-            min_score = float(os.getenv("MIN_RAG_SCORE", "0.2"))
+            # Quyết định fallback thông minh với cải tiến
+            min_score = float(os.getenv("MIN_RAG_SCORE", "0.2"))  # Trở lại 0.2
             scores = search_results.get('scores', [[]])[0] if isinstance(search_results.get('scores'), list) else []
             best_score = scores[0] if scores else 0.0
             
-            if (not search_results['documents'][0]) or (best_score < min_score):
+            # Lấy top 3 documents để đánh giá
+            docs = search_results['documents'][0][:3] if search_results['documents'][0] else []
+            
+            # Debug logging
+            print(f"🔍 SMART FALLBACK DEBUG:")
+            print(f"   Question: '{question}'")
+            print(f"   Best score: {best_score}")
+            print(f"   Min score threshold: {min_score}")
+            print(f"   Number of docs: {len(docs)}")
+            if docs:
+                print(f"   First doc preview: {docs[0][:100]}...")
+            
+            # Điều kiện fallback cơ bản - CHỈ khi thực sự không có docs hoặc score quá thấp
+            should_fallback_basic = (not docs) or (best_score < min_score)
+            
+            # Chỉ dùng AI evaluation khi score gần ngưỡng (0.2-0.35)
+            should_fallback_smart = False
+            if docs and best_score >= min_score and best_score < 0.35:
+                # Chỉ evaluate khi score ở vùng nghi ngờ
+                context_sample = "\n".join(docs[:2])[:800]  # Tăng sample size
+                
+                evaluation_prompt = f"""Đánh giá xem các đoạn văn sau có thể trả lời câu hỏi hay không:
+
+CÂU HỎI: {question}
+
+CÁC ĐOẠN VĂN:
+{context_sample}
+
+QUY TẮC ĐÁNH GIÁ:
+- Trả lời "CÓ" nếu đoạn văn có thông tin để trả lời câu hỏi (dù chỉ một phần)
+- Trả lời "KHÔNG" chỉ khi đoạn văn hoàn toàn không liên quan hoặc ngoài chủ đề
+- Với câu hỏi về chương/phần cụ thể: nếu đoạn văn thuộc chương đó thì trả lời "CÓ"
+
+Trả lời: CÓ hoặc KHÔNG"""
+
+                try:
+                    eval_response = self.model.generate_content(evaluation_prompt)
+                    eval_result = eval_response.text.strip().upper()
+                    should_fallback_smart = eval_result == "KHÔNG"
+                    print(f"   AI evaluation (score {best_score:.3f}): {eval_result}")
+                    print(f"   Should fallback smart: {should_fallback_smart}")
+                except Exception as e:
+                    print(f"   AI evaluation failed: {e}")
+                    should_fallback_smart = False
+            else:
+                print(f"   Skip AI evaluation (score {best_score:.3f})")
+            
+            should_fallback = should_fallback_basic or should_fallback_smart
+            print(f"   Final should fallback: {should_fallback}")
+            
+            if should_fallback:
                 # Fallback: không có nội dung trong .md → trả lời trực tiếp bằng Gemini
                 fallback_prompt = f"""Trả lời câu hỏi sau bằng tiếng Việt một cách tự nhiên và chính xác:
 
@@ -317,27 +367,9 @@ Hãy trả lời trực tiếp, ngắn gọn và hữu ích."""
                 resp = self.model.generate_content(fallback_prompt)
                 answer_text = resp.text or ""
                 
-                # Loại bỏ hoàn toàn các từ bổ sung trong fallback response
+                # Làm sạch format (chỉ cơ bản)
                 import re
-                # Loại bỏ tất cả các dạng bổ sung
-                answer_text = re.sub(r'\(Bổ sung\)[^\n]*', '', answer_text, flags=re.IGNORECASE)
-                answer_text = re.sub(r'\(bổ sung\)[^\n]*', '', answer_text, flags=re.IGNORECASE)
-                answer_text = re.sub(r'Bổ sung:[^\n]*', '', answer_text, flags=re.IGNORECASE)
-                answer_text = re.sub(r'bổ sung:[^\n]*', '', answer_text, flags=re.IGNORECASE)
-                answer_text = re.sub(r'^\s*\(Bổ sung\).*$', '', answer_text, flags=re.MULTILINE | re.IGNORECASE)
-                answer_text = re.sub(r'^\s*\(bổ sung\).*$', '', answer_text, flags=re.MULTILINE | re.IGNORECASE)
-                
-                # Loại bỏ các câu có chứa "bổ sung"
-                answer_text = re.sub(r'[^\n]*bổ sung[^\n]*', '', answer_text, flags=re.IGNORECASE)
-                answer_text = re.sub(r'[^\n]*Bổ sung[^\n]*', '', answer_text, flags=re.IGNORECASE)
-                
-                # Loại bỏ cụm từ dài
-                answer_text = re.sub(r'Dựa trên các đoạn trích từ tài liệu \.md và bổ sung kiến thức chung,', '', answer_text, flags=re.IGNORECASE)
-                answer_text = re.sub(r'và bổ sung kiến thức chung', '', answer_text, flags=re.IGNORECASE)
-                
-                # Xóa dòng trống thừa
                 answer_text = re.sub(r'\n\s*\n+', '\n\n', answer_text)
-                answer_text = re.sub(r'^\s*\n', '', answer_text)
                 answer_text = answer_text.strip()
                 
                 return {
@@ -403,21 +435,27 @@ Hãy trả lời trực tiếp, ngắn gọn và hữu ích."""
                     "document": document_title
                 })
             
-            prompt = f"""Bạn là chuyên gia về tư tưởng Hồ Chí Minh.
-Hãy trả lời câu hỏi dựa trên các đoạn trích từ tài liệu .md dưới đây:
+            prompt = f"""Bạn là chuyên gia về tư tưởng Hồ Chí Minh với kiến thức sâu rộng.
+Hãy trả lời câu hỏi bằng cách KẾT HỢP tài liệu chính thức và kiến thức chuyên môn của bạn:
 
-NGUỒN .MD (trích đoạn):
+NGUỒN TÀI LIỆU CHÍNH THỨC:
 {context}
 
 CÂU HỎI: {question}
 
 YÊU CẦU:
-- Trả lời trực tiếp, ngắn gọn và chính xác.
-- Mọi thông tin lấy từ tài liệu .md phải có trích dẫn dạng [Nguồn X - Tên chương: "Đoạn trích ngắn"].
-- TUYỆT ĐỐI KHÔNG sử dụng các từ: "Bổ sung", "(Bổ sung)", "thêm vào", "ngoài ra".
-- Dùng tiêu đề markdown (#, ##) để chia mục nếu cần.
-- Danh sách bullet cho các ý chính.
-- Chỉ trả lời dựa trên nội dung có trong các đoạn trích, không thêm kiến thức ngoài.
+- Trả lời một cách tự nhiên, phong phú và có chiều sâu
+- SỬ DỤNG tài liệu làm nền tảng và PHÁT TRIỂN thêm với kiến thức liên quan
+- Trích dẫn nguồn tài liệu: [Nguồn X - Tên chương]
+- Làm phong phú câu trả lời bằng:
+  + Bối cảnh lịch sử và xã hội
+  + Ý nghĩa thực tiễn và ứng dụng
+  + Ví dụ minh họa cụ thể
+  + Liên hệ với thời đại hiện tại
+- Dùng tiêu đề markdown (##, ###) và bullet points để cấu trúc rõ ràng
+- Giọng điệu: Học thuật nhưng dễ hiểu, sinh động, không máy móc
+
+Hãy tạo một câu trả lời hoàn chỉnh và có giá trị cao, không chỉ trích dẫn khô khan.
 """
 
             # Ưu tiên trích nguyên văn nếu tìm thấy câu mở đầu "Tư tưởng Hồ Chí Minh là ..."
@@ -425,25 +463,9 @@ YÊU CẦU:
             response = self.model.generate_content(prompt)
             answer_text = response.text or ""
             
-            # Loại bỏ hoàn toàn các từ bổ sung
+            # Làm sạch format text (chỉ giữ lại basic cleaning)
             import re
-            # Loại bỏ tất cả các dạng bổ sung
-            answer_text = re.sub(r'\(Bổ sung\)[^\n]*', '', answer_text, flags=re.IGNORECASE)
-            answer_text = re.sub(r'\(bổ sung\)[^\n]*', '', answer_text, flags=re.IGNORECASE)
-            answer_text = re.sub(r'Bổ sung:[^\n]*', '', answer_text, flags=re.IGNORECASE)
-            answer_text = re.sub(r'bổ sung:[^\n]*', '', answer_text, flags=re.IGNORECASE)
-            answer_text = re.sub(r'^\s*\(Bổ sung\).*$', '', answer_text, flags=re.MULTILINE | re.IGNORECASE)
-            answer_text = re.sub(r'^\s*\(bổ sung\).*$', '', answer_text, flags=re.MULTILINE | re.IGNORECASE)
-            
-            # Loại bỏ các câu có chứa "bổ sung"
-            answer_text = re.sub(r'[^\n]*bổ sung[^\n]*', '', answer_text, flags=re.IGNORECASE)
-            answer_text = re.sub(r'[^\n]*Bổ sung[^\n]*', '', answer_text, flags=re.IGNORECASE)
-            
-            # Loại bỏ cụm từ dài
-            answer_text = re.sub(r'Dựa trên các đoạn trích từ tài liệu \.md và bổ sung kiến thức chung,', 'Dựa trên các đoạn trích từ tài liệu .md,', answer_text, flags=re.IGNORECASE)
-            answer_text = re.sub(r'và bổ sung kiến thức chung', '', answer_text, flags=re.IGNORECASE)
-            
-            # Xóa dòng trống thừa và khoảng trắng
+            # Xóa dòng trống thừa và chuẩn hóa khoảng trắng
             answer_text = re.sub(r'\n\s*\n+', '\n\n', answer_text)
             answer_text = re.sub(r'^\s*\n', '', answer_text)
             answer_text = answer_text.strip()
