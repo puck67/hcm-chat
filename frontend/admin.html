@@ -7,9 +7,60 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="global-styles.css">
     <style>
+        /* Keyframe Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
         /* Admin page specific styles */
         body {
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         .admin-container {
@@ -18,6 +69,7 @@
             min-height: 100vh;
             gap: var(--spacing-md);
             padding: var(--spacing-md);
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* Sidebar */
@@ -30,6 +82,10 @@
             padding: var(--spacing-xl);
             color: var(--text-primary);
             box-shadow: var(--shadow-medium);
+            animation: slideInLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: sticky;
+            top: var(--spacing-md);
+            height: fit-content;
         }
 
         .admin-header {
@@ -37,6 +93,19 @@
             margin-bottom: var(--spacing-xl);
             padding-bottom: var(--spacing-lg);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .admin-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
         }
 
         .admin-header h1 {
@@ -47,11 +116,13 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: pulse 2s ease-in-out infinite;
         }
 
         .admin-header p {
             opacity: 0.8;
             font-size: var(--font-size-sm);
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .admin-nav {
@@ -60,7 +131,14 @@
 
         .admin-nav li {
             margin-bottom: var(--spacing-sm);
+            animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) backwards;
         }
+
+        .admin-nav li:nth-child(1) { animation-delay: 0.1s; }
+        .admin-nav li:nth-child(2) { animation-delay: 0.2s; }
+        .admin-nav li:nth-child(3) { animation-delay: 0.3s; }
+        .admin-nav li:nth-child(4) { animation-delay: 0.4s; }
+        .admin-nav li:nth-child(5) { animation-delay: 0.5s; }
 
         .admin-nav a {
             color: var(--text-primary);
@@ -69,19 +147,47 @@
             align-items: center;
             padding: var(--spacing-md) var(--spacing-lg);
             border-radius: var(--radius-md);
-            transition: all var(--transition-normal);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .admin-nav a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .admin-nav a:hover::before,
+        .admin-nav a.active::before {
+            transform: scaleY(1);
         }
 
         .admin-nav a:hover, .admin-nav a.active {
             background: rgba(255, 255, 255, 0.15);
-            transform: translateX(3px);
-            box-shadow: var(--shadow-soft);
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        .admin-nav a.active {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
         }
 
         .admin-nav i {
             margin-right: var(--spacing-sm);
             width: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .admin-nav a:hover i {
+            transform: scale(1.2) rotate(5deg);
         }
 
         .logout-btn {
@@ -145,7 +251,13 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) backwards;
         }
+
+        .stats-grid .stat-card:nth-child(1) { animation-delay: 0.1s; }
+        .stats-grid .stat-card:nth-child(2) { animation-delay: 0.2s; }
+        .stats-grid .stat-card:nth-child(3) { animation-delay: 0.3s; }
+        .stats-grid .stat-card:nth-child(4) { animation-delay: 0.4s; }
 
         .stat-card::before {
             content: '';
@@ -159,9 +271,26 @@
             transition: opacity 0.3s ease;
         }
 
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+
+        .stat-card:hover::after {
+            animation: shimmer 2s infinite;
+        }
+
         .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 16px 32px rgba(102, 126, 234, 0.25);
+            border-color: rgba(102, 126, 234, 0.3);
         }
 
         .stat-card:hover::before {
@@ -175,6 +304,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .stat-card:hover .stat-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .stat-number {
@@ -182,6 +317,12 @@
             font-weight: 700;
             color: #2d3748;
             margin-bottom: var(--spacing-xs);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover .stat-number {
+            transform: scale(1.05);
+            color: #667eea;
         }
 
         .stat-label {
@@ -247,17 +388,80 @@
         }
 
         .data-table tbody tr {
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .data-table tbody tr::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
         }
 
         .data-table tbody tr:hover {
-            background: rgba(102, 126, 234, 0.05);
-            transform: translateX(2px);
+            background: linear-gradient(90deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.03));
+            transform: translateX(4px);
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+        }
+
+        .data-table tbody tr:hover::before {
+            transform: scaleY(1);
         }
 
         .data-table td {
             color: #2d3748;
             font-size: 0.95rem;
+        }
+
+        /* Badge styles */
+        .data-table span[style*="padding: 4px 8px"] {
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+
+        .data-table span[style*="padding: 4px 8px"]:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Button styles */
+        .data-table button {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .data-table button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .data-table button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .data-table button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .data-table button:active {
+            transform: translateY(0);
         }
 
         /* Form styling for better visibility */
@@ -274,18 +478,62 @@
         .loading {
             text-align: center;
             padding: 40px;
-            color: #666;
+            color: #667eea;
         }
 
         .loading i {
-            font-size: 2rem;
+            font-size: 3rem;
             margin-bottom: 10px;
-            animation: spin 1s linear infinite;
+            animation: rotate 1s linear infinite;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .loading p {
+            font-weight: 500;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        /* Data section animations */
+        .data-section {
+            animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+        }
+
+        /* Scroll animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Section content smooth appearance */
+        .content-section {
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        /* Improved scrollbar */
+        .admin-main::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .admin-main::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .admin-main::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 10px;
+        }
+
+        .admin-main::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #764ba2, #667eea);
         }
 
         /* Mobile Responsive */
