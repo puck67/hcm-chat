@@ -14,12 +14,12 @@ router.get('/stats', requireAdmin, async (req, res) => {
     try {
         // Get total users
         const totalUsersResult = await Database.query(
-            'SELECT COUNT(*) as count FROM users WHERE is_active = true'
+            'SELECT COUNT(*) as count FROM users WHERE status = \'enable\''
         );
 
         // Get total conversations
         const totalConversationsResult = await Database.query(
-            'SELECT COUNT(*) as count FROM conversations WHERE is_active = true'
+            'SELECT COUNT(*) as count FROM conversations'
         );
 
         // Get total messages
@@ -27,12 +27,11 @@ router.get('/stats', requireAdmin, async (req, res) => {
             'SELECT COUNT(*) as count FROM messages'
         );
 
-        // Get active users (users who logged in within last 7 days)
+        // Get active users (users who have conversations in last 7 days)
         const activeUsersResult = await Database.query(`
             SELECT COUNT(DISTINCT user_id) as count 
-            FROM activity_logs 
-            WHERE action = 'USER_LOGIN' 
-            AND created_at >= NOW() - INTERVAL '7 days'
+            FROM conversations 
+            WHERE created_at >= NOW() - INTERVAL '7 days'
         `);
 
         // Get new users today
@@ -58,7 +57,7 @@ router.get('/stats', requireAdmin, async (req, res) => {
 
         res.json({
             success: true,
-            stats: {
+            data: {
                 totalUsers: parseInt(totalUsersResult.rows[0].count),
                 totalConversations: parseInt(totalConversationsResult.rows[0].count),
                 totalMessages: parseInt(totalMessagesResult.rows[0].count),
@@ -101,7 +100,7 @@ router.get('/activity', requireAdmin, async (req, res) => {
 
         res.json({
             success: true,
-            activities: result.rows,
+            data: result.rows,
             pagination: {
                 total: parseInt(totalResult.rows[0].count),
                 limit,
@@ -128,13 +127,9 @@ router.get('/users', requireAdmin, async (req, res) => {
 
         let query = `
             SELECT 
-                u.id, u.username, u.email, u.full_name, u.role, 
-                u.created_at, u.updated_at, u.is_active,
-                COUNT(c.id) as conversation_count,
-                COUNT(m.id) as message_count
+                u.id, u.username, u.email, u.full_name, u.role, u.status,
+                u.created_at, u.updated_at, u.total_messages, u.total_conversations
             FROM users u
-            LEFT JOIN conversations c ON u.id = c.user_id
-            LEFT JOIN messages m ON u.id = m.user_id
         `;
 
         const params = [limit, offset];
@@ -147,7 +142,6 @@ router.get('/users', requireAdmin, async (req, res) => {
         }
 
         query += `
-            GROUP BY u.id, u.username, u.email, u.full_name, u.role, u.created_at, u.updated_at, u.is_active
             ORDER BY u.created_at DESC
             LIMIT $1 OFFSET $2
         `;
@@ -167,7 +161,7 @@ router.get('/users', requireAdmin, async (req, res) => {
 
         res.json({
             success: true,
-            users: result.rows,
+            data: result.rows,
             pagination: {
                 total: parseInt(totalResult.rows[0].count),
                 limit,
@@ -195,25 +189,20 @@ router.get('/conversations', requireAdmin, async (req, res) => {
             SELECT 
                 c.*,
                 u.username,
-                u.full_name,
-                COUNT(m.id) as message_count,
-                MAX(m.created_at) as last_message_at
+                u.full_name
             FROM conversations c
             JOIN users u ON c.user_id = u.id
-            LEFT JOIN messages m ON c.id = m.conversation_id
-            WHERE c.is_active = true
-            GROUP BY c.id, c.user_id, c.title, c.created_at, c.updated_at, c.is_active, u.username, u.full_name
             ORDER BY c.updated_at DESC
             LIMIT $1 OFFSET $2
         `, [limit, offset]);
 
         const totalResult = await Database.query(
-            'SELECT COUNT(*) as count FROM conversations WHERE is_active = true'
+            'SELECT COUNT(*) as count FROM conversations'
         );
 
         res.json({
             success: true,
-            conversations: result.rows,
+            data: result.rows,
             pagination: {
                 total: parseInt(totalResult.rows[0].count),
                 limit,
@@ -244,8 +233,8 @@ router.get('/messages', requireAdmin, async (req, res) => {
                 u.full_name,
                 c.title as conversation_title
             FROM messages m
-            JOIN users u ON m.user_id = u.id
-            LEFT JOIN conversations c ON m.conversation_id = c.id
+            JOIN conversations c ON m.conversation_id = c.id
+            JOIN users u ON c.user_id = u.id
             ORDER BY m.created_at DESC
             LIMIT $1 OFFSET $2
         `, [limit, offset]);
@@ -254,7 +243,7 @@ router.get('/messages', requireAdmin, async (req, res) => {
 
         res.json({
             success: true,
-            messages: result.rows,
+            data: result.rows,
             pagination: {
                 total: parseInt(totalResult.rows[0].count),
                 limit,
@@ -325,6 +314,202 @@ router.get('/analytics/messages', requireAdmin, async (req, res) => {
         res.status(500).json({
             success: false,
             message: 'Failed to get message analytics'
+        });
+    }
+});
+
+// ===== MESSAGE STATISTICS =====
+router.get('/messages/stats', requireAdmin, async (req, res) => {
+    try {
+        // Get messages this week count
+        const thisWeekResult = await Database.query(`
+            SELECT COUNT(*) as count 
+            FROM messages 
+            WHERE created_at >= NOW() - INTERVAL '7 days'
+        `);
+
+        // Get average messages per conversation
+        const avgResult = await Database.query(`
+            SELECT 
+                COALESCE(AVG(message_count), 0) as average
+            FROM (
+                SELECT conversation_id, COUNT(*) as message_count
+                FROM messages
+                WHERE conversation_id IS NOT NULL
+                GROUP BY conversation_id
+            ) as conv_messages
+        `);
+
+        res.json({
+            success: true,
+            data: {
+                thisWeekCount: parseInt(thisWeekResult.rows[0].count),
+                averagePerConversation: parseFloat(avgResult.rows[0].average)
+            }
+        });
+
+    } catch (error) {
+        logger.error('Message stats error:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Failed to get message statistics'
+        });
+    }
+});
+
+// ===== USER STATISTICS =====
+router.get('/users/stats', requireAdmin, async (req, res) => {
+    try {
+        // Get active users count (users who created conversations in last 7 days)
+        const activeResult = await Database.query(`
+            SELECT COUNT(DISTINCT user_id) as count
+            FROM conversations
+            WHERE created_at >= NOW() - INTERVAL '7 days'
+        `);
+
+        res.json({
+            success: true,
+            data: {
+                activeCount: parseInt(activeResult.rows[0].count)
+            }
+        });
+
+    } catch (error) {
+        logger.error('User stats error:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Failed to get user statistics'
+        });
+    }
+});
+
+// ===== USER MANAGEMENT =====
+router.put('/users/:userId/status', requireAdmin, async (req, res) => {
+    try {
+        const { userId } = req.params;
+        const { status } = req.body;
+
+        if (!['enable', 'disable'].includes(status)) {
+            return res.status(400).json({
+                success: false,
+                message: 'Invalid status value'
+            });
+        }
+
+        const result = await Database.query(
+            'UPDATE users SET status = $1, updated_at = NOW() WHERE id = $2 RETURNING *',
+            [status, userId]
+        );
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: 'User not found'
+            });
+        }
+
+        logger.info(`User ${userId} status changed to ${status} by admin ${req.user.id}`);
+
+        res.json({
+            success: true,
+            message: `User ${status === 'enable' ? 'enabled' : 'disabled'} successfully`,
+            data: result.rows[0]
+        });
+
+    } catch (error) {
+        logger.error('Update user status error:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Failed to update user status'
+        });
+    }
+});
+
+router.put('/users/:userId/role', requireAdmin, async (req, res) => {
+    try {
+        const { userId } = req.params;
+        const { role } = req.body;
+
+        if (!['user', 'admin'].includes(role)) {
+            return res.status(400).json({
+                success: false,
+                message: 'Invalid role value'
+            });
+        }
+
+        const result = await Database.query(
+            'UPDATE users SET role = $1, updated_at = NOW() WHERE id = $2 RETURNING *',
+            [role, userId]
+        );
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: 'User not found'
+            });
+        }
+
+        logger.info(`User ${userId} role changed to ${role} by admin ${req.user.id}`);
+
+        res.json({
+            success: true,
+            message: `User role updated to ${role} successfully`,
+            data: result.rows[0]
+        });
+
+    } catch (error) {
+        logger.error('Update user role error:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Failed to update user role'
+        });
+    }
+});
+
+router.delete('/users/:userId', requireAdmin, async (req, res) => {
+    try {
+        const { userId } = req.params;
+
+        // Prevent deleting yourself
+        if (userId === req.user.id) {
+            return res.status(400).json({
+                success: false,
+                message: 'Cannot delete your own account'
+            });
+        }
+
+        // Check if user exists
+        const userCheck = await Database.query(
+            'SELECT * FROM users WHERE id = $1',
+            [userId]
+        );
+
+        if (userCheck.rows.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: 'User not found'
+            });
+        }
+
+        // Soft delete by setting status to disable
+        const result = await Database.query(
+            'UPDATE users SET status = \'disable\', updated_at = NOW() WHERE id = $1 RETURNING *',
+            [userId]
+        );
+
+        logger.info(`User ${userId} deleted by admin ${req.user.id}`);
+
+        res.json({
+            success: true,
+            message: 'User deleted successfully',
+            data: result.rows[0]
+        });
+
+    } catch (error) {
+        logger.error('Delete user error:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Failed to delete user'
         });
     }
 });
