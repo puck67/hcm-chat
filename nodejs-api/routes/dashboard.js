@@ -14,7 +14,7 @@ router.get('/stats', requireAdmin, async (req, res) => {
     try {
         // Get total users
         const totalUsersResult = await Database.query(
-            'SELECT COUNT(*) as count FROM users WHERE status = \'enable\''
+            "SELECT COUNT(*) as count FROM users WHERE is_active = true"
         );
 
         // Get total conversations
@@ -127,9 +127,13 @@ router.get('/users', requireAdmin, async (req, res) => {
 
         let query = `
             SELECT 
-                u.id, u.username, u.email, u.full_name, u.role, u.status,
-                u.created_at, u.updated_at, u.total_messages, u.total_conversations
+                u.id, u.username, u.email, u.full_name, u.role, u.is_active as status,
+                u.created_at, u.updated_at,
+                COUNT(DISTINCT c.id) as total_conversations,
+                COUNT(DISTINCT m.id) as total_messages
             FROM users u
+            LEFT JOIN conversations c ON u.id = c.user_id AND c.is_active = true
+            LEFT JOIN messages m ON u.id = m.user_id
         `;
 
         const params = [limit, offset];
@@ -142,6 +146,7 @@ router.get('/users', requireAdmin, async (req, res) => {
         }
 
         query += `
+            GROUP BY u.id, u.username, u.email, u.full_name, u.role, u.is_active, u.created_at, u.updated_at
             ORDER BY u.created_at DESC
             LIMIT $1 OFFSET $2
         `;
@@ -189,15 +194,19 @@ router.get('/conversations', requireAdmin, async (req, res) => {
             SELECT 
                 c.*,
                 u.username,
-                u.full_name
+                u.full_name,
+                COUNT(m.id) as message_count
             FROM conversations c
             JOIN users u ON c.user_id = u.id
+            LEFT JOIN messages m ON c.id = m.conversation_id
+            WHERE c.is_active = true
+            GROUP BY c.id, u.username, u.full_name
             ORDER BY c.updated_at DESC
             LIMIT $1 OFFSET $2
         `, [limit, offset]);
 
         const totalResult = await Database.query(
-            'SELECT COUNT(*) as count FROM conversations'
+            'SELECT COUNT(*) as count FROM conversations WHERE is_active = true'
         );
 
         res.json({
@@ -228,13 +237,17 @@ router.get('/messages', requireAdmin, async (req, res) => {
 
         const result = await Database.query(`
             SELECT 
-                m.*,
+                m.id,
+                m.content,
+                m.message_type as role,
+                m.created_at,
+                m.metadata,
                 u.username,
                 u.full_name,
                 c.title as conversation_title
             FROM messages m
-            JOIN conversations c ON m.conversation_id = c.id
-            JOIN users u ON c.user_id = u.id
+            JOIN users u ON m.user_id = u.id
+            LEFT JOIN conversations c ON m.conversation_id = c.id
             ORDER BY m.created_at DESC
             LIMIT $1 OFFSET $2
         `, [limit, offset]);
@@ -396,9 +409,10 @@ router.put('/users/:userId/status', requireAdmin, async (req, res) => {
             });
         }
 
+        const isActive = status === 'enable';
         const result = await Database.query(
-            'UPDATE users SET status = $1, updated_at = NOW() WHERE id = $2 RETURNING *',
-            [status, userId]
+            'UPDATE users SET is_active = $1, updated_at = NOW() WHERE id = $2 RETURNING *',
+            [isActive, userId]
         );
 
         if (result.rows.length === 0) {
@@ -491,9 +505,9 @@ router.delete('/users/:userId', requireAdmin, async (req, res) => {
             });
         }
 
-        // Soft delete by setting status to disable
+        // Soft delete by setting is_active to false
         const result = await Database.query(
-            'UPDATE users SET status = \'disable\', updated_at = NOW() WHERE id = $1 RETURNING *',
+            "UPDATE users SET is_active = false, updated_at = NOW() WHERE id = $1 RETURNING *",
             [userId]
         );
 

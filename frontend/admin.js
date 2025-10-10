@@ -192,16 +192,15 @@ class AdminDashboard {
                 document.getElementById('activeUsersThisWeek').textContent = activeThisWeek;
             }
 
-            // Load recent messages to calculate average confidence
             const recentMessagesResponse = await this.fetchWithAuth('/dashboard/messages');
             if (recentMessagesResponse && recentMessagesResponse.ok) {
                 const recentData = await recentMessagesResponse.json();
                 const recentMessages = recentData.data || [];
 
                 // Calculate average confidence score for AI messages
-                const aiMessages = recentMessages.filter(msg => msg.role === 'assistant' && msg.confidenceScore);
+                const aiMessages = recentMessages.filter(msg => msg.role === 'assistant' && msg.metadata?.confidence_score);
                 if (aiMessages.length > 0) {
-                    const avgConfidence = aiMessages.reduce((sum, msg) => sum + (msg.confidenceScore || 0), 0) / aiMessages.length;
+                    const avgConfidence = aiMessages.reduce((sum, msg) => sum + (msg.metadata?.confidence_score || 0), 0) / aiMessages.length;
                     document.getElementById('avgConfidenceScore').textContent = Math.round(avgConfidence) + '%';
                 } else {
                     document.getElementById('avgConfidenceScore').textContent = 'N/A';
@@ -254,18 +253,18 @@ class AdminDashboard {
                                 <tr>
                                     <td>${user.username}</td>
                                     <td>${user.email}</td>
-                                    <td>${user.fullName || ''}</td>
+                                    <td>${user.full_name || ''}</td>
                                     <td><span style="padding: 4px 8px; border-radius: 4px; background: ${user.role === 'admin' ? '#f44336' : '#4CAF50'}; color: white; font-size: 0.8rem;">${user.role}</span></td>
-                                    <td><span style="padding: 4px 8px; border-radius: 4px; background: ${user.status === 'enable' ? '#4CAF50' : '#f44336'}; color: white; font-size: 0.8rem;">${user.status === 'enable' ? 'Hoạt động' : 'Bị khóa'}</span></td>
-                                    <td>${user.totalConversations}</td>
-                                    <td>${user.totalMessages}</td>
-                                    <td>${this.formatDate(user.createdAt)}</td>
+                                    <td><span style="padding: 4px 8px; border-radius: 4px; background: ${user.status ? '#4CAF50' : '#f44336'}; color: white; font-size: 0.8rem;">${user.status ? 'Hoạt động' : 'Bị khóa'}</span></td>
+                                    <td>${user.total_conversations}</td>
+                                    <td>${user.total_messages}</td>
+                                    <td>${this.formatDate(user.created_at)}</td>
                                     <td>
                                         <div style="display: flex; gap: 5px; flex-wrap: wrap;">
                                             ${user.role !== 'admin' ? `
-                                                <button onclick="adminDashboard.toggleUserStatus('${user.id}', '${user.status}')"
-                                                        style="padding: 4px 8px; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem; background: ${user.status === 'enable' ? '#f44336' : '#4CAF50'}; color: white;">
-                                                    ${user.status === 'enable' ? 'Khóa' : 'Mở khóa'}
+                                                <button onclick="adminDashboard.toggleUserStatus('${user.id}', ${user.status})"
+                                                        style="padding: 4px 8px; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem; background: ${user.status ? '#f44336' : '#4CAF50'}; color: white;">
+                                                    ${user.status ? 'Khóa' : 'Mở khóa'}
                                                 </button>
                                                 <button onclick="adminDashboard.promoteUser('${user.id}')"
                                                         style="padding: 4px 8px; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem; background: #FF9800; color: white;">
@@ -323,9 +322,9 @@ class AdminDashboard {
                                 <tr>
                                     <td>${conv.title}</td>
                                     <td>${conv.username || 'N/A'}</td>
-                                    <td>${conv.messageCount}</td>
-                                    <td>${this.formatDate(conv.createdAt)}</td>
-                                    <td>${this.formatDate(conv.updatedAt)}</td>
+                                    <td>${conv.message_count}</td>
+                                    <td>${this.formatDate(conv.created_at)}</td>
+                                    <td>${this.formatDate(conv.updated_at)}</td>
                                 </tr>
                             `).join('')}
                         </tbody>
@@ -379,8 +378,8 @@ class AdminDashboard {
                                     <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${msg.content}</td>
                                     <td><span style="padding: 4px 8px; border-radius: 4px; background: ${msg.role === 'user' ? '#2196F3' : '#FF9800'}; color: white; font-size: 0.8rem;">${msg.role}</span></td>
                                     <td>${msg.username || 'N/A'}</td>
-                                    <td>${msg.confidenceScore ? msg.confidenceScore + '%' : 'N/A'}</td>
-                                    <td>${this.formatDate(msg.createdAt)}</td>
+                                    <td>${msg.metadata?.confidence_score ? msg.metadata.confidence_score + '%' : 'N/A'}</td>
+                                    <td>${this.formatDate(msg.created_at)}</td>
                                 </tr>
                             `).join('')}
                         </tbody>
@@ -480,7 +479,7 @@ class AdminDashboard {
      * CHUYỂN ĐỔI TRẠNG THÁI NGƯỜI DÙNG (KHÓA/MỞ KHÓA)
      */
     async toggleUserStatus(userId, currentStatus) {
-        const newStatus = currentStatus === 'enable' ? 'disable' : 'enable';
+        const newStatus = currentStatus ? 'disable' : 'enable';
         const actionText = newStatus === 'enable' ? 'mở khóa' : 'khóa';
 
         if (!confirm(`Bạn có chắc chắn muốn ${actionText} người dùng này?`)) {
