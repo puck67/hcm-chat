@@ -190,6 +190,12 @@
             font-weight: 500;
         }
 
+        /* Colored stat cards with white text */
+        .stat-card[style*="background: linear-gradient"] .stat-number,
+        .stat-card[style*="background: linear-gradient"] .stat-label {
+            color: white !important;
+        }
+
         .data-section {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
